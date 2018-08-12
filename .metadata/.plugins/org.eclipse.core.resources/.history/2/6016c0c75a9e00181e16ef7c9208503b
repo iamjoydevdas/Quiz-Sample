@@ -97,11 +97,11 @@
     		<artifactId>log4j-api</artifactId>
     		<version>LATEST</version>
   		</dependency>
- 		 <dependency>
+ 		<dependency>
    		 	<groupId>org.apache.logging.log4j</groupId>
   			 <artifactId>log4j-core</artifactId>
    		 	<version>LATEST</version>
-  		</dependency> 
+  		</dependency>
 	</dependencies>
 	<dependencyManagement>
 		<dependencies>
@@ -144,16 +144,14 @@
 				<artifactId>validation-api</artifactId>
 				<version>1.0.0.GA</version>
 			</dependency>
-			<!-- <dependency>
+			<dependency>
 				<groupId>org.apache.logging.log4j</groupId>
 				<artifactId>log4j-api</artifactId>
-				<version>LATEST</version>
 			</dependency>
-			 <dependency>
+			<dependency>
 				<groupId>org.apache.logging.log4j</groupId>
 				<artifactId>log4j-core</artifactId>
-				<version>LATEST</version>
-			</dependency>  -->
+			</dependency>
 		</dependencies>
 	</dependencyManagement>
 	<build>
