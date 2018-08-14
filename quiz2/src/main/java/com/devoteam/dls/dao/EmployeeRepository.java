@@ -1,0 +1,37 @@
+package com.devoteam.dls.dao;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.devoteam.dls.domain.Employee;
+
+/**
+ * <p>
+ * Extending JpaRepository to get a bunch of generic CRUD methods to create,
+ * update, delete etc method. Use for the entity {@link Employee}. 
+ * Query data from the table employee in the database.
+ * </p>
+ * 
+ * @see 
+ *      <p>
+ *      {@link JpaRepository} 
+ *      </p>
+ * 
+ * @author Devoteam Munich,Germany, work students (Besmir Beka, Bastien
+ *         Thibaud).
+ * 
+ * @version 1.0.
+ * @since 06.08.2018.
+ *
+ *
+ */
+public interface EmployeeRepository extends JpaRepository<Employee, Long> {
+
+	/**
+	 * This is a query to find the user name in the employee table
+	 * 
+	 * @param name - the user name that will query
+	 * @return the entity or records Employee from the table employee
+	 */
+	Employee findByUsername(String name);
+
+}

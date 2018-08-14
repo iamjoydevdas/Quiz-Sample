@@ -1,8 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE xml>
-
-<!-- TODO: implementation of automatic creation of a new log file when size > 10MB -->
-
 <Configuration> 
 	<Appenders>
   		<File name="File" fileName="dls.log">

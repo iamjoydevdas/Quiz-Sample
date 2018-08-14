@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xml>
+
+<!-- TODO: implementation of automatic creation of a new log file when size > 10MB -->
+
+<Configuration> 
+	<Appenders>
+  		<File name="File" fileName="dls.log">
+   			<PatternLayout
+  		 		pattern="%d{dd/MM/yyyy - HH:mm:ss} | %-5level | %logger{36} -> %M() -> %msg%n" />
+ 		</File>
+  		<Console name="Console" target="SYSTEM_OUT">
+  			 <PatternLayout
+   				pattern="%d{dd/MM/yyyy - HH:mm:ss} | %-5level | %logger{36} -> %M() -> %msg%n" />
+ 		</Console>
+ 	</Appenders>
+ 
+ 	<Loggers>
+  		<Root level="all">
+  			<AppenderRef ref="File" level="ALL" />
+   			<AppenderRef ref="Console" level="ALL"/>
+  		</Root>
+ 	</Loggers>
+ 
+</Configuration>
