@@ -12,6 +12,9 @@ logs/
 .springBeans
 style.css
 style.css.map
+.springBeans
+style.css
+style.css.map
 *.iml
 *.eml
 *.DS_Store
@@ -31,3 +34,4 @@ style.css.map
 *.fdt
 *.nrm
 *.log
+
