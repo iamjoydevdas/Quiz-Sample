@@ -3,6 +3,8 @@ package com.devoteam.dls.view;
 import com.vaadin.navigator.View;
 import com.vaadin.navigator.ViewChangeListener;
 import com.vaadin.spring.annotation.SpringView;
+import com.vaadin.ui.AbstractOrderedLayout;
+import com.vaadin.ui.Alignment;
 import com.vaadin.ui.Label;
 import com.vaadin.ui.VerticalLayout;
 
@@ -18,7 +20,10 @@ public class UserView extends VerticalLayout implements View {
 
     @PostConstruct
     public void init() {
-        addComponent(new Label("Hello, this is user view."));
+       //addComponent(new Label("Hello, this is user view."));
+      // AbstractOrderedLayout layout = new UserViewDesign();
+       //layout.setComponentAlignment(layout, Alignment.TOP_LEFT);
+       addComponent(new UserViewDesign());
     }
 
     @Override

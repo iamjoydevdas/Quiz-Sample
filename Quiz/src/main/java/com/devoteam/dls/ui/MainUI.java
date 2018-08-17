@@ -56,7 +56,8 @@ public class MainUI extends UI implements ViewDisplay {
 	protected void init(VaadinRequest request){
 		getPage().setTitle("Dashboard");
 
-		final CssLayout navigationBar = new CssLayout();
+		//final CssLayout navigationBar = new CssLayout();
+		final HorizontalLayout navigationBar = new HorizontalLayout();
 		navigationBar.addStyleName(ValoTheme.LAYOUT_COMPONENT_GROUP);
 		navigationBar.addComponent(createNavigationButton("User View", UserView.VIEW_NAME));
 		navigationBar.addComponent(createNavigationButton("Admin View", AdminView.VIEW_NAME));
@@ -68,6 +69,7 @@ public class MainUI extends UI implements ViewDisplay {
 		root.addComponent(navigationBar);
 		root.addComponent(springViewDisplay);
 		root.setExpandRatio(springViewDisplay, 1.0f);
+		root.setComponentAlignment(navigationBar, Alignment.TOP_LEFT);
 
 		setContent(root);
 	}
