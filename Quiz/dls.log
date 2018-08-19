@@ -1663,3 +1663,52 @@
 19/08/2018 - 12:03:52 | INFO  | com.devoteam.dls.Application -> run() -> the following 2 hash should be different
 19/08/2018 - 12:03:52 | INFO  | com.devoteam.dls.Application -> run() -> $2a$10$iCLCMaG8ssVEK5DGwcKq3uAuBRkcn2z8/tHFZYfsY7X.0x6M9SMWe
 19/08/2018 - 12:03:52 | INFO  | com.devoteam.dls.Application -> run() -> $2a$10$BG3MwSHsOpmQ2pObV6Skz.wAh01K0Ket8r7dfog5vitCm8FwX.1wK
+19/08/2018 - 12:26:43 | INFO  | com.devoteam.dls.domain.Employee -> <init>() -> Entity employee created class com.devoteam.dls.domain.Employee
+19/08/2018 - 12:26:43 | INFO  | com.devoteam.dls.domain.Role -> <init>() -> Default constructor role create class com.devoteam.dls.domain.Role
+19/08/2018 - 12:26:44 | INFO  | com.devoteam.dls.config.VaadinSpringConfiguration -> passwordEncoder() -> Method passwordEncoder is invoked
+19/08/2018 - 12:26:44 | INFO  | com.devoteam.dls.config.VaadinSpringConfiguration -> configure() -> Method configure(AuthenticationManagerBuilder auth) and the hashCode is {}
+19/08/2018 - 12:26:44 | INFO  | com.devoteam.dls.config.VaadinSpringConfiguration -> rememberMeServices() -> Method rememberMeServices() invoke after the user clicked the enter button on the keyboard
+19/08/2018 - 12:26:44 | INFO  | com.devoteam.dls.config.VaadinSpringConfiguration -> sessionAuthenticationStrategy() -> Method sessionAuthenticationStrategy() invoke
+19/08/2018 - 12:26:44 | INFO  | com.devoteam.dls.config.VaadinSpringConfiguration -> configure() -> Method configure(HttpSecurity http) invoke and get object {}
+19/08/2018 - 12:26:44 | INFO  | com.devoteam.dls.config.VaadinSpringConfiguration -> configure() -> Method configure(WebSecurity web) invoke get Object{}
+19/08/2018 - 12:26:44 | INFO  | com.devoteam.dls.config.VaadinSpringConfiguration -> vaadinAuthenticationSuccessHandler() -> Method vaadinAuthenticationSuccessHandler() invoke
+19/08/2018 - 12:26:44 | INFO  | com.devoteam.dls.config.VaadinSpringConfiguration -> authenticationManagerBean() -> Method authenticationManagerBean() invoke and return super.authenticationManagerBean
+19/08/2018 - 12:26:45 | INFO  | com.devoteam.dls.Application -> run() -> checking if pwd hash uses salt
+19/08/2018 - 12:26:45 | INFO  | com.devoteam.dls.Application -> run() -> the following 2 hash should be different
+19/08/2018 - 12:26:45 | INFO  | com.devoteam.dls.Application -> run() -> $2a$10$BGRn/Nur8K9/4snS2HBGo.k9l1jYM/vYRuOjawI.pPeVBh4XjfjiC
+19/08/2018 - 12:26:45 | INFO  | com.devoteam.dls.Application -> run() -> $2a$10$JASA/eKvM2/ONpV9PvH4j.8BxLBugAD.G5B4/umodUPADWIswd/um
+19/08/2018 - 12:27:34 | INFO  | com.devoteam.dls.domain.Employee -> <init>() -> Entity employee created class com.devoteam.dls.domain.Employee
+19/08/2018 - 12:27:34 | INFO  | com.devoteam.dls.domain.Role -> <init>() -> Default constructor role create class com.devoteam.dls.domain.Role
+19/08/2018 - 12:27:34 | INFO  | com.devoteam.dls.domain.Employee -> <init>() -> Entity employee created class com.devoteam.dls.security.SecurityUserDetails
+19/08/2018 - 12:27:34 | INFO  | com.devoteam.dls.domain.Employee -> getEmployee_ID() -> Method getEmployee_ID from class employee invoked {} 
+19/08/2018 - 12:27:34 | INFO  | com.devoteam.dls.domain.Employee -> setEmployee_ID() -> Method setEmployee_ID from class employee invoked.
+19/08/2018 - 12:27:34 | INFO  | com.devoteam.dls.domain.Employee -> getUsername() -> Method getUsername from class employee invoked {} 
+19/08/2018 - 12:27:34 | INFO  | com.devoteam.dls.domain.Employee -> setUsername() -> Method setUsername from class employee invoked {}
+19/08/2018 - 12:27:34 | INFO  | com.devoteam.dls.domain.Employee -> getPassword() -> Method getPassword from class employee invoked. {}
+19/08/2018 - 12:27:34 | INFO  | com.devoteam.dls.domain.Employee -> setPassword() -> Method setPassword from class employee invoked. {}
+19/08/2018 - 12:27:34 | INFO  | com.devoteam.dls.domain.Employee -> getCreated_date() -> Method getCreated_date from class employee invoked.  {}
+19/08/2018 - 12:27:34 | INFO  | com.devoteam.dls.domain.Employee -> setCreated_date() -> Method setCreated_date from class employee invoked. New date  {}
+19/08/2018 - 12:27:34 | INFO  | com.devoteam.dls.domain.Employee -> getLast_modified_date() -> Method getLast_modified_date from class employee invoked. {}
+19/08/2018 - 12:27:34 | INFO  | com.devoteam.dls.domain.Employee -> setLast_modified_date() -> Method setLast_modified_date from class employee invoked. {}
+19/08/2018 - 12:27:34 | INFO  | com.devoteam.dls.domain.Employee -> getRoles() -> Method getRoles from class employee invoked. {}
+19/08/2018 - 12:27:34 | INFO  | com.devoteam.dls.domain.Employee -> setRoles() -> Method setRoles from class employee invoked. {}
+19/08/2018 - 12:27:34 | INFO  | com.devoteam.dls.domain.Employee -> getPassword() -> Method getPassword from class employee invoked. {}
+19/08/2018 - 12:27:34 | INFO  | com.devoteam.dls.domain.Employee -> getRoles() -> Method getRoles from class employee invoked. {}
+19/08/2018 - 12:27:34 | INFO  | com.devoteam.dls.domain.Role -> getRoleType() -> Method getRoleType from class role invoked {}
+19/08/2018 - 12:27:34 | INFO  | com.devoteam.dls.domain.Employee -> getUsername() -> Method getUsername from class employee invoked {} 
+19/08/2018 - 12:27:34 | INFO  | com.devoteam.dls.domain.Employee -> getUsername() -> Method getUsername from class employee invoked {} 
+19/08/2018 - 12:27:34 | INFO  | com.devoteam.dls.domain.Employee -> getUsername() -> Method getUsername from class employee invoked {} 
+19/08/2018 - 12:28:14 | INFO  | com.devoteam.dls.domain.Employee -> <init>() -> Entity employee created class com.devoteam.dls.domain.Employee
+19/08/2018 - 12:28:14 | INFO  | com.devoteam.dls.domain.Role -> <init>() -> Default constructor role create class com.devoteam.dls.domain.Role
+19/08/2018 - 12:28:14 | INFO  | com.devoteam.dls.config.VaadinSpringConfiguration -> passwordEncoder() -> Method passwordEncoder is invoked
+19/08/2018 - 12:28:14 | INFO  | com.devoteam.dls.config.VaadinSpringConfiguration -> configure() -> Method configure(AuthenticationManagerBuilder auth) and the hashCode is {}
+19/08/2018 - 12:28:14 | INFO  | com.devoteam.dls.config.VaadinSpringConfiguration -> rememberMeServices() -> Method rememberMeServices() invoke after the user clicked the enter button on the keyboard
+19/08/2018 - 12:28:14 | INFO  | com.devoteam.dls.config.VaadinSpringConfiguration -> sessionAuthenticationStrategy() -> Method sessionAuthenticationStrategy() invoke
+19/08/2018 - 12:28:14 | INFO  | com.devoteam.dls.config.VaadinSpringConfiguration -> configure() -> Method configure(HttpSecurity http) invoke and get object {}
+19/08/2018 - 12:28:15 | INFO  | com.devoteam.dls.config.VaadinSpringConfiguration -> configure() -> Method configure(WebSecurity web) invoke get Object{}
+19/08/2018 - 12:28:15 | INFO  | com.devoteam.dls.config.VaadinSpringConfiguration -> vaadinAuthenticationSuccessHandler() -> Method vaadinAuthenticationSuccessHandler() invoke
+19/08/2018 - 12:28:15 | INFO  | com.devoteam.dls.config.VaadinSpringConfiguration -> authenticationManagerBean() -> Method authenticationManagerBean() invoke and return super.authenticationManagerBean
+19/08/2018 - 12:28:15 | INFO  | com.devoteam.dls.Application -> run() -> checking if pwd hash uses salt
+19/08/2018 - 12:28:15 | INFO  | com.devoteam.dls.Application -> run() -> the following 2 hash should be different
+19/08/2018 - 12:28:15 | INFO  | com.devoteam.dls.Application -> run() -> $2a$10$uYfhp1XMtlP22bP0VFNpEuUXlMgEbWr0k3jDq.8zurX/rx4AA7Aj6
+19/08/2018 - 12:28:15 | INFO  | com.devoteam.dls.Application -> run() -> $2a$10$DCUAvkbVHvO4CSFtzCofVuYHLsq.3ROBcxwKTlVnjXvb/fz1xjY8a
