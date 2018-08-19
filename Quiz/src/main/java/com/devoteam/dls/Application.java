@@ -22,6 +22,7 @@ public class Application implements CommandLineRunner {
     @Autowired
     PasswordEncoder passwordEncoder;
     
+    
     private static final Logger LOG = LogManager.getLogger(Application.class);
 
     public static void main(String[] args) {

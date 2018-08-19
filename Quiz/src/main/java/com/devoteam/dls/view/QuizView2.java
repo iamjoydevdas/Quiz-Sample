@@ -13,17 +13,17 @@ import javax.annotation.PostConstruct;
 /**
  * Created by basakpie on 2017. 5. 11..
  */
-@SpringView(name = UserView.VIEW_NAME)
-public class UserView extends VerticalLayout implements View {
+@SpringView(name = QuizView2.VIEW_NAME)
+public class QuizView2 extends VerticalLayout implements View {
 
-    public static final String VIEW_NAME = "";
+    public static final String VIEW_NAME = "quiz2";
 
     @PostConstruct
     public void init() {
-       addComponent(new Label("Hello, this is user view."));
+      // addComponent(new Label("Hello, this is quiz view."));
       // AbstractOrderedLayout layout = new UserViewDesign();
        //layout.setComponentAlignment(layout, Alignment.TOP_LEFT);
-      // addComponent(new UserViewDesign());
+       addComponent(new Test());
     }
 
     @Override

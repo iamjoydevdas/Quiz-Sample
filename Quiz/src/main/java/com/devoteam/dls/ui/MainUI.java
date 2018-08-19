@@ -4,6 +4,8 @@ import com.devoteam.dls.security.SecurityContextUtils;
 import com.devoteam.dls.view.AccessDeniedView;
 import com.devoteam.dls.view.AdminView;
 import com.devoteam.dls.view.ErrorView;
+import com.devoteam.dls.view.QuizView;
+import com.devoteam.dls.view.QuizView2;
 import com.devoteam.dls.view.UserView;
 import com.vaadin.annotations.Theme;
 import com.vaadin.navigator.View;
@@ -61,6 +63,8 @@ public class MainUI extends UI implements ViewDisplay {
 		navigationBar.addStyleName(ValoTheme.LAYOUT_COMPONENT_GROUP);
 		navigationBar.addComponent(createNavigationButton("User View", UserView.VIEW_NAME));
 		navigationBar.addComponent(createNavigationButton("Admin View", AdminView.VIEW_NAME));
+		navigationBar.addComponent(createNavigationButton("Quizzer", QuizView.VIEW_NAME));
+		navigationBar.addComponent(createNavigationButton("Test", QuizView2.VIEW_NAME));
 		navigationBar.addComponent(new Button("Logout", e -> vaadinSecurity.logout()));
 
 		final VerticalLayout root = new VerticalLayout();
