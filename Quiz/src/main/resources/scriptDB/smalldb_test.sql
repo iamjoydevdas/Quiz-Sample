@@ -23,6 +23,7 @@ CREATE TABLE IF NOT EXISTS Quizzers (
 	lastPlayed DATE,
 	totalPlayed INTEGER,
 	totalWin INTEGER,
+	status INTEGER,
 	PRIMARY KEY(quizzerId),
 	FOREIGN KEY(empId) REFERENCES employee (employee_ID) 
 );
