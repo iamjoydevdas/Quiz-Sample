@@ -106,7 +106,7 @@
 			<groupId>com.h2database</groupId>
 			<artifactId>h2</artifactId>
 			<scope>runtime</scope>
-			<version>LATEST</version>
+			<version>1.4.197</version>
 		</dependency>
 	</dependencies>
 	<dependencyManagement>
