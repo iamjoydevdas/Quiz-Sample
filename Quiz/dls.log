@@ -219,3 +219,901 @@
 15/08/2018 - 12:00:28 | INFO  | com.devoteam.dls.domain.Employee -> getUsername() -> Method getUsername from class employee invoked {} 
 15/08/2018 - 12:00:28 | INFO  | com.devoteam.dls.domain.Employee -> getUsername() -> Method getUsername from class employee invoked {} 
 15/08/2018 - 12:00:28 | INFO  | com.devoteam.dls.domain.Employee -> getUsername() -> Method getUsername from class employee invoked {} 
+17/08/2018 - 11:17:37 | INFO  | com.devoteam.dls.domain.Employee -> <init>() -> Entity employee created class com.devoteam.dls.domain.Employee
+17/08/2018 - 11:17:38 | INFO  | com.devoteam.dls.domain.Role -> <init>() -> Default constructor role create class com.devoteam.dls.domain.Role
+17/08/2018 - 11:17:40 | INFO  | com.devoteam.dls.config.VaadinSpringConfiguration -> passwordEncoder() -> Method passwordEncoder is invoked
+17/08/2018 - 11:17:40 | INFO  | com.devoteam.dls.config.VaadinSpringConfiguration -> configure() -> Method configure(AuthenticationManagerBuilder auth) and the hashCode is {}
+17/08/2018 - 11:17:40 | INFO  | com.devoteam.dls.config.VaadinSpringConfiguration -> rememberMeServices() -> Method rememberMeServices() invoke after the user clicked the enter button on the keyboard
+17/08/2018 - 11:17:40 | INFO  | com.devoteam.dls.config.VaadinSpringConfiguration -> sessionAuthenticationStrategy() -> Method sessionAuthenticationStrategy() invoke
+17/08/2018 - 11:17:40 | INFO  | com.devoteam.dls.config.VaadinSpringConfiguration -> configure() -> Method configure(HttpSecurity http) invoke and get object {}
+17/08/2018 - 11:17:40 | INFO  | com.devoteam.dls.config.VaadinSpringConfiguration -> configure() -> Method configure(WebSecurity web) invoke get Object{}
+17/08/2018 - 11:17:41 | INFO  | com.devoteam.dls.config.VaadinSpringConfiguration -> vaadinAuthenticationSuccessHandler() -> Method vaadinAuthenticationSuccessHandler() invoke
+17/08/2018 - 11:17:41 | INFO  | com.devoteam.dls.config.VaadinSpringConfiguration -> authenticationManagerBean() -> Method authenticationManagerBean() invoke and return super.authenticationManagerBean
+17/08/2018 - 11:17:44 | INFO  | com.devoteam.dls.Application -> run() -> checking if pwd hash uses salt
+17/08/2018 - 11:17:44 | INFO  | com.devoteam.dls.Application -> run() -> the following 2 hash should be different
+17/08/2018 - 11:17:44 | INFO  | com.devoteam.dls.Application -> run() -> $2a$10$rwbdoDMYgSOggqnd5JhI7ONhfcH7/ManSV1Th3gpDHQZujho.TFuC
+17/08/2018 - 11:17:44 | INFO  | com.devoteam.dls.Application -> run() -> $2a$10$A5mEhIkxmlHycIBfHoQbAO8XydpfNqhJJvPF/5426z8Y1YeDmxfFS
+17/08/2018 - 11:25:40 | INFO  | com.devoteam.dls.domain.Employee -> <init>() -> Entity employee created class com.devoteam.dls.domain.Employee
+17/08/2018 - 11:25:40 | INFO  | com.devoteam.dls.domain.Role -> <init>() -> Default constructor role create class com.devoteam.dls.domain.Role
+17/08/2018 - 11:25:42 | INFO  | com.devoteam.dls.config.VaadinSpringConfiguration -> passwordEncoder() -> Method passwordEncoder is invoked
+17/08/2018 - 11:25:42 | INFO  | com.devoteam.dls.config.VaadinSpringConfiguration -> configure() -> Method configure(AuthenticationManagerBuilder auth) and the hashCode is {}
+17/08/2018 - 11:25:42 | INFO  | com.devoteam.dls.config.VaadinSpringConfiguration -> rememberMeServices() -> Method rememberMeServices() invoke after the user clicked the enter button on the keyboard
+17/08/2018 - 11:25:42 | INFO  | com.devoteam.dls.config.VaadinSpringConfiguration -> sessionAuthenticationStrategy() -> Method sessionAuthenticationStrategy() invoke
+17/08/2018 - 11:25:42 | INFO  | com.devoteam.dls.config.VaadinSpringConfiguration -> configure() -> Method configure(HttpSecurity http) invoke and get object {}
+17/08/2018 - 11:25:42 | INFO  | com.devoteam.dls.config.VaadinSpringConfiguration -> configure() -> Method configure(WebSecurity web) invoke get Object{}
+17/08/2018 - 11:25:43 | INFO  | com.devoteam.dls.config.VaadinSpringConfiguration -> vaadinAuthenticationSuccessHandler() -> Method vaadinAuthenticationSuccessHandler() invoke
+17/08/2018 - 11:25:43 | INFO  | com.devoteam.dls.config.VaadinSpringConfiguration -> authenticationManagerBean() -> Method authenticationManagerBean() invoke and return super.authenticationManagerBean
+17/08/2018 - 11:25:44 | INFO  | com.devoteam.dls.Application -> run() -> checking if pwd hash uses salt
+17/08/2018 - 11:25:44 | INFO  | com.devoteam.dls.Application -> run() -> the following 2 hash should be different
+17/08/2018 - 11:25:44 | INFO  | com.devoteam.dls.Application -> run() -> $2a$10$QLNA9a5ZZmUu.3J4OTiUh.TWmo9Q2D36yWEYPOQs3Y.Uv.UEx2.nG
+17/08/2018 - 11:25:44 | INFO  | com.devoteam.dls.Application -> run() -> $2a$10$CRS2.y1XXcOdXtYEkNHpn.qKGsrKLpr/zrfN96u21gaypfMbcrCbS
+17/08/2018 - 11:26:48 | INFO  | com.devoteam.dls.domain.Employee -> <init>() -> Entity employee created class com.devoteam.dls.domain.Employee
+17/08/2018 - 11:26:48 | INFO  | com.devoteam.dls.domain.Role -> <init>() -> Default constructor role create class com.devoteam.dls.domain.Role
+17/08/2018 - 11:26:48 | INFO  | com.devoteam.dls.domain.Employee -> <init>() -> Entity employee created class com.devoteam.dls.security.SecurityUserDetails
+17/08/2018 - 11:26:48 | INFO  | com.devoteam.dls.domain.Employee -> getEmployee_ID() -> Method getEmployee_ID from class employee invoked {} 
+17/08/2018 - 11:26:48 | INFO  | com.devoteam.dls.domain.Employee -> setEmployee_ID() -> Method setEmployee_ID from class employee invoked.
+17/08/2018 - 11:26:48 | INFO  | com.devoteam.dls.domain.Employee -> getUsername() -> Method getUsername from class employee invoked {} 
+17/08/2018 - 11:26:48 | INFO  | com.devoteam.dls.domain.Employee -> setUsername() -> Method setUsername from class employee invoked {}
+17/08/2018 - 11:26:48 | INFO  | com.devoteam.dls.domain.Employee -> getPassword() -> Method getPassword from class employee invoked. {}
+17/08/2018 - 11:26:48 | INFO  | com.devoteam.dls.domain.Employee -> setPassword() -> Method setPassword from class employee invoked. {}
+17/08/2018 - 11:26:48 | INFO  | com.devoteam.dls.domain.Employee -> getCreated_date() -> Method getCreated_date from class employee invoked.  {}
+17/08/2018 - 11:26:48 | INFO  | com.devoteam.dls.domain.Employee -> setCreated_date() -> Method setCreated_date from class employee invoked. New date  {}
+17/08/2018 - 11:26:48 | INFO  | com.devoteam.dls.domain.Employee -> getLast_modified_date() -> Method getLast_modified_date from class employee invoked. {}
+17/08/2018 - 11:26:48 | INFO  | com.devoteam.dls.domain.Employee -> setLast_modified_date() -> Method setLast_modified_date from class employee invoked. {}
+17/08/2018 - 11:26:48 | INFO  | com.devoteam.dls.domain.Employee -> getRoles() -> Method getRoles from class employee invoked. {}
+17/08/2018 - 11:26:48 | INFO  | com.devoteam.dls.domain.Employee -> setRoles() -> Method setRoles from class employee invoked. {}
+17/08/2018 - 11:26:48 | INFO  | com.devoteam.dls.domain.Employee -> getPassword() -> Method getPassword from class employee invoked. {}
+17/08/2018 - 11:26:48 | INFO  | com.devoteam.dls.domain.Employee -> getRoles() -> Method getRoles from class employee invoked. {}
+17/08/2018 - 11:26:48 | INFO  | com.devoteam.dls.domain.Role -> getRoleType() -> Method getRoleType from class role invoked {}
+17/08/2018 - 11:26:48 | INFO  | com.devoteam.dls.domain.Employee -> getUsername() -> Method getUsername from class employee invoked {} 
+17/08/2018 - 11:26:48 | INFO  | com.devoteam.dls.domain.Employee -> getUsername() -> Method getUsername from class employee invoked {} 
+17/08/2018 - 11:26:48 | INFO  | com.devoteam.dls.domain.Employee -> getUsername() -> Method getUsername from class employee invoked {} 
+17/08/2018 - 11:31:27 | INFO  | com.devoteam.dls.domain.Employee -> <init>() -> Entity employee created class com.devoteam.dls.domain.Employee
+17/08/2018 - 11:31:27 | INFO  | com.devoteam.dls.domain.Role -> <init>() -> Default constructor role create class com.devoteam.dls.domain.Role
+17/08/2018 - 11:31:29 | INFO  | com.devoteam.dls.config.VaadinSpringConfiguration -> passwordEncoder() -> Method passwordEncoder is invoked
+17/08/2018 - 11:31:29 | INFO  | com.devoteam.dls.config.VaadinSpringConfiguration -> configure() -> Method configure(AuthenticationManagerBuilder auth) and the hashCode is {}
+17/08/2018 - 11:31:30 | INFO  | com.devoteam.dls.config.VaadinSpringConfiguration -> rememberMeServices() -> Method rememberMeServices() invoke after the user clicked the enter button on the keyboard
+17/08/2018 - 11:31:30 | INFO  | com.devoteam.dls.config.VaadinSpringConfiguration -> sessionAuthenticationStrategy() -> Method sessionAuthenticationStrategy() invoke
+17/08/2018 - 11:31:30 | INFO  | com.devoteam.dls.config.VaadinSpringConfiguration -> configure() -> Method configure(HttpSecurity http) invoke and get object {}
+17/08/2018 - 11:31:30 | INFO  | com.devoteam.dls.config.VaadinSpringConfiguration -> configure() -> Method configure(WebSecurity web) invoke get Object{}
+17/08/2018 - 11:31:30 | INFO  | com.devoteam.dls.config.VaadinSpringConfiguration -> vaadinAuthenticationSuccessHandler() -> Method vaadinAuthenticationSuccessHandler() invoke
+17/08/2018 - 11:31:30 | INFO  | com.devoteam.dls.config.VaadinSpringConfiguration -> authenticationManagerBean() -> Method authenticationManagerBean() invoke and return super.authenticationManagerBean
+17/08/2018 - 11:31:32 | INFO  | com.devoteam.dls.Application -> run() -> checking if pwd hash uses salt
+17/08/2018 - 11:31:32 | INFO  | com.devoteam.dls.Application -> run() -> the following 2 hash should be different
+17/08/2018 - 11:31:32 | INFO  | com.devoteam.dls.Application -> run() -> $2a$10$wYpvYfXkocpL4YBNEzoJL.SCwJTrqXd/f5Dcp0xlHzONNhpToa0Qy
+17/08/2018 - 11:31:32 | INFO  | com.devoteam.dls.Application -> run() -> $2a$10$0tUaB85/aMFbOtMwzI77DeOIcr/dM2p6Xb4AD6c0EivkWiNk1Gnaq
+17/08/2018 - 11:31:50 | INFO  | com.devoteam.dls.domain.Employee -> <init>() -> Entity employee created class com.devoteam.dls.domain.Employee
+17/08/2018 - 11:31:50 | INFO  | com.devoteam.dls.domain.Role -> <init>() -> Default constructor role create class com.devoteam.dls.domain.Role
+17/08/2018 - 11:31:50 | INFO  | com.devoteam.dls.domain.Employee -> <init>() -> Entity employee created class com.devoteam.dls.security.SecurityUserDetails
+17/08/2018 - 11:31:50 | INFO  | com.devoteam.dls.domain.Employee -> getEmployee_ID() -> Method getEmployee_ID from class employee invoked {} 
+17/08/2018 - 11:31:50 | INFO  | com.devoteam.dls.domain.Employee -> setEmployee_ID() -> Method setEmployee_ID from class employee invoked.
+17/08/2018 - 11:31:50 | INFO  | com.devoteam.dls.domain.Employee -> getUsername() -> Method getUsername from class employee invoked {} 
+17/08/2018 - 11:31:50 | INFO  | com.devoteam.dls.domain.Employee -> setUsername() -> Method setUsername from class employee invoked {}
+17/08/2018 - 11:31:50 | INFO  | com.devoteam.dls.domain.Employee -> getPassword() -> Method getPassword from class employee invoked. {}
+17/08/2018 - 11:31:50 | INFO  | com.devoteam.dls.domain.Employee -> setPassword() -> Method setPassword from class employee invoked. {}
+17/08/2018 - 11:31:50 | INFO  | com.devoteam.dls.domain.Employee -> getCreated_date() -> Method getCreated_date from class employee invoked.  {}
+17/08/2018 - 11:31:50 | INFO  | com.devoteam.dls.domain.Employee -> setCreated_date() -> Method setCreated_date from class employee invoked. New date  {}
+17/08/2018 - 11:31:50 | INFO  | com.devoteam.dls.domain.Employee -> getLast_modified_date() -> Method getLast_modified_date from class employee invoked. {}
+17/08/2018 - 11:31:50 | INFO  | com.devoteam.dls.domain.Employee -> setLast_modified_date() -> Method setLast_modified_date from class employee invoked. {}
+17/08/2018 - 11:31:50 | INFO  | com.devoteam.dls.domain.Employee -> getRoles() -> Method getRoles from class employee invoked. {}
+17/08/2018 - 11:31:50 | INFO  | com.devoteam.dls.domain.Employee -> setRoles() -> Method setRoles from class employee invoked. {}
+17/08/2018 - 11:31:50 | INFO  | com.devoteam.dls.domain.Employee -> getPassword() -> Method getPassword from class employee invoked. {}
+17/08/2018 - 11:31:50 | INFO  | com.devoteam.dls.domain.Employee -> getRoles() -> Method getRoles from class employee invoked. {}
+17/08/2018 - 11:31:50 | INFO  | com.devoteam.dls.domain.Role -> getRoleType() -> Method getRoleType from class role invoked {}
+17/08/2018 - 11:31:50 | INFO  | com.devoteam.dls.domain.Employee -> getUsername() -> Method getUsername from class employee invoked {} 
+17/08/2018 - 11:31:50 | INFO  | com.devoteam.dls.domain.Employee -> getUsername() -> Method getUsername from class employee invoked {} 
+17/08/2018 - 11:31:50 | INFO  | com.devoteam.dls.domain.Employee -> getUsername() -> Method getUsername from class employee invoked {} 
+17/08/2018 - 11:43:23 | INFO  | com.devoteam.dls.domain.Employee -> getUsername() -> Method getUsername from class employee invoked {} 
+17/08/2018 - 11:43:23 | INFO  | com.devoteam.dls.domain.Employee -> getUsername() -> Method getUsername from class employee invoked {} 
+17/08/2018 - 11:43:35 | INFO  | com.devoteam.dls.domain.Employee -> <init>() -> Entity employee created class com.devoteam.dls.domain.Employee
+17/08/2018 - 11:43:35 | INFO  | com.devoteam.dls.domain.Role -> <init>() -> Default constructor role create class com.devoteam.dls.domain.Role
+17/08/2018 - 11:43:35 | INFO  | com.devoteam.dls.domain.Employee -> <init>() -> Entity employee created class com.devoteam.dls.security.SecurityUserDetails
+17/08/2018 - 11:43:35 | INFO  | com.devoteam.dls.domain.Employee -> getEmployee_ID() -> Method getEmployee_ID from class employee invoked {} 
+17/08/2018 - 11:43:35 | INFO  | com.devoteam.dls.domain.Employee -> setEmployee_ID() -> Method setEmployee_ID from class employee invoked.
+17/08/2018 - 11:43:35 | INFO  | com.devoteam.dls.domain.Employee -> getUsername() -> Method getUsername from class employee invoked {} 
+17/08/2018 - 11:43:35 | INFO  | com.devoteam.dls.domain.Employee -> setUsername() -> Method setUsername from class employee invoked {}
+17/08/2018 - 11:43:35 | INFO  | com.devoteam.dls.domain.Employee -> getPassword() -> Method getPassword from class employee invoked. {}
+17/08/2018 - 11:43:35 | INFO  | com.devoteam.dls.domain.Employee -> setPassword() -> Method setPassword from class employee invoked. {}
+17/08/2018 - 11:43:35 | INFO  | com.devoteam.dls.domain.Employee -> getCreated_date() -> Method getCreated_date from class employee invoked.  {}
+17/08/2018 - 11:43:35 | INFO  | com.devoteam.dls.domain.Employee -> setCreated_date() -> Method setCreated_date from class employee invoked. New date  {}
+17/08/2018 - 11:43:35 | INFO  | com.devoteam.dls.domain.Employee -> getLast_modified_date() -> Method getLast_modified_date from class employee invoked. {}
+17/08/2018 - 11:43:35 | INFO  | com.devoteam.dls.domain.Employee -> setLast_modified_date() -> Method setLast_modified_date from class employee invoked. {}
+17/08/2018 - 11:43:35 | INFO  | com.devoteam.dls.domain.Employee -> getRoles() -> Method getRoles from class employee invoked. {}
+17/08/2018 - 11:43:35 | INFO  | com.devoteam.dls.domain.Employee -> setRoles() -> Method setRoles from class employee invoked. {}
+17/08/2018 - 11:43:35 | INFO  | com.devoteam.dls.domain.Employee -> getPassword() -> Method getPassword from class employee invoked. {}
+17/08/2018 - 11:43:38 | INFO  | com.devoteam.dls.domain.Employee -> <init>() -> Entity employee created class com.devoteam.dls.domain.Employee
+17/08/2018 - 11:43:38 | INFO  | com.devoteam.dls.domain.Role -> <init>() -> Default constructor role create class com.devoteam.dls.domain.Role
+17/08/2018 - 11:43:38 | INFO  | com.devoteam.dls.domain.Employee -> <init>() -> Entity employee created class com.devoteam.dls.security.SecurityUserDetails
+17/08/2018 - 11:43:38 | INFO  | com.devoteam.dls.domain.Employee -> getEmployee_ID() -> Method getEmployee_ID from class employee invoked {} 
+17/08/2018 - 11:43:38 | INFO  | com.devoteam.dls.domain.Employee -> setEmployee_ID() -> Method setEmployee_ID from class employee invoked.
+17/08/2018 - 11:43:38 | INFO  | com.devoteam.dls.domain.Employee -> getUsername() -> Method getUsername from class employee invoked {} 
+17/08/2018 - 11:43:38 | INFO  | com.devoteam.dls.domain.Employee -> setUsername() -> Method setUsername from class employee invoked {}
+17/08/2018 - 11:43:38 | INFO  | com.devoteam.dls.domain.Employee -> getPassword() -> Method getPassword from class employee invoked. {}
+17/08/2018 - 11:43:38 | INFO  | com.devoteam.dls.domain.Employee -> setPassword() -> Method setPassword from class employee invoked. {}
+17/08/2018 - 11:43:38 | INFO  | com.devoteam.dls.domain.Employee -> getCreated_date() -> Method getCreated_date from class employee invoked.  {}
+17/08/2018 - 11:43:38 | INFO  | com.devoteam.dls.domain.Employee -> setCreated_date() -> Method setCreated_date from class employee invoked. New date  {}
+17/08/2018 - 11:43:38 | INFO  | com.devoteam.dls.domain.Employee -> getLast_modified_date() -> Method getLast_modified_date from class employee invoked. {}
+17/08/2018 - 11:43:38 | INFO  | com.devoteam.dls.domain.Employee -> setLast_modified_date() -> Method setLast_modified_date from class employee invoked. {}
+17/08/2018 - 11:43:38 | INFO  | com.devoteam.dls.domain.Employee -> getRoles() -> Method getRoles from class employee invoked. {}
+17/08/2018 - 11:43:38 | INFO  | com.devoteam.dls.domain.Employee -> setRoles() -> Method setRoles from class employee invoked. {}
+17/08/2018 - 11:43:38 | INFO  | com.devoteam.dls.domain.Employee -> getPassword() -> Method getPassword from class employee invoked. {}
+17/08/2018 - 11:49:17 | INFO  | com.devoteam.dls.domain.Employee -> <init>() -> Entity employee created class com.devoteam.dls.domain.Employee
+17/08/2018 - 11:49:17 | INFO  | com.devoteam.dls.domain.Role -> <init>() -> Default constructor role create class com.devoteam.dls.domain.Role
+17/08/2018 - 11:49:17 | INFO  | com.devoteam.dls.domain.Employee -> <init>() -> Entity employee created class com.devoteam.dls.security.SecurityUserDetails
+17/08/2018 - 11:49:17 | INFO  | com.devoteam.dls.domain.Employee -> getEmployee_ID() -> Method getEmployee_ID from class employee invoked {} 
+17/08/2018 - 11:49:17 | INFO  | com.devoteam.dls.domain.Employee -> setEmployee_ID() -> Method setEmployee_ID from class employee invoked.
+17/08/2018 - 11:49:17 | INFO  | com.devoteam.dls.domain.Employee -> getUsername() -> Method getUsername from class employee invoked {} 
+17/08/2018 - 11:49:17 | INFO  | com.devoteam.dls.domain.Employee -> setUsername() -> Method setUsername from class employee invoked {}
+17/08/2018 - 11:49:17 | INFO  | com.devoteam.dls.domain.Employee -> getPassword() -> Method getPassword from class employee invoked. {}
+17/08/2018 - 11:49:17 | INFO  | com.devoteam.dls.domain.Employee -> setPassword() -> Method setPassword from class employee invoked. {}
+17/08/2018 - 11:49:17 | INFO  | com.devoteam.dls.domain.Employee -> getCreated_date() -> Method getCreated_date from class employee invoked.  {}
+17/08/2018 - 11:49:17 | INFO  | com.devoteam.dls.domain.Employee -> setCreated_date() -> Method setCreated_date from class employee invoked. New date  {}
+17/08/2018 - 11:49:17 | INFO  | com.devoteam.dls.domain.Employee -> getLast_modified_date() -> Method getLast_modified_date from class employee invoked. {}
+17/08/2018 - 11:49:17 | INFO  | com.devoteam.dls.domain.Employee -> setLast_modified_date() -> Method setLast_modified_date from class employee invoked. {}
+17/08/2018 - 11:49:17 | INFO  | com.devoteam.dls.domain.Employee -> getRoles() -> Method getRoles from class employee invoked. {}
+17/08/2018 - 11:49:17 | INFO  | com.devoteam.dls.domain.Employee -> setRoles() -> Method setRoles from class employee invoked. {}
+17/08/2018 - 11:49:17 | INFO  | com.devoteam.dls.domain.Employee -> getPassword() -> Method getPassword from class employee invoked. {}
+17/08/2018 - 11:49:18 | INFO  | com.devoteam.dls.domain.Employee -> getRoles() -> Method getRoles from class employee invoked. {}
+17/08/2018 - 11:49:18 | INFO  | com.devoteam.dls.domain.Role -> getRoleType() -> Method getRoleType from class role invoked {}
+17/08/2018 - 11:49:18 | INFO  | com.devoteam.dls.domain.Employee -> getUsername() -> Method getUsername from class employee invoked {} 
+17/08/2018 - 11:49:18 | INFO  | com.devoteam.dls.domain.Employee -> getUsername() -> Method getUsername from class employee invoked {} 
+17/08/2018 - 11:49:18 | INFO  | com.devoteam.dls.domain.Employee -> getUsername() -> Method getUsername from class employee invoked {} 
+17/08/2018 - 11:49:26 | INFO  | com.devoteam.dls.domain.Employee -> <init>() -> Entity employee created class com.devoteam.dls.domain.Employee
+17/08/2018 - 11:49:26 | INFO  | com.devoteam.dls.domain.Employee -> <init>() -> Entity employee created class com.devoteam.dls.domain.Employee
+17/08/2018 - 11:49:26 | INFO  | com.devoteam.dls.domain.Employee -> <init>() -> Entity employee created class com.devoteam.dls.domain.Employee
+17/08/2018 - 11:49:26 | INFO  | com.devoteam.dls.domain.Employee -> <init>() -> Entity employee created class com.devoteam.dls.domain.Employee
+17/08/2018 - 11:49:26 | INFO  | com.devoteam.dls.domain.Role -> <init>() -> Default constructor role create class com.devoteam.dls.domain.Role
+17/08/2018 - 11:49:26 | INFO  | com.devoteam.dls.domain.Role -> <init>() -> Default constructor role create class com.devoteam.dls.domain.Role
+17/08/2018 - 11:49:27 | INFO  | com.devoteam.dls.domain.Role -> <init>() -> Default constructor role create class com.devoteam.dls.domain.Role
+17/08/2018 - 11:49:27 | INFO  | com.devoteam.dls.domain.Role -> <init>() -> Default constructor role create class com.devoteam.dls.domain.Role
+17/08/2018 - 11:49:27 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -742812495
+17/08/2018 - 11:49:27 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -742812495
+17/08/2018 - 11:49:27 | INFO  | com.devoteam.dls.domain.Employee -> getUsername() -> Method getUsername from class employee invoked {} 
+17/08/2018 - 11:49:27 | INFO  | com.devoteam.dls.domain.Employee -> getPassword() -> Method getPassword from class employee invoked. {}
+17/08/2018 - 11:49:27 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -301387438
+17/08/2018 - 11:49:27 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -301387438
+17/08/2018 - 11:49:27 | INFO  | com.devoteam.dls.domain.Employee -> getUsername() -> Method getUsername from class employee invoked {} 
+17/08/2018 - 11:49:27 | INFO  | com.devoteam.dls.domain.Employee -> getPassword() -> Method getPassword from class employee invoked. {}
+17/08/2018 - 11:49:27 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -2083456413
+17/08/2018 - 11:49:27 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -2083456413
+17/08/2018 - 11:49:27 | INFO  | com.devoteam.dls.domain.Employee -> getUsername() -> Method getUsername from class employee invoked {} 
+17/08/2018 - 11:49:27 | INFO  | com.devoteam.dls.domain.Employee -> getPassword() -> Method getPassword from class employee invoked. {}
+17/08/2018 - 11:49:27 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. 778912572
+17/08/2018 - 11:49:27 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. 778912572
+17/08/2018 - 11:49:27 | INFO  | com.devoteam.dls.domain.Employee -> getUsername() -> Method getUsername from class employee invoked {} 
+17/08/2018 - 11:49:27 | INFO  | com.devoteam.dls.domain.Employee -> getPassword() -> Method getPassword from class employee invoked. {}
+17/08/2018 - 11:49:27 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -742812495
+17/08/2018 - 11:49:27 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -301387438
+17/08/2018 - 11:49:27 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -2083456413
+17/08/2018 - 11:49:27 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. 778912572
+17/08/2018 - 11:49:27 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -742812495
+17/08/2018 - 11:49:27 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -301387438
+17/08/2018 - 11:49:27 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -2083456413
+17/08/2018 - 11:49:27 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. 778912572
+17/08/2018 - 11:49:34 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -742812495
+17/08/2018 - 11:49:34 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -301387438
+17/08/2018 - 11:49:34 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -2083456413
+17/08/2018 - 11:49:34 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. 778912572
+17/08/2018 - 11:49:34 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -301387438
+17/08/2018 - 11:49:34 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -301387438
+17/08/2018 - 11:49:34 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -301387438
+17/08/2018 - 11:49:34 | INFO  | com.devoteam.dls.domain.Employee -> equals() -> Method equals from class employee invoked. class com.devoteam.dls.domain.Employee
+17/08/2018 - 11:49:34 | INFO  | com.devoteam.dls.domain.Employee -> getUsername() -> Method getUsername from class employee invoked {} 
+17/08/2018 - 11:49:34 | INFO  | com.devoteam.dls.domain.Employee -> getPassword() -> Method getPassword from class employee invoked. {}
+17/08/2018 - 11:49:35 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -301387438
+17/08/2018 - 11:49:35 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -742812495
+17/08/2018 - 11:49:35 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -301387438
+17/08/2018 - 11:49:35 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -2083456413
+17/08/2018 - 11:49:35 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. 778912572
+17/08/2018 - 11:49:35 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -301387438
+17/08/2018 - 11:49:35 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -301387438
+17/08/2018 - 11:49:35 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -742812495
+17/08/2018 - 11:49:35 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -301387438
+17/08/2018 - 11:49:35 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -2083456413
+17/08/2018 - 11:49:35 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. 778912572
+17/08/2018 - 11:49:35 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -2083456413
+17/08/2018 - 11:49:35 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -2083456413
+17/08/2018 - 11:49:35 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -2083456413
+17/08/2018 - 11:49:35 | INFO  | com.devoteam.dls.domain.Employee -> equals() -> Method equals from class employee invoked. class com.devoteam.dls.domain.Employee
+17/08/2018 - 11:49:35 | INFO  | com.devoteam.dls.domain.Employee -> getUsername() -> Method getUsername from class employee invoked {} 
+17/08/2018 - 11:49:35 | INFO  | com.devoteam.dls.domain.Employee -> getPassword() -> Method getPassword from class employee invoked. {}
+17/08/2018 - 11:49:35 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -301387438
+17/08/2018 - 11:49:35 | INFO  | com.devoteam.dls.domain.Employee -> equals() -> Method equals from class employee invoked. class com.devoteam.dls.domain.Employee
+17/08/2018 - 11:49:35 | INFO  | com.devoteam.dls.domain.Employee -> getUsername() -> Method getUsername from class employee invoked {} 
+17/08/2018 - 11:49:35 | INFO  | com.devoteam.dls.domain.Employee -> getPassword() -> Method getPassword from class employee invoked. {}
+17/08/2018 - 11:49:36 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -2083456413
+17/08/2018 - 11:49:36 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -742812495
+17/08/2018 - 11:49:36 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -301387438
+17/08/2018 - 11:49:36 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -2083456413
+17/08/2018 - 11:49:36 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. 778912572
+17/08/2018 - 11:49:36 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -2083456413
+17/08/2018 - 11:49:36 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -2083456413
+17/08/2018 - 11:49:36 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -742812495
+17/08/2018 - 11:49:36 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -301387438
+17/08/2018 - 11:49:36 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -2083456413
+17/08/2018 - 11:49:36 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. 778912572
+17/08/2018 - 11:49:36 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. 778912572
+17/08/2018 - 11:49:36 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. 778912572
+17/08/2018 - 11:49:36 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. 778912572
+17/08/2018 - 11:49:36 | INFO  | com.devoteam.dls.domain.Employee -> equals() -> Method equals from class employee invoked. class com.devoteam.dls.domain.Employee
+17/08/2018 - 11:49:36 | INFO  | com.devoteam.dls.domain.Employee -> getUsername() -> Method getUsername from class employee invoked {} 
+17/08/2018 - 11:49:36 | INFO  | com.devoteam.dls.domain.Employee -> getPassword() -> Method getPassword from class employee invoked. {}
+17/08/2018 - 11:49:36 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -2083456413
+17/08/2018 - 11:49:36 | INFO  | com.devoteam.dls.domain.Employee -> equals() -> Method equals from class employee invoked. class com.devoteam.dls.domain.Employee
+17/08/2018 - 11:49:36 | INFO  | com.devoteam.dls.domain.Employee -> getUsername() -> Method getUsername from class employee invoked {} 
+17/08/2018 - 11:49:36 | INFO  | com.devoteam.dls.domain.Employee -> getPassword() -> Method getPassword from class employee invoked. {}
+17/08/2018 - 11:49:37 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. 778912572
+17/08/2018 - 11:49:37 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -742812495
+17/08/2018 - 11:49:37 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -301387438
+17/08/2018 - 11:49:37 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -2083456413
+17/08/2018 - 11:49:37 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. 778912572
+17/08/2018 - 11:49:37 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. 778912572
+17/08/2018 - 11:49:37 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. 778912572
+17/08/2018 - 11:49:37 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -742812495
+17/08/2018 - 11:49:37 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -301387438
+17/08/2018 - 11:49:37 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -2083456413
+17/08/2018 - 11:49:37 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. 778912572
+17/08/2018 - 11:49:37 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -742812495
+17/08/2018 - 11:49:37 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -742812495
+17/08/2018 - 11:49:37 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. 778912572
+17/08/2018 - 11:49:37 | INFO  | com.devoteam.dls.domain.Employee -> equals() -> Method equals from class employee invoked. class com.devoteam.dls.domain.Employee
+17/08/2018 - 11:49:37 | INFO  | com.devoteam.dls.domain.Employee -> getUsername() -> Method getUsername from class employee invoked {} 
+17/08/2018 - 11:49:37 | INFO  | com.devoteam.dls.domain.Employee -> getPassword() -> Method getPassword from class employee invoked. {}
+17/08/2018 - 11:49:37 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -742812495
+17/08/2018 - 11:49:37 | INFO  | com.devoteam.dls.domain.Employee -> equals() -> Method equals from class employee invoked. class com.devoteam.dls.domain.Employee
+17/08/2018 - 11:49:37 | INFO  | com.devoteam.dls.domain.Employee -> getUsername() -> Method getUsername from class employee invoked {} 
+17/08/2018 - 11:49:37 | INFO  | com.devoteam.dls.domain.Employee -> getPassword() -> Method getPassword from class employee invoked. {}
+17/08/2018 - 11:49:37 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -742812495
+17/08/2018 - 11:49:37 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -742812495
+17/08/2018 - 11:49:37 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -301387438
+17/08/2018 - 11:49:37 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -2083456413
+17/08/2018 - 11:49:37 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. 778912572
+17/08/2018 - 11:49:37 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -742812495
+17/08/2018 - 11:49:37 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -742812495
+17/08/2018 - 11:49:37 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -742812495
+17/08/2018 - 11:49:37 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -301387438
+17/08/2018 - 11:49:37 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -2083456413
+17/08/2018 - 11:49:37 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. 778912572
+17/08/2018 - 11:49:37 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -301387438
+17/08/2018 - 11:49:37 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -301387438
+17/08/2018 - 11:49:37 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -742812495
+17/08/2018 - 11:49:37 | INFO  | com.devoteam.dls.domain.Employee -> equals() -> Method equals from class employee invoked. class com.devoteam.dls.domain.Employee
+17/08/2018 - 11:49:37 | INFO  | com.devoteam.dls.domain.Employee -> getUsername() -> Method getUsername from class employee invoked {} 
+17/08/2018 - 11:49:37 | INFO  | com.devoteam.dls.domain.Employee -> getPassword() -> Method getPassword from class employee invoked. {}
+17/08/2018 - 11:49:37 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -301387438
+17/08/2018 - 11:49:37 | INFO  | com.devoteam.dls.domain.Employee -> equals() -> Method equals from class employee invoked. class com.devoteam.dls.domain.Employee
+17/08/2018 - 11:49:37 | INFO  | com.devoteam.dls.domain.Employee -> getUsername() -> Method getUsername from class employee invoked {} 
+17/08/2018 - 11:49:37 | INFO  | com.devoteam.dls.domain.Employee -> getPassword() -> Method getPassword from class employee invoked. {}
+17/08/2018 - 11:49:38 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -301387438
+17/08/2018 - 11:49:38 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -742812495
+17/08/2018 - 11:49:38 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -301387438
+17/08/2018 - 11:49:38 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -2083456413
+17/08/2018 - 11:49:38 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. 778912572
+17/08/2018 - 11:49:38 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -301387438
+17/08/2018 - 11:49:38 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -301387438
+17/08/2018 - 11:49:38 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -742812495
+17/08/2018 - 11:49:38 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -301387438
+17/08/2018 - 11:49:38 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -2083456413
+17/08/2018 - 11:49:38 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. 778912572
+17/08/2018 - 11:49:38 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -2083456413
+17/08/2018 - 11:49:38 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -2083456413
+17/08/2018 - 11:49:38 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -2083456413
+17/08/2018 - 11:49:38 | INFO  | com.devoteam.dls.domain.Employee -> equals() -> Method equals from class employee invoked. class com.devoteam.dls.domain.Employee
+17/08/2018 - 11:49:38 | INFO  | com.devoteam.dls.domain.Employee -> getUsername() -> Method getUsername from class employee invoked {} 
+17/08/2018 - 11:49:38 | INFO  | com.devoteam.dls.domain.Employee -> getPassword() -> Method getPassword from class employee invoked. {}
+17/08/2018 - 11:49:38 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -301387438
+17/08/2018 - 11:49:38 | INFO  | com.devoteam.dls.domain.Employee -> equals() -> Method equals from class employee invoked. class com.devoteam.dls.domain.Employee
+17/08/2018 - 11:49:38 | INFO  | com.devoteam.dls.domain.Employee -> getUsername() -> Method getUsername from class employee invoked {} 
+17/08/2018 - 11:49:38 | INFO  | com.devoteam.dls.domain.Employee -> getPassword() -> Method getPassword from class employee invoked. {}
+17/08/2018 - 11:49:38 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -2083456413
+17/08/2018 - 11:49:38 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -742812495
+17/08/2018 - 11:49:38 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -301387438
+17/08/2018 - 11:49:38 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -2083456413
+17/08/2018 - 11:49:38 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. 778912572
+17/08/2018 - 11:49:38 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -2083456413
+17/08/2018 - 11:49:38 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -2083456413
+17/08/2018 - 11:49:38 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -742812495
+17/08/2018 - 11:49:38 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -301387438
+17/08/2018 - 11:49:38 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -2083456413
+17/08/2018 - 11:49:38 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. 778912572
+17/08/2018 - 11:49:38 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. 778912572
+17/08/2018 - 11:49:38 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. 778912572
+17/08/2018 - 11:49:38 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. 778912572
+17/08/2018 - 11:49:38 | INFO  | com.devoteam.dls.domain.Employee -> equals() -> Method equals from class employee invoked. class com.devoteam.dls.domain.Employee
+17/08/2018 - 11:49:38 | INFO  | com.devoteam.dls.domain.Employee -> getUsername() -> Method getUsername from class employee invoked {} 
+17/08/2018 - 11:49:38 | INFO  | com.devoteam.dls.domain.Employee -> getPassword() -> Method getPassword from class employee invoked. {}
+17/08/2018 - 11:49:38 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -2083456413
+17/08/2018 - 11:49:38 | INFO  | com.devoteam.dls.domain.Employee -> equals() -> Method equals from class employee invoked. class com.devoteam.dls.domain.Employee
+17/08/2018 - 11:49:38 | INFO  | com.devoteam.dls.domain.Employee -> getUsername() -> Method getUsername from class employee invoked {} 
+17/08/2018 - 11:49:38 | INFO  | com.devoteam.dls.domain.Employee -> getPassword() -> Method getPassword from class employee invoked. {}
+17/08/2018 - 11:49:39 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. 778912572
+17/08/2018 - 11:49:39 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -742812495
+17/08/2018 - 11:49:39 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -301387438
+17/08/2018 - 11:49:39 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -2083456413
+17/08/2018 - 11:49:39 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. 778912572
+17/08/2018 - 11:49:39 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. 778912572
+17/08/2018 - 11:49:39 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. 778912572
+17/08/2018 - 11:49:39 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -742812495
+17/08/2018 - 11:49:39 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -301387438
+17/08/2018 - 11:49:39 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -2083456413
+17/08/2018 - 11:49:39 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. 778912572
+17/08/2018 - 11:49:39 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -742812495
+17/08/2018 - 11:49:39 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -742812495
+17/08/2018 - 11:49:39 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. 778912572
+17/08/2018 - 11:49:39 | INFO  | com.devoteam.dls.domain.Employee -> equals() -> Method equals from class employee invoked. class com.devoteam.dls.domain.Employee
+17/08/2018 - 11:49:39 | INFO  | com.devoteam.dls.domain.Employee -> getUsername() -> Method getUsername from class employee invoked {} 
+17/08/2018 - 11:49:39 | INFO  | com.devoteam.dls.domain.Employee -> getPassword() -> Method getPassword from class employee invoked. {}
+17/08/2018 - 11:49:39 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -742812495
+17/08/2018 - 11:49:39 | INFO  | com.devoteam.dls.domain.Employee -> equals() -> Method equals from class employee invoked. class com.devoteam.dls.domain.Employee
+17/08/2018 - 11:49:39 | INFO  | com.devoteam.dls.domain.Employee -> getUsername() -> Method getUsername from class employee invoked {} 
+17/08/2018 - 11:49:39 | INFO  | com.devoteam.dls.domain.Employee -> getPassword() -> Method getPassword from class employee invoked. {}
+17/08/2018 - 11:49:40 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -742812495
+17/08/2018 - 11:49:40 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -742812495
+17/08/2018 - 11:49:40 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -301387438
+17/08/2018 - 11:49:40 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -2083456413
+17/08/2018 - 11:49:40 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. 778912572
+17/08/2018 - 11:49:40 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -742812495
+17/08/2018 - 11:49:40 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -742812495
+17/08/2018 - 11:49:40 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -742812495
+17/08/2018 - 11:49:40 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -301387438
+17/08/2018 - 11:49:40 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -2083456413
+17/08/2018 - 11:49:40 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. 778912572
+17/08/2018 - 11:49:40 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -301387438
+17/08/2018 - 11:49:40 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -301387438
+17/08/2018 - 11:49:40 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -742812495
+17/08/2018 - 11:49:40 | INFO  | com.devoteam.dls.domain.Employee -> equals() -> Method equals from class employee invoked. class com.devoteam.dls.domain.Employee
+17/08/2018 - 11:49:40 | INFO  | com.devoteam.dls.domain.Employee -> getUsername() -> Method getUsername from class employee invoked {} 
+17/08/2018 - 11:49:40 | INFO  | com.devoteam.dls.domain.Employee -> getPassword() -> Method getPassword from class employee invoked. {}
+17/08/2018 - 11:49:40 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -301387438
+17/08/2018 - 11:49:40 | INFO  | com.devoteam.dls.domain.Employee -> equals() -> Method equals from class employee invoked. class com.devoteam.dls.domain.Employee
+17/08/2018 - 11:49:40 | INFO  | com.devoteam.dls.domain.Employee -> getUsername() -> Method getUsername from class employee invoked {} 
+17/08/2018 - 11:49:40 | INFO  | com.devoteam.dls.domain.Employee -> getPassword() -> Method getPassword from class employee invoked. {}
+17/08/2018 - 11:49:40 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -301387438
+17/08/2018 - 11:49:40 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -742812495
+17/08/2018 - 11:49:40 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -301387438
+17/08/2018 - 11:49:40 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -2083456413
+17/08/2018 - 11:49:40 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. 778912572
+17/08/2018 - 11:49:40 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -301387438
+17/08/2018 - 11:49:40 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -301387438
+17/08/2018 - 11:49:40 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -742812495
+17/08/2018 - 11:49:40 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -301387438
+17/08/2018 - 11:49:40 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -2083456413
+17/08/2018 - 11:49:40 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. 778912572
+17/08/2018 - 11:49:40 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. 778912572
+17/08/2018 - 11:49:40 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. 778912572
+17/08/2018 - 11:49:40 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. 778912572
+17/08/2018 - 11:49:40 | INFO  | com.devoteam.dls.domain.Employee -> equals() -> Method equals from class employee invoked. class com.devoteam.dls.domain.Employee
+17/08/2018 - 11:49:40 | INFO  | com.devoteam.dls.domain.Employee -> getUsername() -> Method getUsername from class employee invoked {} 
+17/08/2018 - 11:49:40 | INFO  | com.devoteam.dls.domain.Employee -> getPassword() -> Method getPassword from class employee invoked. {}
+17/08/2018 - 11:49:40 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -301387438
+17/08/2018 - 11:49:40 | INFO  | com.devoteam.dls.domain.Employee -> equals() -> Method equals from class employee invoked. class com.devoteam.dls.domain.Employee
+17/08/2018 - 11:49:40 | INFO  | com.devoteam.dls.domain.Employee -> getUsername() -> Method getUsername from class employee invoked {} 
+17/08/2018 - 11:49:40 | INFO  | com.devoteam.dls.domain.Employee -> getPassword() -> Method getPassword from class employee invoked. {}
+17/08/2018 - 11:49:41 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. 778912572
+17/08/2018 - 11:49:41 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -742812495
+17/08/2018 - 11:49:41 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -301387438
+17/08/2018 - 11:49:41 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -2083456413
+17/08/2018 - 11:49:41 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. 778912572
+17/08/2018 - 11:49:41 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. 778912572
+17/08/2018 - 11:49:41 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. 778912572
+17/08/2018 - 11:49:41 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -742812495
+17/08/2018 - 11:49:41 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -301387438
+17/08/2018 - 11:49:41 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -2083456413
+17/08/2018 - 11:49:41 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. 778912572
+17/08/2018 - 11:49:41 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -2083456413
+17/08/2018 - 11:49:41 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -2083456413
+17/08/2018 - 11:49:41 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. 778912572
+17/08/2018 - 11:49:41 | INFO  | com.devoteam.dls.domain.Employee -> equals() -> Method equals from class employee invoked. class com.devoteam.dls.domain.Employee
+17/08/2018 - 11:49:41 | INFO  | com.devoteam.dls.domain.Employee -> getUsername() -> Method getUsername from class employee invoked {} 
+17/08/2018 - 11:49:41 | INFO  | com.devoteam.dls.domain.Employee -> getPassword() -> Method getPassword from class employee invoked. {}
+17/08/2018 - 11:49:41 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -2083456413
+17/08/2018 - 11:49:41 | INFO  | com.devoteam.dls.domain.Employee -> equals() -> Method equals from class employee invoked. class com.devoteam.dls.domain.Employee
+17/08/2018 - 11:49:41 | INFO  | com.devoteam.dls.domain.Employee -> getUsername() -> Method getUsername from class employee invoked {} 
+17/08/2018 - 11:49:41 | INFO  | com.devoteam.dls.domain.Employee -> getPassword() -> Method getPassword from class employee invoked. {}
+17/08/2018 - 11:49:41 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -2083456413
+17/08/2018 - 11:49:41 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -742812495
+17/08/2018 - 11:49:41 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -301387438
+17/08/2018 - 11:49:41 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -2083456413
+17/08/2018 - 11:49:41 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. 778912572
+17/08/2018 - 11:49:41 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -2083456413
+17/08/2018 - 11:49:41 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -2083456413
+17/08/2018 - 11:49:41 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -742812495
+17/08/2018 - 11:49:41 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -301387438
+17/08/2018 - 11:49:41 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -2083456413
+17/08/2018 - 11:49:41 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. 778912572
+17/08/2018 - 11:49:41 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -301387438
+17/08/2018 - 11:49:41 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -301387438
+17/08/2018 - 11:49:41 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -2083456413
+17/08/2018 - 11:49:41 | INFO  | com.devoteam.dls.domain.Employee -> equals() -> Method equals from class employee invoked. class com.devoteam.dls.domain.Employee
+17/08/2018 - 11:49:41 | INFO  | com.devoteam.dls.domain.Employee -> getUsername() -> Method getUsername from class employee invoked {} 
+17/08/2018 - 11:49:41 | INFO  | com.devoteam.dls.domain.Employee -> getPassword() -> Method getPassword from class employee invoked. {}
+17/08/2018 - 11:49:41 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -301387438
+17/08/2018 - 11:49:41 | INFO  | com.devoteam.dls.domain.Employee -> equals() -> Method equals from class employee invoked. class com.devoteam.dls.domain.Employee
+17/08/2018 - 11:49:41 | INFO  | com.devoteam.dls.domain.Employee -> getUsername() -> Method getUsername from class employee invoked {} 
+17/08/2018 - 11:49:41 | INFO  | com.devoteam.dls.domain.Employee -> getPassword() -> Method getPassword from class employee invoked. {}
+17/08/2018 - 11:49:42 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -301387438
+17/08/2018 - 11:49:42 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -742812495
+17/08/2018 - 11:49:42 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -301387438
+17/08/2018 - 11:49:42 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -2083456413
+17/08/2018 - 11:49:42 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. 778912572
+17/08/2018 - 11:49:42 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -301387438
+17/08/2018 - 11:49:42 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -301387438
+17/08/2018 - 11:49:42 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -742812495
+17/08/2018 - 11:49:42 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -301387438
+17/08/2018 - 11:49:42 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -2083456413
+17/08/2018 - 11:49:42 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. 778912572
+17/08/2018 - 11:49:42 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -742812495
+17/08/2018 - 11:49:42 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -742812495
+17/08/2018 - 11:49:42 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -742812495
+17/08/2018 - 11:49:42 | INFO  | com.devoteam.dls.domain.Employee -> equals() -> Method equals from class employee invoked. class com.devoteam.dls.domain.Employee
+17/08/2018 - 11:49:42 | INFO  | com.devoteam.dls.domain.Employee -> getUsername() -> Method getUsername from class employee invoked {} 
+17/08/2018 - 11:49:42 | INFO  | com.devoteam.dls.domain.Employee -> getPassword() -> Method getPassword from class employee invoked. {}
+17/08/2018 - 11:49:42 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -301387438
+17/08/2018 - 11:49:42 | INFO  | com.devoteam.dls.domain.Employee -> equals() -> Method equals from class employee invoked. class com.devoteam.dls.domain.Employee
+17/08/2018 - 11:49:42 | INFO  | com.devoteam.dls.domain.Employee -> getUsername() -> Method getUsername from class employee invoked {} 
+17/08/2018 - 11:49:42 | INFO  | com.devoteam.dls.domain.Employee -> getPassword() -> Method getPassword from class employee invoked. {}
+17/08/2018 - 11:49:42 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -742812495
+17/08/2018 - 11:49:42 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -742812495
+17/08/2018 - 11:49:42 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -301387438
+17/08/2018 - 11:49:42 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -2083456413
+17/08/2018 - 11:49:42 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. 778912572
+17/08/2018 - 11:49:42 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -742812495
+17/08/2018 - 11:49:42 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -742812495
+17/08/2018 - 11:49:42 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -742812495
+17/08/2018 - 11:49:42 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -301387438
+17/08/2018 - 11:49:42 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -2083456413
+17/08/2018 - 11:49:42 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. 778912572
+17/08/2018 - 11:49:42 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -301387438
+17/08/2018 - 11:49:42 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -301387438
+17/08/2018 - 11:49:42 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -742812495
+17/08/2018 - 11:49:42 | INFO  | com.devoteam.dls.domain.Employee -> equals() -> Method equals from class employee invoked. class com.devoteam.dls.domain.Employee
+17/08/2018 - 11:49:42 | INFO  | com.devoteam.dls.domain.Employee -> getUsername() -> Method getUsername from class employee invoked {} 
+17/08/2018 - 11:49:42 | INFO  | com.devoteam.dls.domain.Employee -> getPassword() -> Method getPassword from class employee invoked. {}
+17/08/2018 - 11:49:42 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -301387438
+17/08/2018 - 11:49:42 | INFO  | com.devoteam.dls.domain.Employee -> equals() -> Method equals from class employee invoked. class com.devoteam.dls.domain.Employee
+17/08/2018 - 11:49:42 | INFO  | com.devoteam.dls.domain.Employee -> getUsername() -> Method getUsername from class employee invoked {} 
+17/08/2018 - 11:49:42 | INFO  | com.devoteam.dls.domain.Employee -> getPassword() -> Method getPassword from class employee invoked. {}
+17/08/2018 - 11:49:43 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -301387438
+17/08/2018 - 11:49:43 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -742812495
+17/08/2018 - 11:49:43 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -301387438
+17/08/2018 - 11:49:43 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -2083456413
+17/08/2018 - 11:49:43 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. 778912572
+17/08/2018 - 11:49:43 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -301387438
+17/08/2018 - 11:49:43 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -301387438
+17/08/2018 - 11:49:43 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -742812495
+17/08/2018 - 11:49:43 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -301387438
+17/08/2018 - 11:49:43 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -2083456413
+17/08/2018 - 11:49:43 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. 778912572
+17/08/2018 - 11:49:43 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -2083456413
+17/08/2018 - 11:49:43 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -2083456413
+17/08/2018 - 11:49:43 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -2083456413
+17/08/2018 - 11:49:43 | INFO  | com.devoteam.dls.domain.Employee -> equals() -> Method equals from class employee invoked. class com.devoteam.dls.domain.Employee
+17/08/2018 - 11:49:43 | INFO  | com.devoteam.dls.domain.Employee -> getUsername() -> Method getUsername from class employee invoked {} 
+17/08/2018 - 11:49:43 | INFO  | com.devoteam.dls.domain.Employee -> getPassword() -> Method getPassword from class employee invoked. {}
+17/08/2018 - 11:49:43 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -301387438
+17/08/2018 - 11:49:43 | INFO  | com.devoteam.dls.domain.Employee -> equals() -> Method equals from class employee invoked. class com.devoteam.dls.domain.Employee
+17/08/2018 - 11:49:43 | INFO  | com.devoteam.dls.domain.Employee -> getUsername() -> Method getUsername from class employee invoked {} 
+17/08/2018 - 11:49:43 | INFO  | com.devoteam.dls.domain.Employee -> getPassword() -> Method getPassword from class employee invoked. {}
+17/08/2018 - 11:49:43 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -2083456413
+17/08/2018 - 11:49:43 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -742812495
+17/08/2018 - 11:49:43 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -301387438
+17/08/2018 - 11:49:43 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -2083456413
+17/08/2018 - 11:49:43 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. 778912572
+17/08/2018 - 11:49:43 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -2083456413
+17/08/2018 - 11:49:43 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -2083456413
+17/08/2018 - 11:49:43 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -742812495
+17/08/2018 - 11:49:43 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -301387438
+17/08/2018 - 11:49:43 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -2083456413
+17/08/2018 - 11:49:43 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. 778912572
+17/08/2018 - 11:49:43 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. 778912572
+17/08/2018 - 11:49:43 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. 778912572
+17/08/2018 - 11:49:43 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. 778912572
+17/08/2018 - 11:49:43 | INFO  | com.devoteam.dls.domain.Employee -> equals() -> Method equals from class employee invoked. class com.devoteam.dls.domain.Employee
+17/08/2018 - 11:49:43 | INFO  | com.devoteam.dls.domain.Employee -> getUsername() -> Method getUsername from class employee invoked {} 
+17/08/2018 - 11:49:43 | INFO  | com.devoteam.dls.domain.Employee -> getPassword() -> Method getPassword from class employee invoked. {}
+17/08/2018 - 11:49:43 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -2083456413
+17/08/2018 - 11:49:43 | INFO  | com.devoteam.dls.domain.Employee -> equals() -> Method equals from class employee invoked. class com.devoteam.dls.domain.Employee
+17/08/2018 - 11:49:43 | INFO  | com.devoteam.dls.domain.Employee -> getUsername() -> Method getUsername from class employee invoked {} 
+17/08/2018 - 11:49:43 | INFO  | com.devoteam.dls.domain.Employee -> getPassword() -> Method getPassword from class employee invoked. {}
+17/08/2018 - 11:49:44 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. 778912572
+17/08/2018 - 11:49:44 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -742812495
+17/08/2018 - 11:49:44 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -301387438
+17/08/2018 - 11:49:44 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -2083456413
+17/08/2018 - 11:49:44 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. 778912572
+17/08/2018 - 11:49:44 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. 778912572
+17/08/2018 - 11:49:44 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. 778912572
+17/08/2018 - 11:49:44 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -742812495
+17/08/2018 - 11:49:44 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -301387438
+17/08/2018 - 11:49:44 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -2083456413
+17/08/2018 - 11:49:44 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. 778912572
+17/08/2018 - 11:49:44 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -2083456413
+17/08/2018 - 11:49:44 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -2083456413
+17/08/2018 - 11:49:44 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. 778912572
+17/08/2018 - 11:49:44 | INFO  | com.devoteam.dls.domain.Employee -> equals() -> Method equals from class employee invoked. class com.devoteam.dls.domain.Employee
+17/08/2018 - 11:49:44 | INFO  | com.devoteam.dls.domain.Employee -> getUsername() -> Method getUsername from class employee invoked {} 
+17/08/2018 - 11:49:44 | INFO  | com.devoteam.dls.domain.Employee -> getPassword() -> Method getPassword from class employee invoked. {}
+17/08/2018 - 11:49:44 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -2083456413
+17/08/2018 - 11:49:44 | INFO  | com.devoteam.dls.domain.Employee -> equals() -> Method equals from class employee invoked. class com.devoteam.dls.domain.Employee
+17/08/2018 - 11:49:44 | INFO  | com.devoteam.dls.domain.Employee -> getUsername() -> Method getUsername from class employee invoked {} 
+17/08/2018 - 11:49:44 | INFO  | com.devoteam.dls.domain.Employee -> getPassword() -> Method getPassword from class employee invoked. {}
+17/08/2018 - 11:49:44 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -2083456413
+17/08/2018 - 11:49:44 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -742812495
+17/08/2018 - 11:49:44 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -301387438
+17/08/2018 - 11:49:44 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -2083456413
+17/08/2018 - 11:49:44 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. 778912572
+17/08/2018 - 11:49:44 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -2083456413
+17/08/2018 - 11:49:44 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -2083456413
+17/08/2018 - 11:49:44 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -742812495
+17/08/2018 - 11:49:44 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -301387438
+17/08/2018 - 11:49:44 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -2083456413
+17/08/2018 - 11:49:44 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. 778912572
+17/08/2018 - 11:49:44 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -301387438
+17/08/2018 - 11:49:44 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -301387438
+17/08/2018 - 11:49:44 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -2083456413
+17/08/2018 - 11:49:44 | INFO  | com.devoteam.dls.domain.Employee -> equals() -> Method equals from class employee invoked. class com.devoteam.dls.domain.Employee
+17/08/2018 - 11:49:44 | INFO  | com.devoteam.dls.domain.Employee -> getUsername() -> Method getUsername from class employee invoked {} 
+17/08/2018 - 11:49:44 | INFO  | com.devoteam.dls.domain.Employee -> getPassword() -> Method getPassword from class employee invoked. {}
+17/08/2018 - 11:49:44 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -301387438
+17/08/2018 - 11:49:44 | INFO  | com.devoteam.dls.domain.Employee -> equals() -> Method equals from class employee invoked. class com.devoteam.dls.domain.Employee
+17/08/2018 - 11:49:44 | INFO  | com.devoteam.dls.domain.Employee -> getUsername() -> Method getUsername from class employee invoked {} 
+17/08/2018 - 11:49:44 | INFO  | com.devoteam.dls.domain.Employee -> getPassword() -> Method getPassword from class employee invoked. {}
+17/08/2018 - 11:49:45 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -301387438
+17/08/2018 - 11:49:45 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -742812495
+17/08/2018 - 11:49:45 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -301387438
+17/08/2018 - 11:49:45 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -2083456413
+17/08/2018 - 11:49:45 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. 778912572
+17/08/2018 - 11:49:45 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -301387438
+17/08/2018 - 11:49:45 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -301387438
+17/08/2018 - 11:49:45 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -742812495
+17/08/2018 - 11:49:45 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -301387438
+17/08/2018 - 11:49:45 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -2083456413
+17/08/2018 - 11:49:45 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. 778912572
+17/08/2018 - 11:49:45 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -742812495
+17/08/2018 - 11:49:45 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -742812495
+17/08/2018 - 11:49:45 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -742812495
+17/08/2018 - 11:49:45 | INFO  | com.devoteam.dls.domain.Employee -> equals() -> Method equals from class employee invoked. class com.devoteam.dls.domain.Employee
+17/08/2018 - 11:49:45 | INFO  | com.devoteam.dls.domain.Employee -> getUsername() -> Method getUsername from class employee invoked {} 
+17/08/2018 - 11:49:45 | INFO  | com.devoteam.dls.domain.Employee -> getPassword() -> Method getPassword from class employee invoked. {}
+17/08/2018 - 11:49:45 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -301387438
+17/08/2018 - 11:49:45 | INFO  | com.devoteam.dls.domain.Employee -> equals() -> Method equals from class employee invoked. class com.devoteam.dls.domain.Employee
+17/08/2018 - 11:49:45 | INFO  | com.devoteam.dls.domain.Employee -> getUsername() -> Method getUsername from class employee invoked {} 
+17/08/2018 - 11:49:45 | INFO  | com.devoteam.dls.domain.Employee -> getPassword() -> Method getPassword from class employee invoked. {}
+17/08/2018 - 11:49:45 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -742812495
+17/08/2018 - 11:49:45 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -742812495
+17/08/2018 - 11:49:45 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -742812495
+17/08/2018 - 11:49:45 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -301387438
+17/08/2018 - 11:49:45 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -2083456413
+17/08/2018 - 11:49:45 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. 778912572
+17/08/2018 - 11:49:45 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -742812495
+17/08/2018 - 11:49:45 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -742812495
+17/08/2018 - 11:49:45 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -742812495
+17/08/2018 - 11:49:45 | INFO  | com.devoteam.dls.domain.Employee -> getUsername() -> Method getUsername from class employee invoked {} 
+17/08/2018 - 11:49:45 | INFO  | com.devoteam.dls.domain.Employee -> getPassword() -> Method getPassword from class employee invoked. {}
+17/08/2018 - 11:49:46 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -742812495
+17/08/2018 - 11:49:46 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -301387438
+17/08/2018 - 11:49:46 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -2083456413
+17/08/2018 - 11:49:46 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. 778912572
+17/08/2018 - 11:49:46 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -301387438
+17/08/2018 - 11:49:46 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -301387438
+17/08/2018 - 11:49:46 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -301387438
+17/08/2018 - 11:49:46 | INFO  | com.devoteam.dls.domain.Employee -> equals() -> Method equals from class employee invoked. class com.devoteam.dls.domain.Employee
+17/08/2018 - 11:49:46 | INFO  | com.devoteam.dls.domain.Employee -> getUsername() -> Method getUsername from class employee invoked {} 
+17/08/2018 - 11:49:46 | INFO  | com.devoteam.dls.domain.Employee -> getPassword() -> Method getPassword from class employee invoked. {}
+17/08/2018 - 11:49:46 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -301387438
+17/08/2018 - 11:49:46 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -742812495
+17/08/2018 - 11:49:46 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -301387438
+17/08/2018 - 11:49:46 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -2083456413
+17/08/2018 - 11:49:46 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. 778912572
+17/08/2018 - 11:49:46 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -301387438
+17/08/2018 - 11:49:46 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -301387438
+17/08/2018 - 11:49:46 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -742812495
+17/08/2018 - 11:49:46 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -301387438
+17/08/2018 - 11:49:46 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -2083456413
+17/08/2018 - 11:49:46 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. 778912572
+17/08/2018 - 11:49:46 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -2083456413
+17/08/2018 - 11:49:46 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -2083456413
+17/08/2018 - 11:49:46 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -2083456413
+17/08/2018 - 11:49:46 | INFO  | com.devoteam.dls.domain.Employee -> equals() -> Method equals from class employee invoked. class com.devoteam.dls.domain.Employee
+17/08/2018 - 11:49:46 | INFO  | com.devoteam.dls.domain.Employee -> getUsername() -> Method getUsername from class employee invoked {} 
+17/08/2018 - 11:49:46 | INFO  | com.devoteam.dls.domain.Employee -> getPassword() -> Method getPassword from class employee invoked. {}
+17/08/2018 - 11:49:46 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -301387438
+17/08/2018 - 11:49:46 | INFO  | com.devoteam.dls.domain.Employee -> equals() -> Method equals from class employee invoked. class com.devoteam.dls.domain.Employee
+17/08/2018 - 11:49:46 | INFO  | com.devoteam.dls.domain.Employee -> getUsername() -> Method getUsername from class employee invoked {} 
+17/08/2018 - 11:49:46 | INFO  | com.devoteam.dls.domain.Employee -> getPassword() -> Method getPassword from class employee invoked. {}
+17/08/2018 - 11:49:47 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -2083456413
+17/08/2018 - 11:49:47 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -742812495
+17/08/2018 - 11:49:47 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -301387438
+17/08/2018 - 11:49:47 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -2083456413
+17/08/2018 - 11:49:47 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. 778912572
+17/08/2018 - 11:49:47 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -2083456413
+17/08/2018 - 11:49:47 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -2083456413
+17/08/2018 - 11:49:47 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -742812495
+17/08/2018 - 11:49:47 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -301387438
+17/08/2018 - 11:49:47 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -2083456413
+17/08/2018 - 11:49:47 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. 778912572
+17/08/2018 - 11:49:47 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. 778912572
+17/08/2018 - 11:49:47 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. 778912572
+17/08/2018 - 11:49:47 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. 778912572
+17/08/2018 - 11:49:47 | INFO  | com.devoteam.dls.domain.Employee -> equals() -> Method equals from class employee invoked. class com.devoteam.dls.domain.Employee
+17/08/2018 - 11:49:47 | INFO  | com.devoteam.dls.domain.Employee -> getUsername() -> Method getUsername from class employee invoked {} 
+17/08/2018 - 11:49:47 | INFO  | com.devoteam.dls.domain.Employee -> getPassword() -> Method getPassword from class employee invoked. {}
+17/08/2018 - 11:49:47 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -2083456413
+17/08/2018 - 11:49:47 | INFO  | com.devoteam.dls.domain.Employee -> equals() -> Method equals from class employee invoked. class com.devoteam.dls.domain.Employee
+17/08/2018 - 11:49:47 | INFO  | com.devoteam.dls.domain.Employee -> getUsername() -> Method getUsername from class employee invoked {} 
+17/08/2018 - 11:49:47 | INFO  | com.devoteam.dls.domain.Employee -> getPassword() -> Method getPassword from class employee invoked. {}
+17/08/2018 - 11:49:47 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. 778912572
+17/08/2018 - 11:49:47 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. 778912572
+17/08/2018 - 11:49:47 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -742812495
+17/08/2018 - 11:49:47 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -301387438
+17/08/2018 - 11:49:47 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -2083456413
+17/08/2018 - 11:49:47 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. 778912572
+17/08/2018 - 11:49:47 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. 778912572
+17/08/2018 - 11:49:47 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. 778912572
+17/08/2018 - 11:49:47 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. 778912572
+17/08/2018 - 11:49:47 | INFO  | com.devoteam.dls.domain.Employee -> getUsername() -> Method getUsername from class employee invoked {} 
+17/08/2018 - 11:49:47 | INFO  | com.devoteam.dls.domain.Employee -> getPassword() -> Method getPassword from class employee invoked. {}
+17/08/2018 - 11:49:47 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -742812495
+17/08/2018 - 11:49:47 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -301387438
+17/08/2018 - 11:49:47 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -2083456413
+17/08/2018 - 11:49:47 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. 778912572
+17/08/2018 - 11:49:47 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -2083456413
+17/08/2018 - 11:49:47 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -2083456413
+17/08/2018 - 11:49:47 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -2083456413
+17/08/2018 - 11:49:47 | INFO  | com.devoteam.dls.domain.Employee -> equals() -> Method equals from class employee invoked. class com.devoteam.dls.domain.Employee
+17/08/2018 - 11:49:47 | INFO  | com.devoteam.dls.domain.Employee -> getUsername() -> Method getUsername from class employee invoked {} 
+17/08/2018 - 11:49:47 | INFO  | com.devoteam.dls.domain.Employee -> getPassword() -> Method getPassword from class employee invoked. {}
+17/08/2018 - 11:49:48 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -2083456413
+17/08/2018 - 11:49:48 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -742812495
+17/08/2018 - 11:49:48 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -301387438
+17/08/2018 - 11:49:48 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -2083456413
+17/08/2018 - 11:49:48 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. 778912572
+17/08/2018 - 11:49:48 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -2083456413
+17/08/2018 - 11:49:48 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -2083456413
+17/08/2018 - 11:49:48 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -742812495
+17/08/2018 - 11:49:48 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -301387438
+17/08/2018 - 11:49:48 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -2083456413
+17/08/2018 - 11:49:48 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. 778912572
+17/08/2018 - 11:49:48 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -301387438
+17/08/2018 - 11:49:48 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -301387438
+17/08/2018 - 11:49:48 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -2083456413
+17/08/2018 - 11:49:48 | INFO  | com.devoteam.dls.domain.Employee -> equals() -> Method equals from class employee invoked. class com.devoteam.dls.domain.Employee
+17/08/2018 - 11:49:48 | INFO  | com.devoteam.dls.domain.Employee -> getUsername() -> Method getUsername from class employee invoked {} 
+17/08/2018 - 11:49:48 | INFO  | com.devoteam.dls.domain.Employee -> getPassword() -> Method getPassword from class employee invoked. {}
+17/08/2018 - 11:49:48 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -301387438
+17/08/2018 - 11:49:48 | INFO  | com.devoteam.dls.domain.Employee -> equals() -> Method equals from class employee invoked. class com.devoteam.dls.domain.Employee
+17/08/2018 - 11:49:48 | INFO  | com.devoteam.dls.domain.Employee -> getUsername() -> Method getUsername from class employee invoked {} 
+17/08/2018 - 11:49:48 | INFO  | com.devoteam.dls.domain.Employee -> getPassword() -> Method getPassword from class employee invoked. {}
+17/08/2018 - 11:49:48 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -301387438
+17/08/2018 - 11:49:48 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -742812495
+17/08/2018 - 11:49:48 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -301387438
+17/08/2018 - 11:49:48 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -2083456413
+17/08/2018 - 11:49:48 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. 778912572
+17/08/2018 - 11:49:48 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -301387438
+17/08/2018 - 11:49:48 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -301387438
+17/08/2018 - 11:49:48 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -742812495
+17/08/2018 - 11:49:48 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -301387438
+17/08/2018 - 11:49:48 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -2083456413
+17/08/2018 - 11:49:48 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. 778912572
+17/08/2018 - 11:49:48 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -742812495
+17/08/2018 - 11:49:48 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -742812495
+17/08/2018 - 11:49:48 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -742812495
+17/08/2018 - 11:49:48 | INFO  | com.devoteam.dls.domain.Employee -> equals() -> Method equals from class employee invoked. class com.devoteam.dls.domain.Employee
+17/08/2018 - 11:49:48 | INFO  | com.devoteam.dls.domain.Employee -> getUsername() -> Method getUsername from class employee invoked {} 
+17/08/2018 - 11:49:48 | INFO  | com.devoteam.dls.domain.Employee -> getPassword() -> Method getPassword from class employee invoked. {}
+17/08/2018 - 11:49:48 | INFO  | com.devoteam.dls.domain.Employee -> hashCode() -> Method hashCode from class employee invoked. -301387438
+17/08/2018 - 11:49:48 | INFO  | com.devoteam.dls.domain.Employee -> equals() -> Method equals from class employee invoked. class com.devoteam.dls.domain.Employee
+17/08/2018 - 11:49:48 | INFO  | com.devoteam.dls.domain.Employee -> getUsername() -> Method getUsername from class employee invoked {} 
+17/08/2018 - 11:49:48 | INFO  | com.devoteam.dls.domain.Employee -> getPassword() -> Method getPassword from class employee invoked. {}
+17/08/2018 - 11:50:00 | INFO  | com.devoteam.dls.domain.Employee -> <init>() -> Entity employee created class com.devoteam.dls.domain.Employee
+17/08/2018 - 11:50:00 | INFO  | com.devoteam.dls.domain.Role -> <init>() -> Default constructor role create class com.devoteam.dls.domain.Role
+17/08/2018 - 11:50:00 | INFO  | com.devoteam.dls.domain.Employee -> <init>() -> Entity employee created class com.devoteam.dls.security.SecurityUserDetails
+17/08/2018 - 11:50:00 | INFO  | com.devoteam.dls.domain.Employee -> getEmployee_ID() -> Method getEmployee_ID from class employee invoked {} 
+17/08/2018 - 11:50:00 | INFO  | com.devoteam.dls.domain.Employee -> setEmployee_ID() -> Method setEmployee_ID from class employee invoked.
+17/08/2018 - 11:50:00 | INFO  | com.devoteam.dls.domain.Employee -> getUsername() -> Method getUsername from class employee invoked {} 
+17/08/2018 - 11:50:00 | INFO  | com.devoteam.dls.domain.Employee -> setUsername() -> Method setUsername from class employee invoked {}
+17/08/2018 - 11:50:00 | INFO  | com.devoteam.dls.domain.Employee -> getPassword() -> Method getPassword from class employee invoked. {}
+17/08/2018 - 11:50:00 | INFO  | com.devoteam.dls.domain.Employee -> setPassword() -> Method setPassword from class employee invoked. {}
+17/08/2018 - 11:50:00 | INFO  | com.devoteam.dls.domain.Employee -> getCreated_date() -> Method getCreated_date from class employee invoked.  {}
+17/08/2018 - 11:50:00 | INFO  | com.devoteam.dls.domain.Employee -> setCreated_date() -> Method setCreated_date from class employee invoked. New date  {}
+17/08/2018 - 11:50:00 | INFO  | com.devoteam.dls.domain.Employee -> getLast_modified_date() -> Method getLast_modified_date from class employee invoked. {}
+17/08/2018 - 11:50:00 | INFO  | com.devoteam.dls.domain.Employee -> setLast_modified_date() -> Method setLast_modified_date from class employee invoked. {}
+17/08/2018 - 11:50:00 | INFO  | com.devoteam.dls.domain.Employee -> getRoles() -> Method getRoles from class employee invoked. {}
+17/08/2018 - 11:50:00 | INFO  | com.devoteam.dls.domain.Employee -> setRoles() -> Method setRoles from class employee invoked. {}
+17/08/2018 - 11:50:00 | INFO  | com.devoteam.dls.domain.Employee -> getPassword() -> Method getPassword from class employee invoked. {}
+17/08/2018 - 11:50:00 | INFO  | com.devoteam.dls.domain.Employee -> getRoles() -> Method getRoles from class employee invoked. {}
+17/08/2018 - 11:50:00 | INFO  | com.devoteam.dls.domain.Role -> getRoleType() -> Method getRoleType from class role invoked {}
+17/08/2018 - 11:50:00 | INFO  | com.devoteam.dls.domain.Employee -> getUsername() -> Method getUsername from class employee invoked {} 
+17/08/2018 - 11:50:00 | INFO  | com.devoteam.dls.domain.Employee -> getUsername() -> Method getUsername from class employee invoked {} 
+17/08/2018 - 11:50:00 | INFO  | com.devoteam.dls.domain.Employee -> getUsername() -> Method getUsername from class employee invoked {} 
+17/08/2018 - 12:04:43 | INFO  | com.devoteam.dls.domain.Employee -> getUsername() -> Method getUsername from class employee invoked {} 
+17/08/2018 - 12:04:43 | INFO  | com.devoteam.dls.domain.Employee -> getUsername() -> Method getUsername from class employee invoked {} 
+17/08/2018 - 12:04:43 | INFO  | com.devoteam.dls.domain.Employee -> getUsername() -> Method getUsername from class employee invoked {} 
+17/08/2018 - 12:05:30 | INFO  | com.devoteam.dls.domain.Employee -> <init>() -> Entity employee created class com.devoteam.dls.domain.Employee
+17/08/2018 - 12:05:30 | INFO  | com.devoteam.dls.domain.Role -> <init>() -> Default constructor role create class com.devoteam.dls.domain.Role
+17/08/2018 - 12:05:32 | INFO  | com.devoteam.dls.config.VaadinSpringConfiguration -> passwordEncoder() -> Method passwordEncoder is invoked
+17/08/2018 - 12:05:32 | INFO  | com.devoteam.dls.config.VaadinSpringConfiguration -> configure() -> Method configure(AuthenticationManagerBuilder auth) and the hashCode is {}
+17/08/2018 - 12:05:32 | INFO  | com.devoteam.dls.config.VaadinSpringConfiguration -> rememberMeServices() -> Method rememberMeServices() invoke after the user clicked the enter button on the keyboard
+17/08/2018 - 12:05:32 | INFO  | com.devoteam.dls.config.VaadinSpringConfiguration -> sessionAuthenticationStrategy() -> Method sessionAuthenticationStrategy() invoke
+17/08/2018 - 12:05:32 | INFO  | com.devoteam.dls.config.VaadinSpringConfiguration -> configure() -> Method configure(HttpSecurity http) invoke and get object {}
+17/08/2018 - 12:05:32 | INFO  | com.devoteam.dls.config.VaadinSpringConfiguration -> configure() -> Method configure(WebSecurity web) invoke get Object{}
+17/08/2018 - 12:05:32 | INFO  | com.devoteam.dls.config.VaadinSpringConfiguration -> vaadinAuthenticationSuccessHandler() -> Method vaadinAuthenticationSuccessHandler() invoke
+17/08/2018 - 12:05:32 | INFO  | com.devoteam.dls.config.VaadinSpringConfiguration -> authenticationManagerBean() -> Method authenticationManagerBean() invoke and return super.authenticationManagerBean
+17/08/2018 - 12:05:34 | INFO  | com.devoteam.dls.Application -> run() -> checking if pwd hash uses salt
+17/08/2018 - 12:05:34 | INFO  | com.devoteam.dls.Application -> run() -> the following 2 hash should be different
+17/08/2018 - 12:05:34 | INFO  | com.devoteam.dls.Application -> run() -> $2a$10$5McBNoINf6LZWgbTA6toLeiefPrISshxPEVBny1CujHOjFKzeXQlm
+17/08/2018 - 12:05:35 | INFO  | com.devoteam.dls.Application -> run() -> $2a$10$vBR1dhxMs8DkAhQvKBnjneWqvO3Wv8kJ/PKuq1bZ4dFC18/eI/1fK
+17/08/2018 - 12:07:02 | INFO  | com.devoteam.dls.domain.Employee -> <init>() -> Entity employee created class com.devoteam.dls.domain.Employee
+17/08/2018 - 12:07:02 | INFO  | com.devoteam.dls.domain.Role -> <init>() -> Default constructor role create class com.devoteam.dls.domain.Role
+17/08/2018 - 12:07:02 | INFO  | com.devoteam.dls.domain.Employee -> <init>() -> Entity employee created class com.devoteam.dls.security.SecurityUserDetails
+17/08/2018 - 12:07:02 | INFO  | com.devoteam.dls.domain.Employee -> getEmployee_ID() -> Method getEmployee_ID from class employee invoked {} 
+17/08/2018 - 12:07:02 | INFO  | com.devoteam.dls.domain.Employee -> setEmployee_ID() -> Method setEmployee_ID from class employee invoked.
+17/08/2018 - 12:07:02 | INFO  | com.devoteam.dls.domain.Employee -> getUsername() -> Method getUsername from class employee invoked {} 
+17/08/2018 - 12:07:02 | INFO  | com.devoteam.dls.domain.Employee -> setUsername() -> Method setUsername from class employee invoked {}
+17/08/2018 - 12:07:02 | INFO  | com.devoteam.dls.domain.Employee -> getPassword() -> Method getPassword from class employee invoked. {}
+17/08/2018 - 12:07:02 | INFO  | com.devoteam.dls.domain.Employee -> setPassword() -> Method setPassword from class employee invoked. {}
+17/08/2018 - 12:07:02 | INFO  | com.devoteam.dls.domain.Employee -> getCreated_date() -> Method getCreated_date from class employee invoked.  {}
+17/08/2018 - 12:07:02 | INFO  | com.devoteam.dls.domain.Employee -> setCreated_date() -> Method setCreated_date from class employee invoked. New date  {}
+17/08/2018 - 12:07:02 | INFO  | com.devoteam.dls.domain.Employee -> getLast_modified_date() -> Method getLast_modified_date from class employee invoked. {}
+17/08/2018 - 12:07:02 | INFO  | com.devoteam.dls.domain.Employee -> setLast_modified_date() -> Method setLast_modified_date from class employee invoked. {}
+17/08/2018 - 12:07:02 | INFO  | com.devoteam.dls.domain.Employee -> getRoles() -> Method getRoles from class employee invoked. {}
+17/08/2018 - 12:07:02 | INFO  | com.devoteam.dls.domain.Employee -> setRoles() -> Method setRoles from class employee invoked. {}
+17/08/2018 - 12:07:02 | INFO  | com.devoteam.dls.domain.Employee -> getPassword() -> Method getPassword from class employee invoked. {}
+17/08/2018 - 12:07:02 | INFO  | com.devoteam.dls.domain.Employee -> getRoles() -> Method getRoles from class employee invoked. {}
+17/08/2018 - 12:07:02 | INFO  | com.devoteam.dls.domain.Role -> getRoleType() -> Method getRoleType from class role invoked {}
+17/08/2018 - 12:07:02 | INFO  | com.devoteam.dls.domain.Employee -> getUsername() -> Method getUsername from class employee invoked {} 
+17/08/2018 - 12:07:02 | INFO  | com.devoteam.dls.domain.Employee -> getUsername() -> Method getUsername from class employee invoked {} 
+17/08/2018 - 12:07:02 | INFO  | com.devoteam.dls.domain.Employee -> getUsername() -> Method getUsername from class employee invoked {} 
+17/08/2018 - 12:08:02 | INFO  | com.devoteam.dls.domain.Employee -> <init>() -> Entity employee created class com.devoteam.dls.domain.Employee
+17/08/2018 - 12:08:02 | INFO  | com.devoteam.dls.domain.Role -> <init>() -> Default constructor role create class com.devoteam.dls.domain.Role
+17/08/2018 - 12:08:04 | INFO  | com.devoteam.dls.config.VaadinSpringConfiguration -> passwordEncoder() -> Method passwordEncoder is invoked
+17/08/2018 - 12:08:05 | INFO  | com.devoteam.dls.config.VaadinSpringConfiguration -> configure() -> Method configure(AuthenticationManagerBuilder auth) and the hashCode is {}
+17/08/2018 - 12:08:05 | INFO  | com.devoteam.dls.config.VaadinSpringConfiguration -> rememberMeServices() -> Method rememberMeServices() invoke after the user clicked the enter button on the keyboard
+17/08/2018 - 12:08:05 | INFO  | com.devoteam.dls.config.VaadinSpringConfiguration -> sessionAuthenticationStrategy() -> Method sessionAuthenticationStrategy() invoke
+17/08/2018 - 12:08:05 | INFO  | com.devoteam.dls.config.VaadinSpringConfiguration -> configure() -> Method configure(HttpSecurity http) invoke and get object {}
+17/08/2018 - 12:08:05 | INFO  | com.devoteam.dls.config.VaadinSpringConfiguration -> configure() -> Method configure(WebSecurity web) invoke get Object{}
+17/08/2018 - 12:08:05 | INFO  | com.devoteam.dls.config.VaadinSpringConfiguration -> vaadinAuthenticationSuccessHandler() -> Method vaadinAuthenticationSuccessHandler() invoke
+17/08/2018 - 12:08:05 | INFO  | com.devoteam.dls.config.VaadinSpringConfiguration -> authenticationManagerBean() -> Method authenticationManagerBean() invoke and return super.authenticationManagerBean
+17/08/2018 - 12:08:07 | INFO  | com.devoteam.dls.Application -> run() -> checking if pwd hash uses salt
+17/08/2018 - 12:08:07 | INFO  | com.devoteam.dls.Application -> run() -> the following 2 hash should be different
+17/08/2018 - 12:08:07 | INFO  | com.devoteam.dls.Application -> run() -> $2a$10$TP1jDhwIxW/1xtLIyvNCzO2gFMaSqWyKT84byoKx7ebpWTs79Lb/u
+17/08/2018 - 12:08:08 | INFO  | com.devoteam.dls.Application -> run() -> $2a$10$jUHeu3I2vnpOXzqr6JhR3.LS3TWcqKPiCOAzJWk/ZNfZJhjVdtRA.
+17/08/2018 - 12:08:29 | INFO  | com.devoteam.dls.domain.Employee -> <init>() -> Entity employee created class com.devoteam.dls.domain.Employee
+17/08/2018 - 12:08:29 | INFO  | com.devoteam.dls.domain.Role -> <init>() -> Default constructor role create class com.devoteam.dls.domain.Role
+17/08/2018 - 12:08:29 | INFO  | com.devoteam.dls.domain.Employee -> <init>() -> Entity employee created class com.devoteam.dls.security.SecurityUserDetails
+17/08/2018 - 12:08:29 | INFO  | com.devoteam.dls.domain.Employee -> getEmployee_ID() -> Method getEmployee_ID from class employee invoked {} 
+17/08/2018 - 12:08:29 | INFO  | com.devoteam.dls.domain.Employee -> setEmployee_ID() -> Method setEmployee_ID from class employee invoked.
+17/08/2018 - 12:08:29 | INFO  | com.devoteam.dls.domain.Employee -> getUsername() -> Method getUsername from class employee invoked {} 
+17/08/2018 - 12:08:29 | INFO  | com.devoteam.dls.domain.Employee -> setUsername() -> Method setUsername from class employee invoked {}
+17/08/2018 - 12:08:29 | INFO  | com.devoteam.dls.domain.Employee -> getPassword() -> Method getPassword from class employee invoked. {}
+17/08/2018 - 12:08:29 | INFO  | com.devoteam.dls.domain.Employee -> setPassword() -> Method setPassword from class employee invoked. {}
+17/08/2018 - 12:08:29 | INFO  | com.devoteam.dls.domain.Employee -> getCreated_date() -> Method getCreated_date from class employee invoked.  {}
+17/08/2018 - 12:08:29 | INFO  | com.devoteam.dls.domain.Employee -> setCreated_date() -> Method setCreated_date from class employee invoked. New date  {}
+17/08/2018 - 12:08:29 | INFO  | com.devoteam.dls.domain.Employee -> getLast_modified_date() -> Method getLast_modified_date from class employee invoked. {}
+17/08/2018 - 12:08:29 | INFO  | com.devoteam.dls.domain.Employee -> setLast_modified_date() -> Method setLast_modified_date from class employee invoked. {}
+17/08/2018 - 12:08:29 | INFO  | com.devoteam.dls.domain.Employee -> getRoles() -> Method getRoles from class employee invoked. {}
+17/08/2018 - 12:08:29 | INFO  | com.devoteam.dls.domain.Employee -> setRoles() -> Method setRoles from class employee invoked. {}
+17/08/2018 - 12:08:29 | INFO  | com.devoteam.dls.domain.Employee -> getPassword() -> Method getPassword from class employee invoked. {}
+17/08/2018 - 12:08:29 | INFO  | com.devoteam.dls.domain.Employee -> getRoles() -> Method getRoles from class employee invoked. {}
+17/08/2018 - 12:08:29 | INFO  | com.devoteam.dls.domain.Role -> getRoleType() -> Method getRoleType from class role invoked {}
+17/08/2018 - 12:08:29 | INFO  | com.devoteam.dls.domain.Employee -> getUsername() -> Method getUsername from class employee invoked {} 
+17/08/2018 - 12:08:30 | INFO  | com.devoteam.dls.domain.Employee -> getUsername() -> Method getUsername from class employee invoked {} 
+17/08/2018 - 12:08:30 | INFO  | com.devoteam.dls.domain.Employee -> getUsername() -> Method getUsername from class employee invoked {} 
+17/08/2018 - 12:11:04 | INFO  | com.devoteam.dls.domain.Employee -> <init>() -> Entity employee created class com.devoteam.dls.domain.Employee
+17/08/2018 - 12:11:04 | INFO  | com.devoteam.dls.domain.Role -> <init>() -> Default constructor role create class com.devoteam.dls.domain.Role
+17/08/2018 - 12:11:06 | INFO  | com.devoteam.dls.config.VaadinSpringConfiguration -> passwordEncoder() -> Method passwordEncoder is invoked
+17/08/2018 - 12:11:06 | INFO  | com.devoteam.dls.config.VaadinSpringConfiguration -> configure() -> Method configure(AuthenticationManagerBuilder auth) and the hashCode is {}
+17/08/2018 - 12:11:06 | INFO  | com.devoteam.dls.config.VaadinSpringConfiguration -> rememberMeServices() -> Method rememberMeServices() invoke after the user clicked the enter button on the keyboard
+17/08/2018 - 12:11:06 | INFO  | com.devoteam.dls.config.VaadinSpringConfiguration -> sessionAuthenticationStrategy() -> Method sessionAuthenticationStrategy() invoke
+17/08/2018 - 12:11:06 | INFO  | com.devoteam.dls.config.VaadinSpringConfiguration -> configure() -> Method configure(HttpSecurity http) invoke and get object {}
+17/08/2018 - 12:11:07 | INFO  | com.devoteam.dls.config.VaadinSpringConfiguration -> configure() -> Method configure(WebSecurity web) invoke get Object{}
+17/08/2018 - 12:11:07 | INFO  | com.devoteam.dls.config.VaadinSpringConfiguration -> vaadinAuthenticationSuccessHandler() -> Method vaadinAuthenticationSuccessHandler() invoke
+17/08/2018 - 12:11:07 | INFO  | com.devoteam.dls.config.VaadinSpringConfiguration -> authenticationManagerBean() -> Method authenticationManagerBean() invoke and return super.authenticationManagerBean
+17/08/2018 - 12:11:09 | INFO  | com.devoteam.dls.Application -> run() -> checking if pwd hash uses salt
+17/08/2018 - 12:11:09 | INFO  | com.devoteam.dls.Application -> run() -> the following 2 hash should be different
+17/08/2018 - 12:11:09 | INFO  | com.devoteam.dls.Application -> run() -> $2a$10$swSL5KFLYgGfcQFkM2eQceuZP5z.vPe0w2FyeYTMMiL84czPz.rY6
+17/08/2018 - 12:11:09 | INFO  | com.devoteam.dls.Application -> run() -> $2a$10$mfFk3JgMp5KeN4fgV4o//.U1/tcW6fhrGLenpqOkkoYULepodI70.
+17/08/2018 - 12:11:41 | INFO  | com.devoteam.dls.domain.Employee -> <init>() -> Entity employee created class com.devoteam.dls.domain.Employee
+17/08/2018 - 12:11:41 | INFO  | com.devoteam.dls.domain.Role -> <init>() -> Default constructor role create class com.devoteam.dls.domain.Role
+17/08/2018 - 12:11:41 | INFO  | com.devoteam.dls.domain.Employee -> <init>() -> Entity employee created class com.devoteam.dls.security.SecurityUserDetails
+17/08/2018 - 12:11:41 | INFO  | com.devoteam.dls.domain.Employee -> getEmployee_ID() -> Method getEmployee_ID from class employee invoked {} 
+17/08/2018 - 12:11:41 | INFO  | com.devoteam.dls.domain.Employee -> setEmployee_ID() -> Method setEmployee_ID from class employee invoked.
+17/08/2018 - 12:11:41 | INFO  | com.devoteam.dls.domain.Employee -> getUsername() -> Method getUsername from class employee invoked {} 
+17/08/2018 - 12:11:41 | INFO  | com.devoteam.dls.domain.Employee -> setUsername() -> Method setUsername from class employee invoked {}
+17/08/2018 - 12:11:41 | INFO  | com.devoteam.dls.domain.Employee -> getPassword() -> Method getPassword from class employee invoked. {}
+17/08/2018 - 12:11:41 | INFO  | com.devoteam.dls.domain.Employee -> setPassword() -> Method setPassword from class employee invoked. {}
+17/08/2018 - 12:11:41 | INFO  | com.devoteam.dls.domain.Employee -> getCreated_date() -> Method getCreated_date from class employee invoked.  {}
+17/08/2018 - 12:11:41 | INFO  | com.devoteam.dls.domain.Employee -> setCreated_date() -> Method setCreated_date from class employee invoked. New date  {}
+17/08/2018 - 12:11:41 | INFO  | com.devoteam.dls.domain.Employee -> getLast_modified_date() -> Method getLast_modified_date from class employee invoked. {}
+17/08/2018 - 12:11:41 | INFO  | com.devoteam.dls.domain.Employee -> setLast_modified_date() -> Method setLast_modified_date from class employee invoked. {}
+17/08/2018 - 12:11:41 | INFO  | com.devoteam.dls.domain.Employee -> getRoles() -> Method getRoles from class employee invoked. {}
+17/08/2018 - 12:11:41 | INFO  | com.devoteam.dls.domain.Employee -> setRoles() -> Method setRoles from class employee invoked. {}
+17/08/2018 - 12:11:41 | INFO  | com.devoteam.dls.domain.Employee -> getPassword() -> Method getPassword from class employee invoked. {}
+17/08/2018 - 12:11:41 | INFO  | com.devoteam.dls.domain.Employee -> getRoles() -> Method getRoles from class employee invoked. {}
+17/08/2018 - 12:11:41 | INFO  | com.devoteam.dls.domain.Role -> getRoleType() -> Method getRoleType from class role invoked {}
+17/08/2018 - 12:11:41 | INFO  | com.devoteam.dls.domain.Employee -> getUsername() -> Method getUsername from class employee invoked {} 
+17/08/2018 - 12:11:42 | INFO  | com.devoteam.dls.domain.Employee -> getUsername() -> Method getUsername from class employee invoked {} 
+17/08/2018 - 12:11:42 | INFO  | com.devoteam.dls.domain.Employee -> getUsername() -> Method getUsername from class employee invoked {} 
+17/08/2018 - 12:23:26 | INFO  | com.devoteam.dls.domain.Employee -> <init>() -> Entity employee created class com.devoteam.dls.domain.Employee
+17/08/2018 - 12:23:26 | INFO  | com.devoteam.dls.domain.Role -> <init>() -> Default constructor role create class com.devoteam.dls.domain.Role
+17/08/2018 - 12:23:26 | INFO  | com.devoteam.dls.config.VaadinSpringConfiguration -> passwordEncoder() -> Method passwordEncoder is invoked
+17/08/2018 - 12:23:27 | INFO  | com.devoteam.dls.config.VaadinSpringConfiguration -> configure() -> Method configure(AuthenticationManagerBuilder auth) and the hashCode is {}
+17/08/2018 - 12:23:27 | INFO  | com.devoteam.dls.config.VaadinSpringConfiguration -> rememberMeServices() -> Method rememberMeServices() invoke after the user clicked the enter button on the keyboard
+17/08/2018 - 12:23:27 | INFO  | com.devoteam.dls.config.VaadinSpringConfiguration -> sessionAuthenticationStrategy() -> Method sessionAuthenticationStrategy() invoke
+17/08/2018 - 12:23:27 | INFO  | com.devoteam.dls.config.VaadinSpringConfiguration -> configure() -> Method configure(HttpSecurity http) invoke and get object {}
+17/08/2018 - 12:23:27 | INFO  | com.devoteam.dls.config.VaadinSpringConfiguration -> configure() -> Method configure(WebSecurity web) invoke get Object{}
+17/08/2018 - 12:23:27 | INFO  | com.devoteam.dls.config.VaadinSpringConfiguration -> vaadinAuthenticationSuccessHandler() -> Method vaadinAuthenticationSuccessHandler() invoke
+17/08/2018 - 12:23:27 | INFO  | com.devoteam.dls.config.VaadinSpringConfiguration -> authenticationManagerBean() -> Method authenticationManagerBean() invoke and return super.authenticationManagerBean
+17/08/2018 - 12:23:27 | INFO  | com.devoteam.dls.Application -> run() -> checking if pwd hash uses salt
+17/08/2018 - 12:23:27 | INFO  | com.devoteam.dls.Application -> run() -> the following 2 hash should be different
+17/08/2018 - 12:23:28 | INFO  | com.devoteam.dls.Application -> run() -> $2a$10$V2nas8.QJ7CvgWX9QWQiwuB/UjGuT3jrErk6s0B4l9lbkyb78bdAO
+17/08/2018 - 12:23:28 | INFO  | com.devoteam.dls.Application -> run() -> $2a$10$RovoQn7JwmazZlf78NkI7ucaW9ynnh5nJOsERW534G2mcN0KNXBAG
+17/08/2018 - 12:29:10 | INFO  | com.devoteam.dls.domain.Employee -> <init>() -> Entity employee created class com.devoteam.dls.domain.Employee
+17/08/2018 - 12:29:10 | INFO  | com.devoteam.dls.domain.Role -> <init>() -> Default constructor role create class com.devoteam.dls.domain.Role
+17/08/2018 - 12:29:11 | INFO  | com.devoteam.dls.config.VaadinSpringConfiguration -> passwordEncoder() -> Method passwordEncoder is invoked
+17/08/2018 - 12:29:11 | INFO  | com.devoteam.dls.config.VaadinSpringConfiguration -> configure() -> Method configure(AuthenticationManagerBuilder auth) and the hashCode is {}
+17/08/2018 - 12:29:11 | INFO  | com.devoteam.dls.config.VaadinSpringConfiguration -> rememberMeServices() -> Method rememberMeServices() invoke after the user clicked the enter button on the keyboard
+17/08/2018 - 12:29:11 | INFO  | com.devoteam.dls.config.VaadinSpringConfiguration -> sessionAuthenticationStrategy() -> Method sessionAuthenticationStrategy() invoke
+17/08/2018 - 12:29:11 | INFO  | com.devoteam.dls.config.VaadinSpringConfiguration -> configure() -> Method configure(HttpSecurity http) invoke and get object {}
+17/08/2018 - 12:29:11 | INFO  | com.devoteam.dls.config.VaadinSpringConfiguration -> configure() -> Method configure(WebSecurity web) invoke get Object{}
+17/08/2018 - 12:29:11 | INFO  | com.devoteam.dls.config.VaadinSpringConfiguration -> vaadinAuthenticationSuccessHandler() -> Method vaadinAuthenticationSuccessHandler() invoke
+17/08/2018 - 12:29:11 | INFO  | com.devoteam.dls.config.VaadinSpringConfiguration -> authenticationManagerBean() -> Method authenticationManagerBean() invoke and return super.authenticationManagerBean
+17/08/2018 - 12:29:12 | INFO  | com.devoteam.dls.Application -> run() -> checking if pwd hash uses salt
+17/08/2018 - 12:29:12 | INFO  | com.devoteam.dls.Application -> run() -> the following 2 hash should be different
+17/08/2018 - 12:29:12 | INFO  | com.devoteam.dls.Application -> run() -> $2a$10$G6rDBNDz9Bx/yHAVSKJToOuRNqQiDd9RyPuUc1XdEE5D2ZYRgV1Je
+17/08/2018 - 12:29:12 | INFO  | com.devoteam.dls.Application -> run() -> $2a$10$v3B5bnEmVt/Kx6cQrgyFlOIbo5nquDaFkPtY4s33wXmrg0jv7UhSO
+17/08/2018 - 12:33:32 | INFO  | com.devoteam.dls.domain.Employee -> <init>() -> Entity employee created class com.devoteam.dls.domain.Employee
+17/08/2018 - 12:33:32 | INFO  | com.devoteam.dls.domain.Role -> <init>() -> Default constructor role create class com.devoteam.dls.domain.Role
+17/08/2018 - 12:33:32 | INFO  | com.devoteam.dls.config.VaadinSpringConfiguration -> passwordEncoder() -> Method passwordEncoder is invoked
+17/08/2018 - 12:33:32 | INFO  | com.devoteam.dls.config.VaadinSpringConfiguration -> configure() -> Method configure(AuthenticationManagerBuilder auth) and the hashCode is {}
+17/08/2018 - 12:33:32 | INFO  | com.devoteam.dls.config.VaadinSpringConfiguration -> rememberMeServices() -> Method rememberMeServices() invoke after the user clicked the enter button on the keyboard
+17/08/2018 - 12:33:32 | INFO  | com.devoteam.dls.config.VaadinSpringConfiguration -> sessionAuthenticationStrategy() -> Method sessionAuthenticationStrategy() invoke
+17/08/2018 - 12:33:32 | INFO  | com.devoteam.dls.config.VaadinSpringConfiguration -> configure() -> Method configure(HttpSecurity http) invoke and get object {}
+17/08/2018 - 12:33:32 | INFO  | com.devoteam.dls.config.VaadinSpringConfiguration -> configure() -> Method configure(WebSecurity web) invoke get Object{}
+17/08/2018 - 12:33:32 | INFO  | com.devoteam.dls.config.VaadinSpringConfiguration -> vaadinAuthenticationSuccessHandler() -> Method vaadinAuthenticationSuccessHandler() invoke
+17/08/2018 - 12:33:32 | INFO  | com.devoteam.dls.config.VaadinSpringConfiguration -> authenticationManagerBean() -> Method authenticationManagerBean() invoke and return super.authenticationManagerBean
+17/08/2018 - 12:33:33 | INFO  | com.devoteam.dls.Application -> run() -> checking if pwd hash uses salt
+17/08/2018 - 12:33:33 | INFO  | com.devoteam.dls.Application -> run() -> the following 2 hash should be different
+17/08/2018 - 12:33:33 | INFO  | com.devoteam.dls.Application -> run() -> $2a$10$6byu4KIjEJwiXXtNIL/LluSXOX5ENHEED61rmbuJPAFntvRC0.Iqa
+17/08/2018 - 12:33:33 | INFO  | com.devoteam.dls.Application -> run() -> $2a$10$Wyt1.crxEE7foQmlunWIW.6yPTv8r56COue.KcrXbQJp7Gi.9gd3e
+17/08/2018 - 12:35:19 | INFO  | com.devoteam.dls.domain.Employee -> <init>() -> Entity employee created class com.devoteam.dls.domain.Employee
+17/08/2018 - 12:35:19 | INFO  | com.devoteam.dls.domain.Role -> <init>() -> Default constructor role create class com.devoteam.dls.domain.Role
+17/08/2018 - 12:35:19 | INFO  | com.devoteam.dls.config.VaadinSpringConfiguration -> passwordEncoder() -> Method passwordEncoder is invoked
+17/08/2018 - 12:35:19 | INFO  | com.devoteam.dls.config.VaadinSpringConfiguration -> configure() -> Method configure(AuthenticationManagerBuilder auth) and the hashCode is {}
+17/08/2018 - 12:35:19 | INFO  | com.devoteam.dls.config.VaadinSpringConfiguration -> rememberMeServices() -> Method rememberMeServices() invoke after the user clicked the enter button on the keyboard
+17/08/2018 - 12:35:19 | INFO  | com.devoteam.dls.config.VaadinSpringConfiguration -> sessionAuthenticationStrategy() -> Method sessionAuthenticationStrategy() invoke
+17/08/2018 - 12:35:19 | INFO  | com.devoteam.dls.config.VaadinSpringConfiguration -> configure() -> Method configure(HttpSecurity http) invoke and get object {}
+17/08/2018 - 12:35:19 | INFO  | com.devoteam.dls.config.VaadinSpringConfiguration -> configure() -> Method configure(WebSecurity web) invoke get Object{}
+17/08/2018 - 12:35:19 | INFO  | com.devoteam.dls.config.VaadinSpringConfiguration -> vaadinAuthenticationSuccessHandler() -> Method vaadinAuthenticationSuccessHandler() invoke
+17/08/2018 - 12:35:19 | INFO  | com.devoteam.dls.config.VaadinSpringConfiguration -> authenticationManagerBean() -> Method authenticationManagerBean() invoke and return super.authenticationManagerBean
+17/08/2018 - 12:35:20 | INFO  | com.devoteam.dls.Application -> run() -> checking if pwd hash uses salt
+17/08/2018 - 12:35:20 | INFO  | com.devoteam.dls.Application -> run() -> the following 2 hash should be different
+17/08/2018 - 12:35:20 | INFO  | com.devoteam.dls.Application -> run() -> $2a$10$BFP.WHu/tzOhNE3eF3s77upmxhwuwSW246Fb0ROHtVqQk5sN.BC1G
+17/08/2018 - 12:35:20 | INFO  | com.devoteam.dls.Application -> run() -> $2a$10$F0nqnqRjB.tzsceHt2eAL.bvq2NvnBUXk1b19uv9kN.BtxqkgK4F.
+17/08/2018 - 12:36:12 | INFO  | com.devoteam.dls.domain.Employee -> <init>() -> Entity employee created class com.devoteam.dls.domain.Employee
+17/08/2018 - 12:36:12 | INFO  | com.devoteam.dls.domain.Role -> <init>() -> Default constructor role create class com.devoteam.dls.domain.Role
+17/08/2018 - 12:36:13 | INFO  | com.devoteam.dls.config.VaadinSpringConfiguration -> passwordEncoder() -> Method passwordEncoder is invoked
+17/08/2018 - 12:36:13 | INFO  | com.devoteam.dls.config.VaadinSpringConfiguration -> configure() -> Method configure(AuthenticationManagerBuilder auth) and the hashCode is {}
+17/08/2018 - 12:36:13 | INFO  | com.devoteam.dls.config.VaadinSpringConfiguration -> rememberMeServices() -> Method rememberMeServices() invoke after the user clicked the enter button on the keyboard
+17/08/2018 - 12:36:13 | INFO  | com.devoteam.dls.config.VaadinSpringConfiguration -> sessionAuthenticationStrategy() -> Method sessionAuthenticationStrategy() invoke
+17/08/2018 - 12:36:13 | INFO  | com.devoteam.dls.config.VaadinSpringConfiguration -> configure() -> Method configure(HttpSecurity http) invoke and get object {}
+17/08/2018 - 12:36:13 | INFO  | com.devoteam.dls.config.VaadinSpringConfiguration -> configure() -> Method configure(WebSecurity web) invoke get Object{}
+17/08/2018 - 12:36:13 | INFO  | com.devoteam.dls.config.VaadinSpringConfiguration -> vaadinAuthenticationSuccessHandler() -> Method vaadinAuthenticationSuccessHandler() invoke
+17/08/2018 - 12:36:13 | INFO  | com.devoteam.dls.config.VaadinSpringConfiguration -> authenticationManagerBean() -> Method authenticationManagerBean() invoke and return super.authenticationManagerBean
+17/08/2018 - 12:36:13 | INFO  | com.devoteam.dls.Application -> run() -> checking if pwd hash uses salt
+17/08/2018 - 12:36:13 | INFO  | com.devoteam.dls.Application -> run() -> the following 2 hash should be different
+17/08/2018 - 12:36:14 | INFO  | com.devoteam.dls.Application -> run() -> $2a$10$r3sQLlvuRiGt6Nxk87TWAe7cNZ74w2DbTpDnzbAnfQ9Kw2lhZf/SW
+17/08/2018 - 12:36:14 | INFO  | com.devoteam.dls.Application -> run() -> $2a$10$mZfXUlikWSAwSLAiTeQtzOkobWvgzq/iLhmZ8DTFabWo0Pnd5ex/.
+17/08/2018 - 12:36:26 | INFO  | com.devoteam.dls.domain.Employee -> <init>() -> Entity employee created class com.devoteam.dls.domain.Employee
+17/08/2018 - 12:36:26 | INFO  | com.devoteam.dls.domain.Role -> <init>() -> Default constructor role create class com.devoteam.dls.domain.Role
+17/08/2018 - 12:36:26 | INFO  | com.devoteam.dls.config.VaadinSpringConfiguration -> passwordEncoder() -> Method passwordEncoder is invoked
+17/08/2018 - 12:36:26 | INFO  | com.devoteam.dls.config.VaadinSpringConfiguration -> configure() -> Method configure(AuthenticationManagerBuilder auth) and the hashCode is {}
+17/08/2018 - 12:36:26 | INFO  | com.devoteam.dls.config.VaadinSpringConfiguration -> rememberMeServices() -> Method rememberMeServices() invoke after the user clicked the enter button on the keyboard
+17/08/2018 - 12:36:26 | INFO  | com.devoteam.dls.config.VaadinSpringConfiguration -> sessionAuthenticationStrategy() -> Method sessionAuthenticationStrategy() invoke
+17/08/2018 - 12:36:26 | INFO  | com.devoteam.dls.config.VaadinSpringConfiguration -> configure() -> Method configure(HttpSecurity http) invoke and get object {}
+17/08/2018 - 12:36:26 | INFO  | com.devoteam.dls.config.VaadinSpringConfiguration -> configure() -> Method configure(WebSecurity web) invoke get Object{}
+17/08/2018 - 12:36:26 | INFO  | com.devoteam.dls.config.VaadinSpringConfiguration -> vaadinAuthenticationSuccessHandler() -> Method vaadinAuthenticationSuccessHandler() invoke
+17/08/2018 - 12:36:27 | INFO  | com.devoteam.dls.config.VaadinSpringConfiguration -> authenticationManagerBean() -> Method authenticationManagerBean() invoke and return super.authenticationManagerBean
+17/08/2018 - 12:36:27 | INFO  | com.devoteam.dls.Application -> run() -> checking if pwd hash uses salt
+17/08/2018 - 12:36:27 | INFO  | com.devoteam.dls.Application -> run() -> the following 2 hash should be different
+17/08/2018 - 12:36:27 | INFO  | com.devoteam.dls.Application -> run() -> $2a$10$w2hS65/I2KiN5w6yw9Pz9enrVgRwxKHw9hKetTp5ji4/eRXvDcn.S
+17/08/2018 - 12:36:27 | INFO  | com.devoteam.dls.Application -> run() -> $2a$10$yCJxtN8cE4A6/G9YE9IXc.IFTK83c4cwii.XFRks6wDy4QSm91RWe
