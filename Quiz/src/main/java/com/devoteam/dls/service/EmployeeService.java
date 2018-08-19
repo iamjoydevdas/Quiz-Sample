@@ -1,5 +1,7 @@
 package com.devoteam.dls.service;
 
+import java.util.List;
+
 import com.devoteam.dls.domain.Employee;
 
 /**
@@ -17,5 +19,7 @@ public interface EmployeeService {
 	
 	void createEmployee(Employee employee);
 	
-
+	List<Employee> fetchAllEmployees();
+	
+	List<Employee> fetchAllLoggedInEmployee();
 }

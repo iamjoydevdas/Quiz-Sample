@@ -1,3 +1,4 @@
+.gitignore
 *.class
 *.jar
 *.classpath
@@ -33,6 +34,5 @@ style.css.map
 .recommenders/**
 *.fdt
 *.nrm
-*.log
-
+Quiz/*.log
 Quiz/dls.log
