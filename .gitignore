@@ -33,6 +33,3 @@ style.css.map
 .recommenders/**
 *.fdt
 *.nrm
-*.log
-
-Quiz/dls.log
