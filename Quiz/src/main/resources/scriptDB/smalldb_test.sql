@@ -18,14 +18,14 @@ CREATE TABLE IF NOT EXISTS Role (
 );
 ---------------------------------------------------------------------------------
 CREATE TABLE IF NOT EXISTS Quizzers (
-	quizzerId serial,
-	empId INTEGER,
-	lastPlayed DATE,
-	totalPlayed INTEGER,
-	totalWin INTEGER,
-	status INTEGER,
-	PRIMARY KEY(quizzerId),
-	FOREIGN KEY(empId) REFERENCES employee (employee_ID) 
+	quizzer_ID serial,
+	emp_ID INTEGER,
+	last_Played DATE,
+	total_Played INTEGER,
+	total_Win INTEGER,
+	quizzer_status INTEGER,
+	PRIMARY KEY(quizzer_ID),
+	FOREIGN KEY(emp_ID) REFERENCES employee (employee_ID) 
 );
 ---------------------------------------------------------------------------------
 CREATE TABLE IF NOT EXISTS PlayingRequests (
@@ -88,5 +88,5 @@ INSERT INTO role(role_ID, role_type, created_date, employee_ID) VALUES
 (4, 'ROLE_USER', now(), 4),
 (5, 'ROLE_USER', now(), 5);
 
-INSERT INTO Quizzers(quizzerid, empid, lastplayed, totalplayed, totalwin) VALUES
-(1, 5, now(), 0, 0);
+INSERT INTO Quizzers(quizzer_ID, emp_ID, last_Played, total_Played, total_Win, quizzer_status) VALUES
+(1, 5, now(), 0, 0, 1);
