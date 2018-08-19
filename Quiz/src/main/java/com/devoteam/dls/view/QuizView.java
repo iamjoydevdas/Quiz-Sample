@@ -1,7 +1,14 @@
 package com.devoteam.dls.view;
 
+import java.util.List;
+
 import javax.annotation.PostConstruct;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.devoteam.dls.domain.Quizzer;
+import com.devoteam.dls.security.SecurityContextUtils;
+import com.devoteam.dls.service.QuizzerService;
 import com.vaadin.navigator.View;
 import com.vaadin.navigator.ViewChangeListener;
 import com.vaadin.spring.annotation.SpringView;
@@ -28,9 +35,12 @@ public class QuizView extends VerticalLayout implements View {
     private Panel dashBoardPanel;
     private VerticalLayout panelLayout;
     private VerticalLayout dashBoardPanelLayout;
-    private Label userOneButton;
-    private Label userTwoButton;
-    private Label userThreeButton;
+   // private Label userOneButton;
+  /*  private Label userTwoButton;
+    private Label userThreeButton;*/
+    
+    @Autowired
+    private QuizzerService quizzerService;
 
     @PostConstruct
     public void init() {
@@ -67,7 +77,7 @@ public class QuizView extends VerticalLayout implements View {
     	dashBoardPanel.setWidth("920px");
     	dashBoardPanel.setHeight("405px");
     	
-    	userOneButton = new Label();
+    	/*userOneButton = new Label();
     	userOneButton.setCaption("Joydev");
     	userOneButton.setStyleName("primary");
     	userOneButton.setWidth("250px");
@@ -83,11 +93,13 @@ public class QuizView extends VerticalLayout implements View {
     	userThreeButton.setCaption("Sampad");
     	userThreeButton.setStyleName("primary");
     	userThreeButton.setWidth("250px");
-    	userThreeButton.setHeight("-1px");
+    	userThreeButton.setHeight("-1px");*/
     	
-    	for(int i=0; i<5;i++){
+    	List<Quizzer> quizzers = quizzerService.fetchAllQuizzerExceptSelf(SecurityContextUtils.getUser().getUsername());
+    	
+    	for(Quizzer quizzer : quizzers){
     		Label label = new Label();
-    		label.setCaption("new "+i);
+    		label.setCaption(quizzer.getEmployee().getUsername());
     		label.setStyleName("primary");
     		label.setWidth("250px");
     		label.setHeight("-1px");
@@ -95,9 +107,9 @@ public class QuizView extends VerticalLayout implements View {
     	}
     	
     	
-    	panelLayout.addComponent(userOneButton);
+    	/*panelLayout.addComponent(userOneButton);
     	panelLayout.addComponent(userTwoButton);
-    	panelLayout.addComponent(userThreeButton);
+    	panelLayout.addComponent(userThreeButton);*/
     	
     	//panel.
     	mainLayout.addComponent(panel);
