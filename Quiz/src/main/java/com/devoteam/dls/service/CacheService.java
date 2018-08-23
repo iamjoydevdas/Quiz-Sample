@@ -7,4 +7,5 @@ import com.devoteam.dls.domain.Quizzer;
 public interface CacheService {
 	void setQuizzer(Quizzer quizzer);
 	List<Quizzer> getQuizzers();
+	void removeQuizzer();
 }

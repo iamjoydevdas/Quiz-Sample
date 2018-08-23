@@ -36,5 +36,9 @@ public class CacheServiceImpl implements CacheService {
 		}
 		return activeQuizzers;
 	}
-
+	
+	@Override
+	public void removeQuizzer() {
+		cacheManager.getCache(quizzerCache).removeAll();
+	}
 }
