@@ -134,7 +134,10 @@ public class QuizView extends VerticalLayout implements View {
     		userButton.setData(quizzer);
     		
     		userButton.addClickListener(event-> {
-    			createWindow();
+    			if(isQuizzerActive(quizzer.getQuizzer_ID())) {
+    				createWindow();
+    			}
+    			
     		});
     		panelLayout.addComponent(userButton);
     	}
