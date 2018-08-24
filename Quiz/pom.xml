@@ -167,6 +167,13 @@
 				<groupId>org.apache.logging.log4j</groupId>
 				<artifactId>log4j-core</artifactId>
 			</dependency>
+			
+			<dependency>
+				<groupId>com.vaadin</groupId>
+				<artifactId>vaadin-icons</artifactId>
+				<version>3.0.0</version>
+			</dependency>
+			
 		</dependencies>
 	</dependencyManagement>
 	<build>
