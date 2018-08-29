@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.devoteam.dls.domain.Quizzer;
 import com.devoteam.dls.security.SecurityContextUtils;
+import com.devoteam.dls.service.CacheService;
 import com.devoteam.dls.service.QuizzerService;
 import com.vaadin.icons.VaadinIcons;
 import com.vaadin.navigator.View;
@@ -34,6 +35,9 @@ public class QuizView extends VerticalLayout implements View {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+
+	@Autowired
+	private CacheService cacheService;
 	
 	public static final String VIEW_NAME = "quiz";
     private HorizontalLayout mainLayout;
@@ -109,8 +113,8 @@ public class QuizView extends VerticalLayout implements View {
     	
     	for(Quizzer quizzer : quizzers){
     		Button userButton;
-    		if(quizzer.getQuizzer_status().getStatus() == 1) {
-    			//userButton.setCaption(VaadinIcons.CIRCLE);
+    		if(isQuizzerActive(quizzer.getQuizzer_ID())) {
+    			//userButton.setCaption(VaadinIcons.CIRCLE);s
     			//userButton.setIcon(VaadinIcons.CIRCLE);
     			userButton = new Button();
     			userButton.setCaptionAsHtml(true);
@@ -130,7 +134,10 @@ public class QuizView extends VerticalLayout implements View {
     		userButton.setData(quizzer);
     		
     		userButton.addClickListener(event-> {
-    			createWindow();
+    			if(isQuizzerActive(quizzer.getQuizzer_ID())) {
+    				createWindow();
+    			}
+    			
     		});
     		panelLayout.addComponent(userButton);
     	}
@@ -147,7 +154,17 @@ public class QuizView extends VerticalLayout implements View {
     	
     	
     }
-
+    
+    boolean isQuizzerActive(Long quizzer_ID) {
+    	List<Quizzer> activeQuizzers = cacheService.getQuizzers();
+		for(Quizzer q : activeQuizzers) {
+			if(q.getQuizzer_ID() == quizzer_ID) {
+				return true;
+			}
+		}
+		return false;
+    }
+    
     @Override
     public void enter(ViewChangeListener.ViewChangeEvent view) {
     	/*userOneButton.addClickListener(event-> {
