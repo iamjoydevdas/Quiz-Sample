@@ -17,12 +17,15 @@ import com.vaadin.server.FontAwesome;
 import com.vaadin.spring.annotation.SpringView;
 import com.vaadin.ui.Alignment;
 import com.vaadin.ui.Button;
+import com.vaadin.ui.ComboBox;
 import com.vaadin.ui.HorizontalLayout;
 import com.vaadin.ui.Label;
+import com.vaadin.ui.Notification;
 import com.vaadin.ui.Panel;
 import com.vaadin.ui.UI;
 import com.vaadin.ui.VerticalLayout;
 import com.vaadin.ui.Window;
+import com.vaadin.ui.Notification.Type;
 import com.vaadin.ui.themes.ValoTheme;
 
 /**
@@ -75,9 +78,38 @@ public class QuizView extends VerticalLayout implements View {
     	dashBoardPanelLayout = new VerticalLayout();
     	dashBoardPanelLayout.setStyleName("wrapping");
     	dashBoardPanelLayout.setSpacing(false);
-    	dashBoardPanelLayout.setMargin(false);
+    	dashBoardPanelLayout.setMargin(true);
     	dashBoardPanelLayout.setWidth("-1px");
     	dashBoardPanelLayout.setHeight("-1px");
+    	
+    	Button userNameButton = new Button();
+    	userNameButton.setCaption("Joydev");
+    	userNameButton.setWidth("200px");
+    	userNameButton.setStyleName("primary");
+    	dashBoardPanelLayout.addComponent(userNameButton);
+    	
+    	VerticalLayout userDetailsVerticalLayout = new VerticalLayout();
+    	userDetailsVerticalLayout.setStyleName("wrapping");
+    	userDetailsVerticalLayout.setSpacing(true);
+    	userDetailsVerticalLayout.setMargin(true);
+    	userDetailsVerticalLayout.setWidth("-1px");
+    	userDetailsVerticalLayout.setHeight("-1px");
+    	
+    	Label totalPlayed = new Label("Total Played : 10");
+    	Label totalWin = new Label("Total Win : 8");
+    	Label totalLose = new Label("Total Lose : 2");
+    	
+    	userDetailsVerticalLayout.addComponent(totalPlayed);
+    	userDetailsVerticalLayout.addComponent(totalWin);
+    	userDetailsVerticalLayout.addComponent(totalLose);
+    	
+    	Panel userDetailsPanel = new Panel(userDetailsVerticalLayout);
+    	userDetailsPanel.setStyleName("light");
+    	userDetailsPanel.setWidth("200px");
+    	userDetailsPanel.setHeight("200px");
+    	
+    	dashBoardPanelLayout.addComponent(userDetailsPanel);
+    	
     	
     	panel = new Panel(panelLayout);
     	panel.setStyleName("light");
@@ -162,6 +194,7 @@ public class QuizView extends VerticalLayout implements View {
 				return true;
 			}
 		}
+		//return true;
 		return false;
     }
     
@@ -182,7 +215,16 @@ public class QuizView extends VerticalLayout implements View {
 		Label questionLabel = new Label();
 		questionLabel.setValue("Do you want to send request?");
 		
+		ComboBox<String> questionTypeComboBox = new ComboBox<>("Select a quistion type");
+		questionTypeComboBox.setEmptySelectionAllowed(false);
+		questionTypeComboBox.setWidth("220px");
+		questionTypeComboBox.setHeight("-1px");
+		questionTypeComboBox.setItems("...","Java", "Vaadin");
+		questionTypeComboBox.setSelectedItem("...");
+		questionTypeComboBox.addStyleName(ValoTheme.COMBOBOX_SMALL);
+		
 		windowLayout.addComponent(questionLabel);
+		windowLayout.addComponent(questionTypeComboBox);
 		
 		HorizontalLayout buttonLayout = new HorizontalLayout();
 		buttonLayout.setSpacing(true);
@@ -214,6 +256,11 @@ public class QuizView extends VerticalLayout implements View {
 		UI.getCurrent().addWindow(quistenWindow);
 		
 		yesButton.addClickListener(event-> {
+			if("...".equals(questionTypeComboBox.getValue().toString())){
+				Notification.show("Please select a valid data", Type.WARNING_MESSAGE);
+				return;
+			}
+			mainLayout.removeComponent(dashBoardPanel);
 			quistenWindow.close();
 		});
 		
