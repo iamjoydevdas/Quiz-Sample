@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import com.devoteam.dls.dao.EmployeeRepository;
 import com.devoteam.dls.domain.Employee;
 import com.devoteam.dls.domain.Quizzer;
+import com.devoteam.dls.service.CacheService;
 import com.devoteam.dls.service.QuizzerService;
 
 /**
@@ -25,16 +26,20 @@ public class SecurityUserDetailsService implements UserDetailsService {
     @Autowired
     private QuizzerService quizzerService;
     
+    @Autowired
+    private CacheService cacheService;
+    
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-    	List<Quizzer> quizzers = quizzerService.fetchAllQuizzer();
-    	for(Quizzer quizzer : quizzers) {
-    		System.out.println(quizzer);
-    	}
         final Employee user = userRepository.findByUsername(username);
         if(user==null) {
             throw new UsernameNotFoundException("Username Not Found Exception : " + username);
         }
+        Quizzer quizzer = quizzerService.fetchQuizzer(username);
+        if(quizzer != null) {
+        	cacheService.setQuizzer(quizzer);
+        }
+        System.out.println(cacheService.getQuizzers());
         return new SecurityUserDetails(user);
     }
 }

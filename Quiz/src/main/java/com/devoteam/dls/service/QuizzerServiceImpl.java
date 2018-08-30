@@ -43,4 +43,16 @@ public class QuizzerServiceImpl implements QuizzerService {
 		return outputQuizzer;
 	}
 
+	@Override
+	public Quizzer fetchQuizzer(String username) {
+		LOG.info("Fetching current user as quizzer");
+		List<Quizzer> orizinalQuizzers = quizzerRepo.findAll();
+		for(Quizzer quizzer : orizinalQuizzers) {
+			if(quizzer.getEmployee().getUsername().equals(username) && quizzer.getQuizzer_status().equals(QuizzerStatus.ACTIVE)) {
+				return quizzer;
+			}
+		}
+		return null;
+	}
+
 }

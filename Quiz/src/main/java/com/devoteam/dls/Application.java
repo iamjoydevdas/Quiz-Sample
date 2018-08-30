@@ -6,13 +6,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cache.CacheManager;
+import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 import com.devoteam.dls.dao.EmployeeRepository;
+import com.devoteam.dls.service.CacheService;
 
 /**
  * Created by basakpie on 2017-05-15.
  */
+@EnableCaching
 @SpringBootApplication(exclude = org.springframework.boot.autoconfigure.security.SecurityAutoConfiguration.class)
 public class Application implements CommandLineRunner {
 
@@ -22,6 +26,11 @@ public class Application implements CommandLineRunner {
     @Autowired
     PasswordEncoder passwordEncoder;
     
+    @Autowired
+    private CacheManager cacheManager;
+    
+    @Autowired
+    private CacheService cacheService;
     
     private static final Logger LOG = LogManager.getLogger(Application.class);
 
@@ -42,6 +51,7 @@ public class Application implements CommandLineRunner {
     		LOG.info(passwordEncoder.encode("123"));
     		LOG.info(passwordEncoder.encode("123"));
     		System.out.println(passwordEncoder.encode("123"));
+    		cacheService.removeQuizzer();
 //    	
 //            Role role = new Role();
 //            role.setType(x);

@@ -1,16 +1,29 @@
 package com.devoteam.dls.ui;
 
-import com.vaadin.annotations.Theme;
-import com.vaadin.event.ShortcutAction;
-import com.vaadin.server.VaadinRequest;
-import com.vaadin.spring.annotation.SpringUI;
-import com.vaadin.ui.*;
-import com.vaadin.ui.Button.ClickEvent;
-import com.vaadin.ui.themes.ValoTheme;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.AuthenticationException;
 import org.vaadin.spring.security.shared.VaadinSharedSecurity;
+
+import com.vaadin.annotations.Theme;
+import com.vaadin.event.ShortcutAction;
+import com.vaadin.server.VaadinRequest;
+import com.vaadin.spring.annotation.SpringUI;
+import com.vaadin.ui.Alignment;
+import com.vaadin.ui.Button;
+import com.vaadin.ui.CheckBox;
+import com.vaadin.ui.FormLayout;
+import com.vaadin.ui.Label;
+import com.vaadin.ui.Notification;
+import com.vaadin.ui.PasswordField;
+import com.vaadin.ui.TextField;
+import com.vaadin.ui.UI;
+import com.vaadin.ui.VerticalLayout;
+import com.vaadin.ui.themes.ValoTheme;
+
+import net.sf.ehcache.Cache;
+import net.sf.ehcache.CacheManager;
+import net.sf.ehcache.Element;
 
 /**
  * Created by basakpie on 2017. 5. 11..
@@ -26,7 +39,10 @@ public class LoginUI extends UI {
 
 	@Autowired
 	VaadinSharedSecurity vaadinSecurity;
-
+	
+    @Autowired
+    private CacheManager cacheManager;
+    
 	private TextField userName;
 
 	private PasswordField passwordField;
@@ -107,6 +123,10 @@ public class LoginUI extends UI {
 	private void login() {
 		try {
 			vaadinSecurity.login(userName.getValue(), passwordField.getValue(), rememberMe.getValue());
+			/*Cache cache = cacheManager.getCache("quizzers");
+			cache.put(new Element(userName.getValue(),""));
+			Element e = cache.get(userName.getValue());
+			System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"+e.getObjectValue().toString());*/
 		} catch (AuthenticationException ex) {
 			userName.focus();
 			userName.selectAll();

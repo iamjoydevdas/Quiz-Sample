@@ -6,7 +6,7 @@ spring:
 # Database
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:5432/postgres?createDatabaseIfNotExist=true
+    url: jdbc:postgresql://localhost:5433/postgres?createDatabaseIfNotExist=true
     username: postgres 
     password: admin
 # JPA properties
@@ -18,6 +18,11 @@ spring:
     database-platform: org.hibernate.dialect.PostgreSQLDialect
     open-in-view: false
     generate-ddl: true
+# Cache
+cache:
+  classPathConfigLocation: ehcache.xml
+  quizzer:
+    name: quizzers
 # Logger configuration
 logging:
   pattern:

@@ -8,15 +8,22 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.devoteam.dls.domain.Quizzer;
 import com.devoteam.dls.security.SecurityContextUtils;
+import com.devoteam.dls.service.CacheService;
 import com.devoteam.dls.service.QuizzerService;
+import com.vaadin.icons.VaadinIcons;
 import com.vaadin.navigator.View;
 import com.vaadin.navigator.ViewChangeListener;
+import com.vaadin.server.FontAwesome;
 import com.vaadin.spring.annotation.SpringView;
+import com.vaadin.ui.Alignment;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.HorizontalLayout;
 import com.vaadin.ui.Label;
 import com.vaadin.ui.Panel;
+import com.vaadin.ui.UI;
 import com.vaadin.ui.VerticalLayout;
+import com.vaadin.ui.Window;
+import com.vaadin.ui.themes.ValoTheme;
 
 /**
  * Created by basakpie on 2017. 5. 11..
@@ -28,6 +35,9 @@ public class QuizView extends VerticalLayout implements View {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+
+	@Autowired
+	private CacheService cacheService;
 	
 	public static final String VIEW_NAME = "quiz";
     private HorizontalLayout mainLayout;
@@ -44,6 +54,10 @@ public class QuizView extends VerticalLayout implements View {
 
     @PostConstruct
     public void init() {
+    	/*Icon logo = new Icon(VaadinIcon.VAADIN_H);
+    	logo.setSize("100px");
+    	logo.setColor("orange");*/
+    	
     	mainLayout = new HorizontalLayout();
     	mainLayout.setStyleName("wrapping");
     	mainLayout.setSpacing(false);
@@ -98,12 +112,34 @@ public class QuizView extends VerticalLayout implements View {
     	List<Quizzer> quizzers = quizzerService.fetchAllQuizzerExceptSelf(SecurityContextUtils.getUser().getUsername());
     	
     	for(Quizzer quizzer : quizzers){
-    		Label label = new Label();
-    		label.setCaption(quizzer.getEmployee().getUsername());
-    		label.setStyleName("primary");
-    		label.setWidth("250px");
-    		label.setHeight("-1px");
-    		panelLayout.addComponent(label);
+    		Button userButton;
+    		if(isQuizzerActive(quizzer.getQuizzer_ID())) {
+    			//userButton.setCaption(VaadinIcons.CIRCLE);s
+    			//userButton.setIcon(VaadinIcons.CIRCLE);
+    			userButton = new Button();
+    			userButton.setCaptionAsHtml(true);
+    			userButton.setCaption( quizzer.getEmployee().getUsername() + "<span style=\'color: " + "lime" + " !important; left:3px; top:2px;position:relative;\'>" + VaadinIcons.DOT_CIRCLE.getHtml()  + "</span>" );
+    			userButton.addStyleName(ValoTheme.BUTTON_TINY);
+    			//userButton.addStyleName(ValoTheme.BUTTON_PRIMARY);
+    			//userButton.setIcon(VaadinIcons.CIRCLE, quizzer.getEmployee().getUsername());
+    			
+    		} else {
+    			userButton = new Button(quizzer.getEmployee().getUsername());
+    			//userButton.setCaption(quizzer.getEmployee().getUsername());
+    		}
+    		
+    		//userButton.setStyleName("primary");
+    		userButton.setWidth("250px");
+    		userButton.setHeight("-1px");
+    		userButton.setData(quizzer);
+    		
+    		userButton.addClickListener(event-> {
+    			if(isQuizzerActive(quizzer.getQuizzer_ID())) {
+    				createWindow();
+    			}
+    			
+    		});
+    		panelLayout.addComponent(userButton);
     	}
     	
     	
@@ -118,15 +154,77 @@ public class QuizView extends VerticalLayout implements View {
     	
     	
     }
-
+    
+    boolean isQuizzerActive(Long quizzer_ID) {
+    	List<Quizzer> activeQuizzers = cacheService.getQuizzers();
+		for(Quizzer q : activeQuizzers) {
+			if(q.getQuizzer_ID() == quizzer_ID) {
+				return true;
+			}
+		}
+		return false;
+    }
+    
     @Override
     public void enter(ViewChangeListener.ViewChangeEvent view) {
     	/*userOneButton.addClickListener(event-> {
     		panelLayout.addComponent(new Label("New"));
     	});*/
     }
+    
+	private void createWindow() {
+		VerticalLayout windowLayout = new VerticalLayout();
+		windowLayout.setMargin(true);
+		windowLayout.setSpacing(true);
+		windowLayout.setWidth("-1px");
+		windowLayout.setHeight("-1px");
+		
+		Label questionLabel = new Label();
+		questionLabel.setValue("Do you want to send request?");
+		
+		windowLayout.addComponent(questionLabel);
+		
+		HorizontalLayout buttonLayout = new HorizontalLayout();
+		buttonLayout.setSpacing(true);
+		buttonLayout.setWidth("-1px");
+		buttonLayout.setHeight("-1px");
+		
+		Button yesButton = new Button();
+		yesButton.setCaption("Yes");
+		yesButton.setStyleName("primary");
+		
+		Button noButton = new Button();
+		noButton.setCaption("No");
+		noButton.setStyleName("primary");
+		
+		buttonLayout.addComponent(yesButton);
+		buttonLayout.addComponent(noButton);
+		windowLayout.addComponent(buttonLayout);
+		windowLayout.setComponentAlignment(buttonLayout, Alignment.MIDDLE_CENTER);
+		
+		
+		
+		Window quistenWindow = new Window("Confirm");
+		quistenWindow.setModal(true);
+		quistenWindow.setClosable(true);
+		quistenWindow.setWidth("244px");
+		quistenWindow.setHeight("-1px");
+		quistenWindow.center();
+		quistenWindow.setContent(windowLayout);
+		UI.getCurrent().addWindow(quistenWindow);
+		
+		yesButton.addClickListener(event-> {
+			quistenWindow.close();
+		});
+		
+		noButton.addClickListener(event-> {
+			quistenWindow.close();
+		});
+	}
+
 }
 
+ 
 
 /*package com.devoteam.dls.view;
 
