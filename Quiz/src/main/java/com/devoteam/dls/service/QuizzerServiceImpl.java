@@ -9,7 +9,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.devoteam.dls.dao.IPlayingRepo;
 import com.devoteam.dls.dao.QuizzerRepository;
+import com.devoteam.dls.domain.PlayingStats;
 import com.devoteam.dls.domain.Quizzer;
 import com.devoteam.dls.domain.QuizzerStatus;
 
@@ -20,6 +22,9 @@ public class QuizzerServiceImpl implements QuizzerService {
 	
 	@Autowired
 	private QuizzerRepository quizzerRepo;
+	
+	@Autowired
+	private IPlayingRepo playingRepo;
 
 	@Override
 	public List<Quizzer> fetchAllQuizzer() {
@@ -39,7 +44,7 @@ public class QuizzerServiceImpl implements QuizzerService {
 				outputQuizzer.add(quizzer);
 			}
 		}
-		LOG.info("Quizzers are: " + outputQuizzer);
+		LOG.info(">>>>>>>>>>>>>>>>>>Quizzers are: " + outputQuizzer);
 		return outputQuizzer;
 	}
 
@@ -55,4 +60,9 @@ public class QuizzerServiceImpl implements QuizzerService {
 		return null;
 	}
 
+	@Override
+	public PlayingStats getPlayingStats() {
+		System.out.println("Okey I am called");
+		return playingRepo.getPlayingStats("");
+	}
 }

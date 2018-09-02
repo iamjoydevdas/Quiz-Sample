@@ -2,6 +2,7 @@ package com.devoteam.dls.ui;
 
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.security.core.AuthenticationException;
 import org.vaadin.spring.security.shared.VaadinSharedSecurity;
 
@@ -120,6 +121,7 @@ public class LoginUI extends UI {
 		setSizeFull();
 	}
 
+	@Cacheable
 	private void login() {
 		try {
 			vaadinSecurity.login(userName.getValue(), passwordField.getValue(), rememberMe.getValue());
