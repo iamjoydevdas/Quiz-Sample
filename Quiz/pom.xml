@@ -112,6 +112,14 @@
 			<scope>runtime</scope>
 			<version>1.4.197</version>
 		</dependency>
+		<dependency>
+			<groupId>net.sf.ehcache</groupId>
+			<artifactId>ehcache</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context-support</artifactId>
+		</dependency>
 	</dependencies>
 	<dependencyManagement>
 		<dependencies>
@@ -167,6 +175,13 @@
 				<groupId>org.apache.logging.log4j</groupId>
 				<artifactId>log4j-core</artifactId>
 			</dependency>
+			
+			<dependency>
+				<groupId>com.vaadin</groupId>
+				<artifactId>vaadin-icons</artifactId>
+				<version>3.0.0</version>
+			</dependency>
+			
 		</dependencies>
 	</dependencyManagement>
 	<build>
