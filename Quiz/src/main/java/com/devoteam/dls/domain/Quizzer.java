@@ -45,7 +45,7 @@ public class Quizzer implements Serializable {
 	@Enumerated(value = EnumType.ORDINAL)
 	@JoinColumn(name="quizzer_status", nullable = false, unique = false)
     private QuizzerStatus quizzer_status;
-
+	
 	public Long getQuizzer_ID() {
 		return quizzer_ID;
 	}

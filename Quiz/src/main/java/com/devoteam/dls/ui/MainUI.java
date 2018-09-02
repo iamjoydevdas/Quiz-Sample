@@ -1,5 +1,13 @@
 package com.devoteam.dls.ui;
 
+import java.time.LocalDateTime;
+
+import javax.annotation.PostConstruct;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
+import org.vaadin.spring.security.VaadinSecurity;
+
 import com.devoteam.dls.security.SecurityContextUtils;
 import com.devoteam.dls.view.AccessDeniedView;
 import com.devoteam.dls.view.AdminView;
@@ -7,6 +15,7 @@ import com.devoteam.dls.view.ErrorView;
 import com.devoteam.dls.view.QuizView;
 import com.devoteam.dls.view.QuizView2;
 import com.devoteam.dls.view.UserView;
+import com.vaadin.annotations.Push;
 import com.vaadin.annotations.Theme;
 import com.vaadin.navigator.View;
 import com.vaadin.navigator.ViewDisplay;
@@ -15,18 +24,20 @@ import com.vaadin.spring.annotation.SpringUI;
 import com.vaadin.spring.annotation.SpringViewDisplay;
 import com.vaadin.spring.navigator.SpringNavigator;
 import com.vaadin.spring.navigator.SpringViewProvider;
-import com.vaadin.ui.*;
+import com.vaadin.ui.Alignment;
+import com.vaadin.ui.Button;
+import com.vaadin.ui.Component;
+import com.vaadin.ui.HorizontalLayout;
+import com.vaadin.ui.Label;
+import com.vaadin.ui.Panel;
+import com.vaadin.ui.UI;
+import com.vaadin.ui.VerticalLayout;
 import com.vaadin.ui.themes.ValoTheme;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContext;
-import org.vaadin.spring.security.VaadinSecurity;
-
-import javax.annotation.PostConstruct;
-import java.time.LocalDateTime;
 
 /**
  * Created by basakpie on 2017. 5. 11..
  */
+@Push
 @Theme("Demo")
 @SpringUI(path = "/")
 @SpringViewDisplay
