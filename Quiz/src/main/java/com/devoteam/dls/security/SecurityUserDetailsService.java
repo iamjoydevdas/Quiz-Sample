@@ -48,7 +48,7 @@ public class SecurityUserDetailsService implements UserDetailsService, Broadcast
         System.out.println(cacheService.getQuizzers());
         return new SecurityUserDetails(user);
     }
-
+/*
 	@Override
 	public void receiveBroadcast(UI ui, String message) {
 		System.out.println("Users loading");
@@ -70,6 +70,12 @@ public class SecurityUserDetailsService implements UserDetailsService, Broadcast
 	        }
 	    });
 		
+		
+	}*/
+
+	@Override
+	public void receiveBroadcast(UI ui, String message) {
+		// TODO Auto-generated method stub
 		
 	}
 }

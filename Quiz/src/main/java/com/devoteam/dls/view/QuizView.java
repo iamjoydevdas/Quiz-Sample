@@ -68,6 +68,9 @@ public class QuizView extends VerticalLayout implements View, BroadcastListener 
     @PostConstruct
     public void init() {
     	Broadcaster.register(UI.getCurrent(), this);
+    	loggedInUser.setSenderId(SecurityContextUtils.getUser().getUsername());
+    	loggedInUser.setSenderName(SecurityContextUtils.getUser().getUsername());
+    	loggedInUser.setTimestamp(new Timestamp(System.currentTimeMillis()));
     	mainLayout = new HorizontalLayout();
     	mainLayout.setStyleName("wrapping");
     	mainLayout.setSpacing(false);
@@ -220,11 +223,9 @@ public class QuizView extends VerticalLayout implements View, BroadcastListener 
     
     private void updateUserListDetails() {
     	panelLayout.removeAllComponents();
-    	loggedInUser.setSenderId(SecurityContextUtils.getUser().getUsername());
-    	loggedInUser.setSenderName(SecurityContextUtils.getUser().getUsername());
-    	loggedInUser.setTimestamp(new Timestamp(System.currentTimeMillis()));
+    	
     	System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>    Sender " + loggedInUser.toString());
-    	List<Quizzer> quizzers = quizzerService.fetchAllQuizzerExceptSelf(SecurityContextUtils.getUser().getUsername());
+    	List<Quizzer> quizzers = quizzerService.fetchAllQuizzerExceptSelf(loggedInUser.getSenderId());
     	
     	for(Quizzer quizzer : quizzers){
     		Button userButton;
@@ -404,15 +405,15 @@ public class QuizView extends VerticalLayout implements View, BroadcastListener 
 	        public void run() {
 	        	System.out.println("Message"+message+"::"+loggedInUser+"'");
 	        	if("Update user".equals(message)) {
+	        		System.out.println("------------------------------------------------------------"+message);
+	        	//	Notification.show(message, Type.WARNING_MESSAGE);
 	        		updateUserListDetails();
 	        	} else {
 	        		Sender sender = cacheService.getPushCache(loggedInUser.getSenderId());
 	        		if(sender !=null) {
 		        		System.out.println(sender.toString());
 	        			createConfirmWindow(sender.getSenderName());
-			        	Notification.show(message, Type.WARNING_MESSAGE);
 	        		}
-	        		
 		        	ui.push();
 	        	}
 	        	
