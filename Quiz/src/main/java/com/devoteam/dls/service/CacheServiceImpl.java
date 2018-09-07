@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
+import com.devoteam.dls.dao.Receiver;
+import com.devoteam.dls.dao.Sender;
 import com.devoteam.dls.domain.Quizzer;
 
 import net.sf.ehcache.CacheManager;
@@ -19,6 +21,25 @@ public class CacheServiceImpl implements CacheService {
 	
 	@Value("${cache.quizzer.name}")
 	private String quizzerCache;
+	
+	@Value("${cache.push.name}")
+	private String pushCache;
+
+	@Override
+	public void setPushCache(Sender sender, Receiver receiver) {
+		cacheManager.getCache(pushCache).put(new Element(receiver.getReceiverId(),sender));
+	}
+	
+	@SuppressWarnings("unchecked")
+	@Override
+	public Sender getPushCache(String receiverId) {
+		Sender s = null;
+		Element e =  cacheManager.getCache(pushCache).get(receiverId);
+		if(e!=null) {
+			s = ((Sender) e.getObjectValue());
+		}
+		return s;
+	}
 
 	@Override
 	public void setQuizzer(Quizzer quizzer) {

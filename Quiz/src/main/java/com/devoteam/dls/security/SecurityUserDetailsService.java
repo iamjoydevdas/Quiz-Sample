@@ -58,7 +58,7 @@ public class SecurityUserDetailsService implements UserDetailsService, Broadcast
 	        public void run() {
 	        	System.out.println("Message"+message+"::"+SecurityContextUtils.getUser().getUsername()+"'");
 	            //  addValue(message);
-	        	Notification.show(message+"  '"+SecurityContextUtils.getUser().getUsername()+"'", Type.WARNING_MESSAGE);
+	        	//Notification.show(message+"  '"+SecurityContextUtils.getUser().getUsername()+"'", Type.WARNING_MESSAGE);
 	         //   ui.push();
 	            Window quistenWindow = new Window("Update " + message + SecurityContextUtils.getUser().getUsername());
 	    		quistenWindow.setModal(true);

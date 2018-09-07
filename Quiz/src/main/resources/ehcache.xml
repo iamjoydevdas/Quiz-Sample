@@ -5,4 +5,5 @@
          monitoring="autodetect"
          dynamicConfig="true">
          <cache name="quizzers" eternal="true" maxEntriesLocalHeap="1000"></cache>
+         <cache name="push" eternal="true" maxEntriesLocalHeap="1000"></cache>
 </ehcache>
