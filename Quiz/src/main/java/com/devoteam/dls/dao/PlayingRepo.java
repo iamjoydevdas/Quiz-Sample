@@ -1,10 +1,14 @@
 package com.devoteam.dls.dao;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import com.devoteam.dls.domain.PlayingStats;
+import com.devoteam.dls.domain.QuizSet;
 
 @Repository
 public class PlayingRepo implements IPlayingRepo {
@@ -23,5 +27,18 @@ public class PlayingRepo implements IPlayingRepo {
 			System.out.println("============================================================>>>>>>>>>>>>>"+ps.toString());
 			return ps;
 		});
+	}
+
+	@Override
+	public List<QuizSet> getQuizSet() {
+		List<QuizSet> quizSets = new ArrayList<>();
+		jdbc.query("SELECT questionSet, quizName from QuizType", (rs, rownum) -> {
+			QuizSet qs = new QuizSet();
+			qs.setQuizId(rs.getInt("questionSet"));
+			qs.setQuizSetName(rs.getString("quizName"));
+			return qs;
+			
+		}).forEach(quizSets::add);
+		return quizSets;
 	}
 }
