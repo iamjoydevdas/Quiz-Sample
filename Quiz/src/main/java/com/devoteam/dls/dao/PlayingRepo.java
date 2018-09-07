@@ -59,6 +59,11 @@ public class PlayingRepo implements IPlayingRepo {
 			Questions q = new Questions();
 			q.setQuiestionId(rs.getInt("questionId"));
 			q.setQuestion(rs.getString("question"));
+			q.setAnswer1(rs.getString("opt1"));
+			q.setAnswer2(rs.getString("opt2"));
+			q.setAnswer3(rs.getString("opt3"));
+			q.setAnswer4(rs.getString("opt4"));
+			q.setAnswer(rs.getString("answer"));
 			return q;
 		}).forEach(questions::add);
 		return null;
