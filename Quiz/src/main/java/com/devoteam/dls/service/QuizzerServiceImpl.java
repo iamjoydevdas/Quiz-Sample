@@ -12,6 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.devoteam.dls.dao.IPlayingRepo;
 import com.devoteam.dls.dao.QuizzerRepository;
 import com.devoteam.dls.domain.PlayingStats;
+import com.devoteam.dls.domain.Questions;
 import com.devoteam.dls.domain.QuizSet;
 import com.devoteam.dls.domain.Quizzer;
 import com.devoteam.dls.domain.QuizzerStatus;
@@ -70,5 +71,11 @@ public class QuizzerServiceImpl implements QuizzerService {
 	@Override
 	public List<QuizSet> getQuizSet() {
 		return playingRepo.getQuizSet();
+	}
+
+	@Override
+	public List<Questions> getQuestions(long quizId) {
+		// TODO Auto-generated method stub
+		return playingRepo.getQuestions(quizId);
 	}
 }
