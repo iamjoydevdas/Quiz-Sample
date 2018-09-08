@@ -8,6 +8,8 @@ import org.springframework.stereotype.Service;
 
 import com.devoteam.dls.dao.EmployeeRepository;
 import com.devoteam.dls.domain.Employee;
+import com.devoteam.dls.domain.OnlineQuizzers;
+import com.devoteam.dls.domain.OnlineStatus;
 import com.devoteam.dls.domain.Quizzer;
 import com.devoteam.dls.push.Broadcaster;
 import com.devoteam.dls.push.Broadcaster.BroadcastListener;
@@ -41,8 +43,13 @@ public class SecurityUserDetailsService implements UserDetailsService, Broadcast
             throw new UsernameNotFoundException("Username Not Found Exception : " + username);
         }
         Quizzer quizzer = quizzerService.fetchQuizzer(username);
+       
         if(quizzer != null) {
-        	cacheService.setQuizzer(quizzer);
+        	OnlineQuizzers onlineQuizer = new OnlineQuizzers();
+        	onlineQuizer.setQuizzer_ID(quizzer.getQuizzer_ID());
+        	onlineQuizer.setEmployee(quizzer.getEmployee());
+        	//onlineQuizer.setOnlineStatus(OnlineStatus.AVAILIABLE);
+        	cacheService.setQuizzer(onlineQuizer);
         }
         Broadcaster.broadcast("Update user");
         System.out.println(cacheService.getQuizzers());

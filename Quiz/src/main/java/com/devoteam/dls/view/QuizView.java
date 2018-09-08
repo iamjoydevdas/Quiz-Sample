@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.devoteam.dls.dao.Receiver;
 import com.devoteam.dls.dao.Sender;
+import com.devoteam.dls.domain.OnlineQuizzers;
 import com.devoteam.dls.domain.Questions;
 import com.devoteam.dls.domain.QuizSet;
 import com.devoteam.dls.domain.Quizzer;
@@ -167,10 +168,21 @@ public class QuizView extends VerticalLayout implements View, BroadcastListener 
     	
     	for(Quizzer quizzer : quizzers){
     		Button userButton;
-    		if(isQuizzerActive(quizzer.getQuizzer_ID())) {
+    		OnlineQuizzers onlineUsers = isQuizzerActive(quizzer.getQuizzer_ID());
+    		if(onlineUsers != null) {
     			userButton = new Button();
     			userButton.setCaptionAsHtml(true);
-    			userButton.setCaption( quizzer.getEmployee().getUsername() + "<span style=\'color: " + "lime" + " !important; left:3px; top:2px;position:relative;\'>" + VaadinIcons.DOT_CIRCLE.getHtml()  + "</span>" );
+    			switch(onlineUsers.getOnlineStatus()) {
+    			case AVAILIABLE:
+    				userButton.setCaption( quizzer.getEmployee().getUsername() + "<span style=\'color: " + "lime" + " !important; left:3px; top:2px;position:relative;\'>" + VaadinIcons.DOT_CIRCLE.getHtml()  + "</span>" );
+    				break;
+    			case BUSY:
+    				userButton.setCaption( quizzer.getEmployee().getUsername() + "<span style=\'color: " + "red" + " !important; left:3px; top:2px;position:relative;\'>" + VaadinIcons.DOT_CIRCLE.getHtml()  + "</span>" );
+    				break;
+    			case AWAY:
+    				userButton.setCaption( quizzer.getEmployee().getUsername() + "<span style=\'color: " + "yellow" + " !important; left:3px; top:2px;position:relative;\'>" + VaadinIcons.DOT_CIRCLE.getHtml()  + "</span>" );
+    				break;
+    			}
     			userButton.addStyleName(ValoTheme.BUTTON_TINY);
     			
     		} else {
@@ -184,7 +196,7 @@ public class QuizView extends VerticalLayout implements View, BroadcastListener 
     		userButton.setData(quizzer);
     		
     		userButton.addClickListener(event-> {
-    			if(isQuizzerActive(quizzer.getQuizzer_ID())) {
+    			if(isQuizzerActive(quizzer.getQuizzer_ID()) != null) {
     				Receiver receiver = new Receiver();
     				receiver.setReceiverId(quizzer.getEmployee().getUsername());
     				receiver.setReceiverName(quizzer.getEmployee().getUsername());
@@ -321,15 +333,15 @@ public class QuizView extends VerticalLayout implements View, BroadcastListener 
 		mainLayout.addComponent(resultPanel);
 	}
     
-    boolean isQuizzerActive(Long quizzer_ID) {
-    	List<Quizzer> activeQuizzers = cacheService.getQuizzers();
-		for(Quizzer q : activeQuizzers) {
+	OnlineQuizzers isQuizzerActive(Long quizzer_ID) {
+    	List<OnlineQuizzers> activeQuizzers = cacheService.getQuizzers();
+		for(OnlineQuizzers q : activeQuizzers) {
 			if(q.getQuizzer_ID() == quizzer_ID) {
-				return true;
+				return q;
 			}
 		}
 		//return true;
-		return false;
+		return null;
     }
     
     @Override
