@@ -7,12 +7,16 @@ import javax.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.devoteam.dls.domain.Quizzer;
+import com.devoteam.dls.push.Broadcaster;
+import com.devoteam.dls.push.Broadcaster.BroadcastListener;
 import com.devoteam.dls.security.SecurityContextUtils;
 import com.devoteam.dls.service.CacheService;
 import com.devoteam.dls.service.QuizzerService;
+import com.vaadin.annotations.Push;
 import com.vaadin.icons.VaadinIcons;
 import com.vaadin.navigator.View;
 import com.vaadin.navigator.ViewChangeListener;
+import com.vaadin.shared.communication.PushMode;
 import com.vaadin.spring.annotation.SpringView;
 import com.vaadin.ui.Alignment;
 import com.vaadin.ui.Button;
@@ -30,8 +34,9 @@ import com.vaadin.ui.themes.ValoTheme;
 /**
  * Created by basakpie on 2017. 5. 11..
  */
+@Push(PushMode.MANUAL)
 @SpringView(name = QuizView.VIEW_NAME)
-public class QuizView extends VerticalLayout implements View {
+public class QuizView extends VerticalLayout implements View, BroadcastListener  {
 
     /**
 	 * 
@@ -53,8 +58,11 @@ public class QuizView extends VerticalLayout implements View {
     @Autowired
     private QuizzerService quizzerService;
 
+    
+    
     @PostConstruct
     public void init() {
+    	Broadcaster.register(UI.getCurrent(), this);
     	mainLayout = new HorizontalLayout();
     	mainLayout.setStyleName("wrapping");
     	mainLayout.setSpacing(false);
@@ -194,7 +202,8 @@ public class QuizView extends VerticalLayout implements View {
     	questionPanel.setCaption("Quiz");
     	questionPanel.setWidth("920px");
     	questionPanel.setHeight("405px");
-    	
+    	System.out.println("Callingggggggggggggggggggggggg");
+    	quizzerService.getPlayingStats();
     	List<Quizzer> quizzers = quizzerService.fetchAllQuizzerExceptSelf(SecurityContextUtils.getUser().getUsername());
     	
     	for(Quizzer quizzer : quizzers){
@@ -306,6 +315,7 @@ public class QuizView extends VerticalLayout implements View {
 				Notification.show("Please select a valid data", Type.WARNING_MESSAGE);
 				return;
 			}
+			Broadcaster.broadcast("Hi, I am joydev");
 			mainLayout.removeComponent(dashBoardPanel);
 			mainLayout.addComponent(questionPanel);
 			quistenWindow.close();
@@ -316,52 +326,23 @@ public class QuizView extends VerticalLayout implements View {
 		});
 	}
 
+	@Override
+	public void receiveBroadcast(UI ui, String message) {
+		System.out.println("In receive");
+		ui.access(new Runnable() {
+			
+	        @Override
+	        public void run() {
+	        	System.out.println("Message"+message);
+	            //  addValue(message);
+	        	Notification.show(message, Type.WARNING_MESSAGE);
+	           ui.push();
+	        }
+	    });
+		
+	}
+
+	
+
 }
 
- 
-
-/*package com.devoteam.dls.view;
-
-import com.vaadin.navigator.View;
-import com.vaadin.navigator.ViewChangeListener;
-import com.vaadin.spring.annotation.SpringView;
-import com.vaadin.ui.AbstractOrderedLayout;
-import com.vaadin.ui.Alignment;
-import com.vaadin.ui.Component;
-import com.vaadin.ui.Label;
-import com.vaadin.ui.VerticalLayout;
-
-import java.util.Iterator;
-
-import javax.annotation.PostConstruct;
-
-*//**
- * Created by basakpie on 2017. 5. 11..
- *//*
-@SpringView(name = QuizView.VIEW_NAME)
-public class QuizView extends VerticalLayout implements View {
-
-    public static final String VIEW_NAME = "quiz";
-
-    @PostConstruct
-    public void init() {
-    	// addComponent(new Label("Hello, this is quiz view."));
-    	// AbstractOrderedLayout layout = new UserViewDesign();
-    	//layout.setComponentAlignment(layout, Alignment.TOP_LEFT);
-    	UserViewDesign uv = new UserViewDesign();
-    	uv.addComponent(new Label("HIIIIII"));
-    	Iterator<Component> i = uv.iterator();
-    	while(i.hasNext()){
-    		Component c = i.next();
-    		System.out.println(c.getId());
-    	}
-    	System.out.println(uv.getComponent(0).getId());
-    	addComponent(uv);
-    }
-
-    @Override
-    public void enter(ViewChangeListener.ViewChangeEvent event) {
-
-    }
-}
-*/
