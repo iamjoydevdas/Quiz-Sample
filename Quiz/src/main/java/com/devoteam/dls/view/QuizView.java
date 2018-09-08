@@ -78,7 +78,7 @@ public class QuizView extends VerticalLayout implements View, BroadcastListener 
     	mainLayout.setMargin(false);
     	mainLayout.setWidth("-1px");
     	mainLayout.setHeight("-1px");
-    	
+    	initializeQizzerMainDashboard();
     	panelLayout = new VerticalLayout();
     	panelLayout.setStyleName("wrapping");
     	panelLayout.setSpacing(false);
@@ -133,6 +133,61 @@ public class QuizView extends VerticalLayout implements View, BroadcastListener 
     	dashBoardPanel.setWidth("920px");
     	dashBoardPanel.setHeight("405px");
     	
+    	System.out.println("Callingggggggggggggggggggggggg   "+SecurityContextUtils.getUser().getUsername());
+    	//quizzerService.getPlayingStats();
+    	updateUserListDetails();
+    	
+    	mainLayout.addComponent(panel);
+    	mainLayout.addComponent(dashBoardPanel);
+    	addComponent(mainLayout);
+    	
+    	
+    }
+    
+    
+    private void initializeQizzerMainDashboard() {
+    	
+    }
+    
+    private void updateUserListDetails() {
+    	panelLayout.removeAllComponents();
+    	
+    	System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>    Sender " + loggedInUser.toString());
+    	List<Quizzer> quizzers = quizzerService.fetchAllQuizzerExceptSelf(loggedInUser.getSenderId());
+    	
+    	for(Quizzer quizzer : quizzers){
+    		Button userButton;
+    		if(isQuizzerActive(quizzer.getQuizzer_ID())) {
+    			userButton = new Button();
+    			userButton.setCaptionAsHtml(true);
+    			userButton.setCaption( quizzer.getEmployee().getUsername() + "<span style=\'color: " + "lime" + " !important; left:3px; top:2px;position:relative;\'>" + VaadinIcons.DOT_CIRCLE.getHtml()  + "</span>" );
+    			userButton.addStyleName(ValoTheme.BUTTON_TINY);
+    			
+    		} else {
+    			userButton = new Button(quizzer.getEmployee().getUsername());
+    			userButton.addStyleName(ValoTheme.BUTTON_TINY);
+    		}
+    		
+    		//userButton.setStyleName("primary");
+    		userButton.setWidth("250px");
+    		userButton.setHeight("-1px");
+    		userButton.setData(quizzer);
+    		
+    		userButton.addClickListener(event-> {
+    			if(isQuizzerActive(quizzer.getQuizzer_ID())) {
+    				Receiver receiver = new Receiver();
+    				receiver.setReceiverId(quizzer.getEmployee().getUsername());
+    				receiver.setReceiverName(quizzer.getEmployee().getUsername());
+    				System.out.println("=============================> Receiver "+receiver.toString());
+    				createWindow(receiver);
+    			}
+    			
+    		});
+    		panelLayout.addComponent(userButton);
+    	}
+    }
+    
+    private void questionAnswerDashboard(){
     	questionLayout = new VerticalLayout();
     	questionLayout.setStyleName("wrapping");
     	questionLayout.setSpacing(true);
@@ -211,53 +266,7 @@ public class QuizView extends VerticalLayout implements View, BroadcastListener 
     	questionPanel.setCaption("Quiz");
     	questionPanel.setWidth("920px");
     	questionPanel.setHeight("405px");
-    	System.out.println("Callingggggggggggggggggggggggg   "+SecurityContextUtils.getUser().getUsername());
-    	//quizzerService.getPlayingStats();
-    	updateUserListDetails();
     	
-    	mainLayout.addComponent(panel);
-    	mainLayout.addComponent(dashBoardPanel);
-    	addComponent(mainLayout);
-    	
-    	
-    }
-    
-    private void updateUserListDetails() {
-    	panelLayout.removeAllComponents();
-    	
-    	System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>    Sender " + loggedInUser.toString());
-    	List<Quizzer> quizzers = quizzerService.fetchAllQuizzerExceptSelf(loggedInUser.getSenderId());
-    	
-    	for(Quizzer quizzer : quizzers){
-    		Button userButton;
-    		if(isQuizzerActive(quizzer.getQuizzer_ID())) {
-    			userButton = new Button();
-    			userButton.setCaptionAsHtml(true);
-    			userButton.setCaption( quizzer.getEmployee().getUsername() + "<span style=\'color: " + "lime" + " !important; left:3px; top:2px;position:relative;\'>" + VaadinIcons.DOT_CIRCLE.getHtml()  + "</span>" );
-    			userButton.addStyleName(ValoTheme.BUTTON_TINY);
-    			
-    		} else {
-    			userButton = new Button(quizzer.getEmployee().getUsername());
-    			//userButton.setCaption(quizzer.getEmployee().getUsername());
-    		}
-    		
-    		//userButton.setStyleName("primary");
-    		userButton.setWidth("250px");
-    		userButton.setHeight("-1px");
-    		userButton.setData(quizzer);
-    		
-    		userButton.addClickListener(event-> {
-    			if(isQuizzerActive(quizzer.getQuizzer_ID())) {
-    				Receiver receiver = new Receiver();
-    				receiver.setReceiverId(quizzer.getEmployee().getUsername());
-    				receiver.setReceiverName(quizzer.getEmployee().getUsername());
-    				System.out.println("=============================> Receiver "+receiver.toString());
-    				createWindow(receiver);
-    			}
-    			
-    		});
-    		panelLayout.addComponent(userButton);
-    	}
     }
     
     boolean isQuizzerActive(Long quizzer_ID) {
@@ -287,16 +296,15 @@ public class QuizView extends VerticalLayout implements View, BroadcastListener 
 		
 		Label questionLabel = new Label();
 		questionLabel.setValue("Do you want to send request?");
-		
-		ComboBox<String> questionTypeComboBox = new ComboBox<>("Select a quistion type");
+		List<QuizSet> quizSet = quizzerService.getQuizSet();
+		ComboBox<QuizSet> questionTypeComboBox = new ComboBox<>("Select a quistion type");
+		questionTypeComboBox.setItemCaptionGenerator(QuizSet::getQuizSetName);
 		questionTypeComboBox.setEmptySelectionAllowed(false);
 		questionTypeComboBox.setWidth("220px");
 		questionTypeComboBox.setHeight("-1px");
-		questionTypeComboBox.setItems("...","Java", "Vaadin");
-		//List<QuizSet> quizSet = quizzerService.getQuizSet();
-		
-		questionTypeComboBox.setSelectedItem("...");
+		questionTypeComboBox.setItems(quizSet);
 		questionTypeComboBox.addStyleName(ValoTheme.COMBOBOX_SMALL);
+		
 		
 		windowLayout.addComponent(questionLabel);
 		windowLayout.addComponent(questionTypeComboBox);
@@ -331,15 +339,13 @@ public class QuizView extends VerticalLayout implements View, BroadcastListener 
 		UI.getCurrent().addWindow(quistenWindow);
 		
 		yesButton.addClickListener(event-> {
-			if("...".equals(questionTypeComboBox.getValue().toString())){
+			if(null == questionTypeComboBox.getValue()){
 				Notification.show("Please select a valid data", Type.WARNING_MESSAGE);
 				return;
 			}
 		
 			cacheService.setPushCache(loggedInUser, receiver);
 			Broadcaster.broadcast("challenge "+loggedInUser.getSenderName());
-			mainLayout.removeComponent(dashBoardPanel);
-			mainLayout.addComponent(questionPanel);
 			quistenWindow.close();
 		});
 		
@@ -365,16 +371,16 @@ public class QuizView extends VerticalLayout implements View, BroadcastListener 
 		hLayout.setWidth("-1px");
 		hLayout.setHeight("-1px");
 		
-		Button confirmButton = new Button();
-		confirmButton.setCaption("Play");
-		confirmButton.setStyleName("primary");
+		Button playButton = new Button();
+		playButton.setCaption("Play");
+		playButton.setStyleName("primary");
 		
-		Button cancelButton = new Button();
-		cancelButton.setCaption("Deny");
-		cancelButton.setStyleName("primary");
+		Button denyButton = new Button();
+		denyButton.setCaption("Deny");
+		denyButton.setStyleName("primary");
 		
-		hLayout.addComponent(confirmButton);
-		hLayout.addComponent(cancelButton);
+		hLayout.addComponent(playButton);
+		hLayout.addComponent(denyButton);
 		vLayout.addComponent(hLayout);
 		vLayout.setComponentAlignment(hLayout, Alignment.MIDDLE_CENTER);
 		
@@ -387,14 +393,12 @@ public class QuizView extends VerticalLayout implements View, BroadcastListener 
 		confirmRequestWindow.setContent(vLayout);
 		UI.getCurrent().addWindow(confirmRequestWindow);
 		
-		confirmButton.addClickListener(event-> {
-			//Broadcaster.broadcast("Hi, I am joydev");
-			mainLayout.removeComponent(dashBoardPanel);
-			mainLayout.addComponent(questionPanel);
+		playButton.addClickListener(event-> {
+			Broadcaster.broadcast("PlayQuiz");
 			confirmRequestWindow.close();
 		});
 		
-		cancelButton.addClickListener(event-> {
+		denyButton.addClickListener(event-> {
 			confirmRequestWindow.close();
 		});
 	}
@@ -403,46 +407,32 @@ public class QuizView extends VerticalLayout implements View, BroadcastListener 
 	public void receiveBroadcast(UI ui, String message) {
 		System.out.println("In receive");
 		ui.access(new Runnable() {
-			
-	        @Override
-	        public void run() {
-	        	/*System.out.println("Message"+message+"::"+loggedInUser+"'");
-	        	switch(message) {
-	        	case "challenge":
-	        			Sender sender = cacheService.getPushCache(loggedInUser.getSenderId());
-		        		if(sender !=null) {
-			        		System.out.println(sender.toString());
-		        			createConfirmWindow(sender.getSenderName());
-		        		}
-		        		break;
-	        	case "newUserOnline":
-	        			updateUserListDetails();
-	        			break;
-	        	}
-	        	ui.push();*/
-	        	
-	        	
-	        	System.out.println("Message"+message+"::"+loggedInUser+"'");
-	        	if("Update user".equals(message)) {
-	        		System.out.println("------------------------------------------------------------"+message);
-	        	//	Notification.show(message, Type.WARNING_MESSAGE);
-	        		updateUserListDetails();
-	        	} else {
-	        		Sender sender = cacheService.getPushCache(loggedInUser.getSenderId());
-	        		if(sender !=null) {
-		        		System.out.println(sender.toString());
-	        			createConfirmWindow(sender.getSenderName());
-	        		}
-		        	ui.push();
-	        	}
-	        	
-	        	
-	        }
-	    });
+
+			@Override
+			public void run() {
+				System.out.println("Message" + message + "::" + loggedInUser + "'");
+				if ("Update user".equals(message)) {
+					System.out.println("------------------------------------------------------------" + message);
+					// Notification.show(message, Type.WARNING_MESSAGE);
+					updateUserListDetails();
+				} else if ("PlayQuiz".equals(message)) {
+					questionAnswerDashboard();
+					mainLayout.removeComponent(dashBoardPanel);
+					mainLayout.addComponent(questionPanel);
+				} else {
+					Sender sender = cacheService.getPushCache(loggedInUser.getSenderId());
+					if (sender != null) {
+						System.out.println(sender.toString());
+						createConfirmWindow(sender.getSenderName());
+					}
+					ui.push();
+				}
+
+			}
+		});
 		
 	}
 
 	
 
 }
-
