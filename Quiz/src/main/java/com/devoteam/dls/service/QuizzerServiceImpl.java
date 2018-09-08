@@ -12,6 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.devoteam.dls.dao.IPlayingRepo;
 import com.devoteam.dls.dao.QuizzerRepository;
 import com.devoteam.dls.domain.PlayingStats;
+import com.devoteam.dls.domain.QuizSet;
 import com.devoteam.dls.domain.Quizzer;
 import com.devoteam.dls.domain.QuizzerStatus;
 
@@ -64,5 +65,10 @@ public class QuizzerServiceImpl implements QuizzerService {
 	public PlayingStats getPlayingStats() {
 		System.out.println("Okey I am called");
 		return playingRepo.getPlayingStats("");
+	}
+
+	@Override
+	public List<QuizSet> getQuizSet() {
+		return playingRepo.getQuizSet();
 	}
 }

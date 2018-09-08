@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.devoteam.dls.dao.Receiver;
 import com.devoteam.dls.dao.Sender;
+import com.devoteam.dls.domain.QuizSet;
 import com.devoteam.dls.domain.Quizzer;
 import com.devoteam.dls.push.Broadcaster;
 import com.devoteam.dls.push.Broadcaster.BroadcastListener;
@@ -292,6 +293,8 @@ public class QuizView extends VerticalLayout implements View, BroadcastListener 
 		questionTypeComboBox.setWidth("220px");
 		questionTypeComboBox.setHeight("-1px");
 		questionTypeComboBox.setItems("...","Java", "Vaadin");
+		List<QuizSet> quizSet = quizzerService.getQuizSet();
+		
 		questionTypeComboBox.setSelectedItem("...");
 		questionTypeComboBox.addStyleName(ValoTheme.COMBOBOX_SMALL);
 		
@@ -403,6 +406,22 @@ public class QuizView extends VerticalLayout implements View, BroadcastListener 
 			
 	        @Override
 	        public void run() {
+	        	/*System.out.println("Message"+message+"::"+loggedInUser+"'");
+	        	switch(message) {
+	        	case "challenge":
+	        			Sender sender = cacheService.getPushCache(loggedInUser.getSenderId());
+		        		if(sender !=null) {
+			        		System.out.println(sender.toString());
+		        			createConfirmWindow(sender.getSenderName());
+		        		}
+		        		break;
+	        	case "newUserOnline":
+	        			updateUserListDetails();
+	        			break;
+	        	}
+	        	ui.push();*/
+	        	
+	        	
 	        	System.out.println("Message"+message+"::"+loggedInUser+"'");
 	        	if("Update user".equals(message)) {
 	        		System.out.println("------------------------------------------------------------"+message);

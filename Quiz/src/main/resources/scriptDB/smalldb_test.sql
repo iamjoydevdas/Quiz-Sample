@@ -90,4 +90,6 @@ INSERT INTO role(role_ID, role_type, created_date, employee_ID) VALUES
 INSERT INTO Quizzers(quizzer_ID, emp_ID, last_Played, total_Played, total_Win, quizzer_status) VALUES
 (1, 5, now(), 0, 0, 1);
 
-INSERT INTO 
+INSERT INTO QuizType(quizId, questionSet, quizName) values(1, 1, 'Java');
+INSERT INTO QuizType(quizId, questionSet, quizName) values(2, 2, 'Vaadin');
+INSERT INTO QuizType(quizId, questionSet, quizName) values(3, 3, 'Oracle');
