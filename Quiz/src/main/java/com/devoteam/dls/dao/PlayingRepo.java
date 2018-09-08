@@ -66,6 +66,6 @@ public class PlayingRepo implements IPlayingRepo {
 			q.setAnswer(rs.getString("answer"));
 			return q;
 		}).forEach(questions::add);
-		return null;
+		return questions;
 	}
 }
