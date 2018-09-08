@@ -174,7 +174,7 @@ public class QuizView extends VerticalLayout implements View, BroadcastListener 
     			userButton.setCaptionAsHtml(true);
     			switch(onlineUsers.getOnlineStatus()) {
     			case AVAILIABLE:
-    				userButton.setCaption( quizzer.getEmployee().getUsername() + "<span style=\'color: " + "lime" + " !important; left:3px; top:2px;position:relative;\'>" + VaadinIcons.DOT_CIRCLE.getHtml()  + "</span>" );
+    				userButton.setCaption( quizzer.getEmployee().getUsername() + "<span style=\'color: " + "lime" + " !important; left:3px; top:2px;position:relative;\'>" + VaadinIcons.DOT_CIRCLE.getHtml()  + "</span>" + VaadinIcons.PENCIL.getHtml() );
     				break;
     			case BUSY:
     				userButton.setCaption( quizzer.getEmployee().getUsername() + "<span style=\'color: " + "red" + " !important; left:3px; top:2px;position:relative;\'>" + VaadinIcons.DOT_CIRCLE.getHtml()  + "</span>" );
@@ -186,7 +186,7 @@ public class QuizView extends VerticalLayout implements View, BroadcastListener 
     			userButton.addStyleName(ValoTheme.BUTTON_TINY);
     			
     		} else {
-    			userButton = new Button(quizzer.getEmployee().getUsername());
+    			userButton = new Button(quizzer.getEmployee().getUsername() + VaadinIcons.PENCIL);
     			userButton.addStyleName(ValoTheme.BUTTON_TINY);
     		}
     		
