@@ -93,3 +93,10 @@ INSERT INTO Quizzers(quizzer_ID, emp_ID, last_Played, total_Played, total_Win, q
 INSERT INTO QuizType(quizId, questionSet, quizName) values(1, 1, 'Java');
 INSERT INTO QuizType(quizId, questionSet, quizName) values(2, 2, 'Vaadin');
 INSERT INTO QuizType(quizId, questionSet, quizName) values(3, 3, 'Oracle');
+
+INSERT INTO QuestionSet(questionSetId, questionId, question, opt1, opt2, opt3, opt4, answer)
+VALUES(1, 1, 'WHICH ONE IS NOT PRIMITIVE?', 'object', 'int', 'float', 'double', 'object');
+INSERT INTO QuestionSet(questionSetId, questionId, question, opt1, opt2, opt3, opt4, answer)
+VALUES(2, 1, 'WHICH ONE IS NOT A OOPS PROPERTY?', 'Encapsulation', 'Thread', 'Polymorphism', 'Data Hiding', 'Thread');
+INSERT INTO QuestionSet(questionSetId, questionId, question, opt1, opt2, opt3, opt4, answer)
+VALUES(3, 1, 'WHICH IS NOT GENERAL LOOP?', 'for', 'while', 'do-while', 'for-each', 'for-each');
