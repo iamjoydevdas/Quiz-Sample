@@ -66,6 +66,13 @@ public class QuizView extends VerticalLayout implements View, BroadcastListener 
     private VerticalLayout questionLayout;
     
     private Sender loggedInUser = new Sender();
+    private int questionIndex = 0;
+    private Button questionButton;
+    private Button answerOneButton;
+    private Button answerTwoButton;
+    private Button answerThreeButton;
+    private Button answerFourButton;
+    private List<Questions> questionList;
     
     @Autowired
     private QuizzerService quizzerService;
@@ -200,59 +207,45 @@ public class QuizView extends VerticalLayout implements View, BroadcastListener 
     	
     	HorizontalLayout answerLayoutOne = new HorizontalLayout();
     	HorizontalLayout answerLayoutTwo = new HorizontalLayout();
-    	
-    	
-    	Button questionButton = new Button();
-    	questionButton.setWidth("890px");
-    	questionButton.setHeight("140px");
-    	questionButton.setCaption("Which one is primitive datatype?");
-    	
-    	Button answerOneButton = new Button();
-    	answerOneButton.setWidth("440px");
-    	answerOneButton.setCaption("Object");
-    	
-    	Button answerTwoButton = new Button();
-    	answerTwoButton.setWidth("440px");
-    	answerTwoButton.setCaption("String");
-    	
-    	Button answerThreeButton = new Button();
-    	answerThreeButton.setWidth("440px");
-    	answerThreeButton.setCaption("Integer");
-    	
-    	Button answerFourButton = new Button();
-    	answerFourButton.setWidth("440px");
-    	answerFourButton.setCaption("int");
+    	questionList = quizzerService.getQuestions(1);
+    	System.out.println("Question count...----------------------> "+questionList.size());
+    	Questions question = questionList.get(questionIndex);
+    		questionButton = new Button();
+        	questionButton.setWidth("890px");
+        	questionButton.setHeight("140px");
+        	questionButton.setCaption(question.getQuestion());
+        	
+        	answerOneButton = new Button();
+        	answerOneButton.setWidth("440px");
+        	answerOneButton.setCaption(question.getAnswer1());
+        	
+        	answerTwoButton = new Button();
+        	answerTwoButton.setWidth("440px");
+        	answerTwoButton.setCaption(question.getAnswer2());
+        	
+        	answerThreeButton = new Button();
+        	answerThreeButton.setWidth("440px");
+        	answerThreeButton.setCaption(question.getAnswer3());
+        	
+        	answerFourButton = new Button();
+        	answerFourButton.setWidth("440px");
+        	answerFourButton.setCaption(question.getAnswer4());
     	
     	answerOneButton.addClickListener(event->{
-    		questionButton.setCaption("Which one is nonprimitive datatype?");
-    		answerOneButton.setCaption("int");
-    		answerTwoButton.setCaption("String");
-    		answerThreeButton.setCaption("boolean");
-    		answerFourButton.setCaption("long");
+    		
+    		commonQuestion();
     	});
     	
     	answerTwoButton.addClickListener(event->{
-    		questionButton.setCaption("Which one is nonprimitive datatype?");
-    		answerOneButton.setCaption("int");
-    		answerTwoButton.setCaption("String");
-    		answerThreeButton.setCaption("boolean");
-    		answerFourButton.setCaption("long");
+    		commonQuestion();
     	});
     	
     	answerThreeButton.addClickListener(event->{
-    		questionButton.setCaption("Which one is nonprimitive datatype?");
-    		answerOneButton.setCaption("int");
-    		answerTwoButton.setCaption("String");
-    		answerThreeButton.setCaption("boolean");
-    		answerFourButton.setCaption("long");
+    		commonQuestion();
     	});
     	
     	answerFourButton.addClickListener(event->{
-    		questionButton.setCaption("Which one is nonprimitive datatype?");
-    		answerOneButton.setCaption("int");
-    		answerTwoButton.setCaption("String");
-    		answerThreeButton.setCaption("boolean");
-    		answerFourButton.setCaption("long");
+    		commonQuestion();
     	});
     	
     	answerLayoutOne.addComponent(answerOneButton);
@@ -272,6 +265,19 @@ public class QuizView extends VerticalLayout implements View, BroadcastListener 
     	
     }
     
+    private void commonQuestion() {
+    	questionIndex++;
+    	if(questionList.size() > questionIndex ) {
+    		questionButton.setCaption(questionList.get(questionIndex).getQuestion());
+    		answerOneButton.setCaption(questionList.get(questionIndex).getAnswer1());
+    		answerTwoButton.setCaption(questionList.get(questionIndex).getAnswer2());
+    		answerThreeButton.setCaption(questionList.get(questionIndex).getAnswer3());
+    		answerFourButton.setCaption(questionList.get(questionIndex).getAnswer4());
+    	} else {
+    		populateResultDashBoard();
+    	}
+    }
+    
 	private void populateResultDashBoard() {
 
 		resultDashBoardLayout = new VerticalLayout();
@@ -282,10 +288,15 @@ public class QuizView extends VerticalLayout implements View, BroadcastListener 
 		resultDashBoardLayout.setHeight("-1px");
 
 		List<Questions> resultList = new ArrayList<Questions>();
-		Questions question = new Questions();
-		question.setQuestion("Which one is nonprimitive datatype?");
-		question.setAnswer("String");
+		Questions question1 = new Questions();
+		question1.setQuestion("Which one is nonprimitive datatype?");
+		question1.setAnswer("String");
 		
+		Questions question2 = new Questions();
+		question2.setQuestion("Which one is nonprimitive datatype?");
+		question2.setAnswer("String");
+		resultList.add(question1);
+		resultList.add(question2);
 
 		for (int i = 0; i < 3; i++) {
 			/*Questions question = new Questions();
