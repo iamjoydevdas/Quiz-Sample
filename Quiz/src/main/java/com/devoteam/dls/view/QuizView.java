@@ -293,7 +293,7 @@ public class QuizView extends VerticalLayout implements View, BroadcastListener 
 		questionTypeComboBox.setWidth("220px");
 		questionTypeComboBox.setHeight("-1px");
 		questionTypeComboBox.setItems("...","Java", "Vaadin");
-		List<QuizSet> quizSet = quizzerService.getQuizSet();
+		//List<QuizSet> quizSet = quizzerService.getQuizSet();
 		
 		questionTypeComboBox.setSelectedItem("...");
 		questionTypeComboBox.addStyleName(ValoTheme.COMBOBOX_SMALL);
