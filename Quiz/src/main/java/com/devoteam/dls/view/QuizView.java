@@ -1,6 +1,8 @@
 package com.devoteam.dls.view;
 
 import java.sql.Timestamp;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
@@ -9,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.devoteam.dls.dao.Receiver;
 import com.devoteam.dls.dao.Sender;
+import com.devoteam.dls.domain.Questions;
 import com.devoteam.dls.domain.QuizSet;
 import com.devoteam.dls.domain.Quizzer;
 import com.devoteam.dls.push.Broadcaster;
@@ -25,6 +28,7 @@ import com.vaadin.spring.annotation.SpringView;
 import com.vaadin.ui.Alignment;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.ComboBox;
+import com.vaadin.ui.Grid;
 import com.vaadin.ui.HorizontalLayout;
 import com.vaadin.ui.Label;
 import com.vaadin.ui.Notification;
@@ -55,8 +59,10 @@ public class QuizView extends VerticalLayout implements View, BroadcastListener 
     private Panel panel;
     private Panel dashBoardPanel;
     private Panel questionPanel;
+    private Panel resultPanel;
     private VerticalLayout panelLayout;
     private VerticalLayout dashBoardPanelLayout;
+    private VerticalLayout resultDashBoardLayout;
     private VerticalLayout questionLayout;
     
     private Sender loggedInUser = new Sender();
@@ -79,6 +85,11 @@ public class QuizView extends VerticalLayout implements View, BroadcastListener 
     	mainLayout.setWidth("-1px");
     	mainLayout.setHeight("-1px");
     	initializeQizzerMainDashboard();
+    	addComponent(mainLayout);
+    }
+    
+    
+    private void initializeQizzerMainDashboard() {
     	panelLayout = new VerticalLayout();
     	panelLayout.setStyleName("wrapping");
     	panelLayout.setSpacing(false);
@@ -139,14 +150,6 @@ public class QuizView extends VerticalLayout implements View, BroadcastListener 
     	
     	mainLayout.addComponent(panel);
     	mainLayout.addComponent(dashBoardPanel);
-    	addComponent(mainLayout);
-    	
-    	
-    }
-    
-    
-    private void initializeQizzerMainDashboard() {
-    	
     }
     
     private void updateUserListDetails() {
@@ -268,6 +271,44 @@ public class QuizView extends VerticalLayout implements View, BroadcastListener 
     	questionPanel.setHeight("405px");
     	
     }
+    
+	private void populateResultDashBoard() {
+
+		resultDashBoardLayout = new VerticalLayout();
+		resultDashBoardLayout.setStyleName("wrapping");
+		resultDashBoardLayout.setSpacing(false);
+		resultDashBoardLayout.setMargin(true);
+		resultDashBoardLayout.setWidth("-1px");
+		resultDashBoardLayout.setHeight("-1px");
+
+		List<Questions> resultList = new ArrayList<Questions>();
+		Questions question = new Questions();
+		question.setQuestion("Which one is nonprimitive datatype?");
+		question.setAnswer("String");
+		
+
+		for (int i = 0; i < 3; i++) {
+			/*Questions question = new Questions();
+			question.setQuestion("Question " + i);
+			question.setAnswer("Answer" + i);
+			resultList.add(question);*/
+		}
+		// Create a grid bound to the list
+		Grid<Questions> grid = new Grid<>();
+		grid.setItems(resultList);
+		grid.addColumn(Questions::getQuestion).setCaption("Question");
+		grid.addColumn(Questions::getAnswer).setCaption("Answer");
+
+		resultDashBoardLayout.addComponent(grid);
+		resultPanel = new Panel(resultDashBoardLayout);
+		resultPanel.setStyleName("light");
+		resultPanel.setCaption("Result");
+		resultPanel.setWidth("920px");
+		resultPanel.setHeight("405px");
+
+		mainLayout.removeComponent(questionPanel);
+		mainLayout.addComponent(resultPanel);
+	}
     
     boolean isQuizzerActive(Long quizzer_ID) {
     	List<Quizzer> activeQuizzers = cacheService.getQuizzers();
