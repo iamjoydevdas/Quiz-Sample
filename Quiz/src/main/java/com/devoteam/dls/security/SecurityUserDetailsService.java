@@ -44,7 +44,7 @@ public class SecurityUserDetailsService implements UserDetailsService, Broadcast
         if(quizzer != null) {
         	cacheService.setQuizzer(quizzer);
         }
-        Broadcaster.broadcast("Update user "+username);
+        Broadcaster.broadcast("Update user");
         System.out.println(cacheService.getQuizzers());
         return new SecurityUserDetails(user);
     }

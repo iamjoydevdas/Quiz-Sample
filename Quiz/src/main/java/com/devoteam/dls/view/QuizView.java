@@ -203,7 +203,18 @@ public class QuizView extends VerticalLayout implements View, BroadcastListener 
     	questionPanel.setWidth("920px");
     	questionPanel.setHeight("405px");
     	System.out.println("Callingggggggggggggggggggggggg");
-    	quizzerService.getPlayingStats();
+    	//quizzerService.getPlayingStats();
+    	updateUserListDetails();
+    	
+    	mainLayout.addComponent(panel);
+    	mainLayout.addComponent(dashBoardPanel);
+    	addComponent(mainLayout);
+    	
+    	
+    }
+    
+    private void updateUserListDetails() {
+    	panelLayout.removeAllComponents();
     	List<Quizzer> quizzers = quizzerService.fetchAllQuizzerExceptSelf(SecurityContextUtils.getUser().getUsername());
     	
     	for(Quizzer quizzer : quizzers){
@@ -232,14 +243,6 @@ public class QuizView extends VerticalLayout implements View, BroadcastListener 
     		});
     		panelLayout.addComponent(userButton);
     	}
-    	
-    	
-    	//panel.
-    	mainLayout.addComponent(panel);
-    	mainLayout.addComponent(dashBoardPanel);
-    	addComponent(mainLayout);
-    	
-    	
     }
     
     boolean isQuizzerActive(Long quizzer_ID) {
@@ -326,6 +329,57 @@ public class QuizView extends VerticalLayout implements View, BroadcastListener 
 		});
 	}
 
+	private void createConfirmWindow() {
+		VerticalLayout vLayout = new VerticalLayout();
+		vLayout.setMargin(true);
+		vLayout.setSpacing(true);
+		vLayout.setWidth("-1px");
+		vLayout.setHeight("-1px");
+		
+		Label qLabel = new Label();
+		qLabel.setValue("Are you really sure?");
+		
+		vLayout.addComponent(qLabel);
+		
+		HorizontalLayout hLayout = new HorizontalLayout();
+		hLayout.setSpacing(true);
+		hLayout.setWidth("-1px");
+		hLayout.setHeight("-1px");
+		
+		Button confirmButton = new Button();
+		confirmButton.setCaption("Confirm");
+		confirmButton.setStyleName("primary");
+		
+		Button cancelButton = new Button();
+		cancelButton.setCaption("Cancel");
+		cancelButton.setStyleName("primary");
+		
+		hLayout.addComponent(confirmButton);
+		hLayout.addComponent(cancelButton);
+		vLayout.addComponent(hLayout);
+		vLayout.setComponentAlignment(hLayout, Alignment.MIDDLE_CENTER);
+		
+		Window confirmRequestWindow = new Window("Please Confirm");
+		confirmRequestWindow.setModal(true);
+		confirmRequestWindow.setClosable(true);
+		confirmRequestWindow.setWidth("244px");
+		confirmRequestWindow.setHeight("-1px");
+		confirmRequestWindow.center();
+		confirmRequestWindow.setContent(vLayout);
+		UI.getCurrent().addWindow(confirmRequestWindow);
+		
+		confirmButton.addClickListener(event-> {
+			//Broadcaster.broadcast("Hi, I am joydev");
+			mainLayout.removeComponent(dashBoardPanel);
+			mainLayout.addComponent(questionPanel);
+			confirmRequestWindow.close();
+		});
+		
+		cancelButton.addClickListener(event-> {
+			confirmRequestWindow.close();
+		});
+	}
+	
 	@Override
 	public void receiveBroadcast(UI ui, String message) {
 		System.out.println("In receive");
@@ -334,9 +388,15 @@ public class QuizView extends VerticalLayout implements View, BroadcastListener 
 	        @Override
 	        public void run() {
 	        	System.out.println("Message"+message);
-	            //  addValue(message);
-	        	Notification.show(message, Type.WARNING_MESSAGE);
-	           ui.push();
+	        	if("Update user".equals(message)) {
+	        		updateUserListDetails();
+	        	} else {
+	        		createConfirmWindow();
+		        	Notification.show(message, Type.WARNING_MESSAGE);
+		        	ui.push();
+	        	}
+	        	
+	        	
 	        }
 	    });
 		
