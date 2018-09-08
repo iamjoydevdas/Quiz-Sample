@@ -23,6 +23,8 @@ cache:
   classPathConfigLocation: ehcache.xml
   quizzer:
     name: quizzers
+  push:
+     name: push
 # Logger configuration
 logging:
   pattern:

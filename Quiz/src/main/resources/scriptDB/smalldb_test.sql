@@ -46,8 +46,7 @@ CREATE TABLE IF NOT EXISTS QuestionSet (
 	opt2 TEXT,
 	opt3 TEXT,
 	opt4 TEXT,
-	answer Text,
-	PRIMARY KEY(questionSetId)
+	answer Text
 );
 ---------------------------------------------------------------------------------
 CREATE TABLE IF NOT EXISTS QuizType (
@@ -90,3 +89,5 @@ INSERT INTO role(role_ID, role_type, created_date, employee_ID) VALUES
 
 INSERT INTO Quizzers(quizzer_ID, emp_ID, last_Played, total_Played, total_Win, quizzer_status) VALUES
 (1, 5, now(), 0, 0, 1);
+
+INSERT INTO 

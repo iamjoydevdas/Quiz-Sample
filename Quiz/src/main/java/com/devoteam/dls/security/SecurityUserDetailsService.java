@@ -48,7 +48,7 @@ public class SecurityUserDetailsService implements UserDetailsService, Broadcast
         System.out.println(cacheService.getQuizzers());
         return new SecurityUserDetails(user);
     }
-
+/*
 	@Override
 	public void receiveBroadcast(UI ui, String message) {
 		System.out.println("Users loading");
@@ -58,7 +58,7 @@ public class SecurityUserDetailsService implements UserDetailsService, Broadcast
 	        public void run() {
 	        	System.out.println("Message"+message+"::"+SecurityContextUtils.getUser().getUsername()+"'");
 	            //  addValue(message);
-	        	Notification.show(message+"  '"+SecurityContextUtils.getUser().getUsername()+"'", Type.WARNING_MESSAGE);
+	        	//Notification.show(message+"  '"+SecurityContextUtils.getUser().getUsername()+"'", Type.WARNING_MESSAGE);
 	         //   ui.push();
 	            Window quistenWindow = new Window("Update " + message + SecurityContextUtils.getUser().getUsername());
 	    		quistenWindow.setModal(true);
@@ -70,6 +70,12 @@ public class SecurityUserDetailsService implements UserDetailsService, Broadcast
 	        }
 	    });
 		
+		
+	}*/
+
+	@Override
+	public void receiveBroadcast(UI ui, String message) {
+		// TODO Auto-generated method stub
 		
 	}
 }

@@ -1,11 +1,14 @@
 package com.devoteam.dls.view;
 
+import java.sql.Timestamp;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
+import com.devoteam.dls.dao.Receiver;
+import com.devoteam.dls.dao.Sender;
 import com.devoteam.dls.domain.Quizzer;
 import com.devoteam.dls.push.Broadcaster;
 import com.devoteam.dls.push.Broadcaster.BroadcastListener;
@@ -55,6 +58,8 @@ public class QuizView extends VerticalLayout implements View, BroadcastListener 
     private VerticalLayout dashBoardPanelLayout;
     private VerticalLayout questionLayout;
     
+    private Sender loggedInUser = new Sender();
+    
     @Autowired
     private QuizzerService quizzerService;
 
@@ -63,6 +68,9 @@ public class QuizView extends VerticalLayout implements View, BroadcastListener 
     @PostConstruct
     public void init() {
     	Broadcaster.register(UI.getCurrent(), this);
+    	loggedInUser.setSenderId(SecurityContextUtils.getUser().getUsername());
+    	loggedInUser.setSenderName(SecurityContextUtils.getUser().getUsername());
+    	loggedInUser.setTimestamp(new Timestamp(System.currentTimeMillis()));
     	mainLayout = new HorizontalLayout();
     	mainLayout.setStyleName("wrapping");
     	mainLayout.setSpacing(false);
@@ -202,7 +210,7 @@ public class QuizView extends VerticalLayout implements View, BroadcastListener 
     	questionPanel.setCaption("Quiz");
     	questionPanel.setWidth("920px");
     	questionPanel.setHeight("405px");
-    	System.out.println("Callingggggggggggggggggggggggg");
+    	System.out.println("Callingggggggggggggggggggggggg   "+SecurityContextUtils.getUser().getUsername());
     	//quizzerService.getPlayingStats();
     	updateUserListDetails();
     	
@@ -215,7 +223,9 @@ public class QuizView extends VerticalLayout implements View, BroadcastListener 
     
     private void updateUserListDetails() {
     	panelLayout.removeAllComponents();
-    	List<Quizzer> quizzers = quizzerService.fetchAllQuizzerExceptSelf(SecurityContextUtils.getUser().getUsername());
+    	
+    	System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>    Sender " + loggedInUser.toString());
+    	List<Quizzer> quizzers = quizzerService.fetchAllQuizzerExceptSelf(loggedInUser.getSenderId());
     	
     	for(Quizzer quizzer : quizzers){
     		Button userButton;
@@ -237,7 +247,11 @@ public class QuizView extends VerticalLayout implements View, BroadcastListener 
     		
     		userButton.addClickListener(event-> {
     			if(isQuizzerActive(quizzer.getQuizzer_ID())) {
-    				createWindow();
+    				Receiver receiver = new Receiver();
+    				receiver.setReceiverId(quizzer.getEmployee().getUsername());
+    				receiver.setReceiverName(quizzer.getEmployee().getUsername());
+    				System.out.println("=============================> Receiver "+receiver.toString());
+    				createWindow(receiver);
     			}
     			
     		});
@@ -263,7 +277,7 @@ public class QuizView extends VerticalLayout implements View, BroadcastListener 
     	});*/
     }
     
-	private void createWindow() {
+	private void createWindow(Receiver receiver) {
 		VerticalLayout windowLayout = new VerticalLayout();
 		windowLayout.setMargin(true);
 		windowLayout.setSpacing(true);
@@ -318,7 +332,9 @@ public class QuizView extends VerticalLayout implements View, BroadcastListener 
 				Notification.show("Please select a valid data", Type.WARNING_MESSAGE);
 				return;
 			}
-			Broadcaster.broadcast("Hi, I am joydev");
+		
+			cacheService.setPushCache(loggedInUser, receiver);
+			Broadcaster.broadcast("challenge "+loggedInUser.getSenderName());
 			mainLayout.removeComponent(dashBoardPanel);
 			mainLayout.addComponent(questionPanel);
 			quistenWindow.close();
@@ -329,7 +345,7 @@ public class QuizView extends VerticalLayout implements View, BroadcastListener 
 		});
 	}
 
-	private void createConfirmWindow() {
+	private void createConfirmWindow(String senderName) {
 		VerticalLayout vLayout = new VerticalLayout();
 		vLayout.setMargin(true);
 		vLayout.setSpacing(true);
@@ -337,7 +353,7 @@ public class QuizView extends VerticalLayout implements View, BroadcastListener 
 		vLayout.setHeight("-1px");
 		
 		Label qLabel = new Label();
-		qLabel.setValue("Are you really sure?");
+		qLabel.setValue(senderName + " challenged you in Java.");
 		
 		vLayout.addComponent(qLabel);
 		
@@ -347,11 +363,11 @@ public class QuizView extends VerticalLayout implements View, BroadcastListener 
 		hLayout.setHeight("-1px");
 		
 		Button confirmButton = new Button();
-		confirmButton.setCaption("Confirm");
+		confirmButton.setCaption("Play");
 		confirmButton.setStyleName("primary");
 		
 		Button cancelButton = new Button();
-		cancelButton.setCaption("Cancel");
+		cancelButton.setCaption("Deny");
 		cancelButton.setStyleName("primary");
 		
 		hLayout.addComponent(confirmButton);
@@ -359,7 +375,7 @@ public class QuizView extends VerticalLayout implements View, BroadcastListener 
 		vLayout.addComponent(hLayout);
 		vLayout.setComponentAlignment(hLayout, Alignment.MIDDLE_CENTER);
 		
-		Window confirmRequestWindow = new Window("Please Confirm");
+		Window confirmRequestWindow = new Window("Quizzer");
 		confirmRequestWindow.setModal(true);
 		confirmRequestWindow.setClosable(true);
 		confirmRequestWindow.setWidth("244px");
@@ -387,12 +403,17 @@ public class QuizView extends VerticalLayout implements View, BroadcastListener 
 			
 	        @Override
 	        public void run() {
-	        	System.out.println("Message"+message);
+	        	System.out.println("Message"+message+"::"+loggedInUser+"'");
 	        	if("Update user".equals(message)) {
+	        		System.out.println("------------------------------------------------------------"+message);
+	        	//	Notification.show(message, Type.WARNING_MESSAGE);
 	        		updateUserListDetails();
 	        	} else {
-	        		createConfirmWindow();
-		        	Notification.show(message, Type.WARNING_MESSAGE);
+	        		Sender sender = cacheService.getPushCache(loggedInUser.getSenderId());
+	        		if(sender !=null) {
+		        		System.out.println(sender.toString());
+	        			createConfirmWindow(sender.getSenderName());
+	        		}
 		        	ui.push();
 	        	}
 	        	
