@@ -8,12 +8,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.vaadin.spring.security.VaadinSecurity;
 
+import com.devoteam.dls.domain.OnlineStatus;
 import com.devoteam.dls.security.SecurityContextUtils;
+import com.devoteam.dls.service.CacheService;
 import com.devoteam.dls.view.AccessDeniedView;
 import com.devoteam.dls.view.AdminView;
 import com.devoteam.dls.view.ErrorView;
 import com.devoteam.dls.view.QuizView;
-import com.devoteam.dls.view.QuizView2;
 import com.devoteam.dls.view.UserView;
 import com.vaadin.annotations.Push;
 import com.vaadin.annotations.Theme;
@@ -56,6 +57,11 @@ public class MainUI extends UI implements ViewDisplay {
 	SpringNavigator springNavigator;
 
 	Panel springViewDisplay;
+	
+	private String loggedInUser;
+	
+	@Autowired
+	CacheService cacheService;
 
 	@PostConstruct
 	public void init() {
@@ -67,6 +73,7 @@ public class MainUI extends UI implements ViewDisplay {
 
 	@Override
 	protected void init(VaadinRequest request){
+		loggedInUser = SecurityContextUtils.getUser().getUsername();
 		getPage().setTitle("Dashboard");
 
 		//final CssLayout navigationBar = new CssLayout();
@@ -75,8 +82,11 @@ public class MainUI extends UI implements ViewDisplay {
 		navigationBar.addComponent(createNavigationButton("User View", UserView.VIEW_NAME));
 		navigationBar.addComponent(createNavigationButton("Admin View", AdminView.VIEW_NAME));
 		navigationBar.addComponent(createNavigationButton("Quizzer", QuizView.VIEW_NAME));
-		navigationBar.addComponent(createNavigationButton("Test", QuizView2.VIEW_NAME));
-		navigationBar.addComponent(new Button("Logout", e -> vaadinSecurity.logout()));
+	//	navigationBar.addComponent(createNavigationButton("Test", QuizView2.VIEW_NAME));
+		navigationBar.addComponent(new Button("Logout", e -> { 
+			cacheService.removeQuizzer(loggedInUser);
+			vaadinSecurity.logout();
+		}));
 
 		final VerticalLayout root = new VerticalLayout();
 		root.setSizeFull();
@@ -96,7 +106,14 @@ public class MainUI extends UI implements ViewDisplay {
 
 	private Button createNavigationButton(String caption, final String viewName) {
 		Button button = new Button(caption);
-		button.addClickListener(event -> getUI().getNavigator().navigateTo(viewName));
+		button.addClickListener(event -> {
+			if(viewName == "quiz") { 
+				cacheService.updateOnlineStatus(loggedInUser, OnlineStatus.AVAILIABLE);
+			}else {
+				cacheService.updateOnlineStatus(loggedInUser, OnlineStatus.AWAY);
+			}
+			getUI().getNavigator().navigateTo(viewName);
+		});
 		return button;
 	}
 
