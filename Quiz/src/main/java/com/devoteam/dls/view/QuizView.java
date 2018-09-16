@@ -4,6 +4,8 @@ import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import javax.annotation.PostConstruct;
 
@@ -35,6 +37,7 @@ import com.vaadin.ui.Label;
 import com.vaadin.ui.Notification;
 import com.vaadin.ui.Notification.Type;
 import com.vaadin.ui.Panel;
+import com.vaadin.ui.ProgressBar;
 import com.vaadin.ui.UI;
 import com.vaadin.ui.VerticalLayout;
 import com.vaadin.ui.Window;
@@ -78,7 +81,8 @@ public class QuizView extends VerticalLayout implements View, BroadcastListener 
     @Autowired
     private QuizzerService quizzerService;
 
-    
+    ProgressBar bar = new ProgressBar(0.0f);
+	static int i = 1;
     
     @PostConstruct
     public void init() {
@@ -115,6 +119,7 @@ public class QuizView extends VerticalLayout implements View, BroadcastListener 
     	Button userNameButton = new Button();
     	userNameButton.setCaption("Joydev");
     	userNameButton.setWidth("890px");
+    	userNameButton.setStyleName("danger");
     	dashBoardPanelLayout.addComponent(userNameButton);
     	
     	VerticalLayout userDetailsVerticalLayout = new VerticalLayout();
@@ -138,7 +143,8 @@ public class QuizView extends VerticalLayout implements View, BroadcastListener 
     	userDetailsPanel.setHeight("200px");
     	
     	dashBoardPanelLayout.addComponent(userDetailsPanel);
-    	
+    	dashBoardPanelLayout.addComponent(bar);
+    	dashBoardPanelLayout.setComponentAlignment(bar, Alignment.TOP_LEFT);
     	
     	panel = new Panel(panelLayout);
     	panel.setStyleName("light");
@@ -158,6 +164,52 @@ public class QuizView extends VerticalLayout implements View, BroadcastListener 
     	
     	mainLayout.addComponent(panel);
     	mainLayout.addComponent(dashBoardPanel);
+    	int j = 10;
+    	UI ui = UI.getCurrent();
+    	Timer timer = new Timer();
+		TimerTask t = new TimerTask() {
+			
+			@Override
+			public void run() {
+				
+				 ui.access(() -> {
+			            final float newValue;
+			            if (bar.getValue() >= 1.0f) {//(progress == maxProgress) {
+			                ui.setPollInterval(-1);
+			                bar.setEnabled(true);
+			                newValue = 0f;
+			                bar.setVisible(!bar.isIndeterminate());
+			                Notification.show("Finished");
+			                timer.cancel();
+			                timer.purge();			                
+			            } else {
+			                newValue =  bar.getValue() + 0.10f;// (float) progress / maxProgress;
+			            }
+			            bar.setValue(newValue);
+			            Notification.show("Value changed:", Float.toString(newValue), Notification.Type.TRAY_NOTIFICATION);
+			        });
+			}
+		};
+		
+		
+		timer.schedule(t, 0, 1000);
+    }
+    
+    private void updateProgressBar(UI ui) {
+        ui.access(() -> {
+            final float newValue;
+            if (bar.getValue() >= 1.0f) {//(progress == maxProgress) {
+                ui.setPollInterval(-1);
+                bar.setEnabled(true);
+                newValue = 0f;
+                bar.setVisible(!bar.isIndeterminate());
+                Notification.show("Finished");
+            } else {
+                newValue =  bar.getValue() + 0.10f;// (float) progress / maxProgress;
+            }
+            bar.setValue(newValue);
+            Notification.show("Value changed:", Float.toString(newValue), Notification.Type.TRAY_NOTIFICATION);
+        });
     }
     
     private void updateUserListDetails() {
