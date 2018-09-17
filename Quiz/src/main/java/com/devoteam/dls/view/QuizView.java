@@ -2,7 +2,6 @@ package com.devoteam.dls.view;
 
 import java.sql.Timestamp;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -77,15 +76,20 @@ public class QuizView extends VerticalLayout implements View, BroadcastListener 
     private Button answerThreeButton;
     private Button answerFourButton;
     private List<Questions> questionList;
+    private ProgressBar bar = new ProgressBar(0.0f);
+    private Timer timer;
     
     @Autowired
     private QuizzerService quizzerService;
 
-    ProgressBar bar = new ProgressBar(0.0f);
+    
 	static int i = 1;
     
     @PostConstruct
     public void init() {
+    	bar.setVisible(false);
+    	bar.setWidth("200px");
+    	bar.setHeight("15px");
     	Broadcaster.register(UI.getCurrent(), this);
     	loggedInUser.setSenderId(SecurityContextUtils.getUser().getUsername());
     	loggedInUser.setSenderName(SecurityContextUtils.getUser().getUsername());
@@ -117,7 +121,7 @@ public class QuizView extends VerticalLayout implements View, BroadcastListener 
     	dashBoardPanelLayout.setHeight("-1px");
     	
     	Button userNameButton = new Button();
-    	userNameButton.setCaption("Joydev");
+    	userNameButton.setCaption(SecurityContextUtils.getUser().getUsername());
     	userNameButton.setWidth("890px");
     	userNameButton.setStyleName("danger");
     	dashBoardPanelLayout.addComponent(userNameButton);
@@ -143,8 +147,6 @@ public class QuizView extends VerticalLayout implements View, BroadcastListener 
     	userDetailsPanel.setHeight("200px");
     	
     	dashBoardPanelLayout.addComponent(userDetailsPanel);
-    	dashBoardPanelLayout.addComponent(bar);
-    	dashBoardPanelLayout.setComponentAlignment(bar, Alignment.TOP_LEFT);
     	
     	panel = new Panel(panelLayout);
     	panel.setStyleName("light");
@@ -165,51 +167,7 @@ public class QuizView extends VerticalLayout implements View, BroadcastListener 
     	mainLayout.addComponent(panel);
     	mainLayout.addComponent(dashBoardPanel);
     	int j = 10;
-    	UI ui = UI.getCurrent();
-    	Timer timer = new Timer();
-		TimerTask t = new TimerTask() {
-			
-			@Override
-			public void run() {
-				
-				 ui.access(() -> {
-			            final float newValue;
-			            if (bar.getValue() >= 1.0f) {//(progress == maxProgress) {
-			                ui.setPollInterval(-1);
-			                bar.setEnabled(true);
-			                newValue = 0f;
-			                bar.setVisible(!bar.isIndeterminate());
-			                Notification.show("Finished");
-			                timer.cancel();
-			                timer.purge();			                
-			            } else {
-			                newValue =  bar.getValue() + 0.10f;// (float) progress / maxProgress;
-			            }
-			            bar.setValue(newValue);
-			            Notification.show("Value changed:", Float.toString(newValue), Notification.Type.TRAY_NOTIFICATION);
-			        });
-			}
-		};
-		
-		
-		timer.schedule(t, 0, 1000);
-    }
-    
-    private void updateProgressBar(UI ui) {
-        ui.access(() -> {
-            final float newValue;
-            if (bar.getValue() >= 1.0f) {//(progress == maxProgress) {
-                ui.setPollInterval(-1);
-                bar.setEnabled(true);
-                newValue = 0f;
-                bar.setVisible(!bar.isIndeterminate());
-                Notification.show("Finished");
-            } else {
-                newValue =  bar.getValue() + 0.10f;// (float) progress / maxProgress;
-            }
-            bar.setValue(newValue);
-            Notification.show("Value changed:", Float.toString(newValue), Notification.Type.TRAY_NOTIFICATION);
-        });
+    	
     }
     
     private void updateUserListDetails() {
@@ -238,7 +196,9 @@ public class QuizView extends VerticalLayout implements View, BroadcastListener 
     			userButton.addStyleName(ValoTheme.BUTTON_TINY);
     			
     		} else {
-    			userButton = new Button(quizzer.getEmployee().getUsername() + VaadinIcons.PENCIL);
+    			userButton = new Button();
+    			userButton.setCaptionAsHtml(true);
+    			userButton.setCaption(quizzer.getEmployee().getUsername() + "<span>"+ VaadinIcons.PENCIL.getHtml() + "</span>");
     			userButton.addStyleName(ValoTheme.BUTTON_TINY);
     		}
     		
@@ -278,37 +238,73 @@ public class QuizView extends VerticalLayout implements View, BroadcastListener 
         	questionButton.setWidth("890px");
         	questionButton.setHeight("140px");
         	questionButton.setCaption(question.getQuestion());
+        	questionButton.setStyleName("primary");
         	
         	answerOneButton = new Button();
         	answerOneButton.setWidth("440px");
         	answerOneButton.setCaption(question.getAnswer1());
+        	answerOneButton.setStyleName(ValoTheme.BUTTON_FRIENDLY);
         	
         	answerTwoButton = new Button();
         	answerTwoButton.setWidth("440px");
         	answerTwoButton.setCaption(question.getAnswer2());
+        	answerTwoButton.setStyleName(ValoTheme.BUTTON_FRIENDLY);
         	
         	answerThreeButton = new Button();
         	answerThreeButton.setWidth("440px");
         	answerThreeButton.setCaption(question.getAnswer3());
+        	answerThreeButton.setStyleName(ValoTheme.BUTTON_FRIENDLY);
         	
         	answerFourButton = new Button();
         	answerFourButton.setWidth("440px");
         	answerFourButton.setCaption(question.getAnswer4());
+        	answerFourButton.setStyleName(ValoTheme.BUTTON_FRIENDLY);
     	
     	answerOneButton.addClickListener(event->{
-    		
+    		answerOneButton.setStyleName(ValoTheme.BUTTON_DANGER);
+    		try {
+				Thread.sleep(1000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+    		//timer.cancel();
+           // timer.purge();
     		commonQuestion();
     	});
     	
     	answerTwoButton.addClickListener(event->{
+    		answerTwoButton.setStyleName(ValoTheme.BUTTON_DANGER);
+    		try {
+				Thread.sleep(1000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+    		//timer.cancel();
+            //timer.purge();
     		commonQuestion();
     	});
     	
     	answerThreeButton.addClickListener(event->{
+    		answerThreeButton.setStyleName(ValoTheme.BUTTON_DANGER);
+    		try {
+				Thread.sleep(1000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+    		//timer.cancel();
+            //timer.purge();
     		commonQuestion();
     	});
     	
     	answerFourButton.addClickListener(event->{
+    		answerFourButton.setStyleName(ValoTheme.BUTTON_DANGER);
+    		try {
+				Thread.sleep(1000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+    		//timer.cancel();
+           // timer.purge();
     		commonQuestion();
     	});
     	
@@ -320,24 +316,71 @@ public class QuizView extends VerticalLayout implements View, BroadcastListener 
     	questionLayout.addComponent(questionButton);
     	questionLayout.addComponent(answerLayoutOne);
     	questionLayout.addComponent(answerLayoutTwo);
+    	bar.setVisible(true);
+    	questionLayout.addComponent(bar);
+    	questionLayout.setComponentAlignment(bar, Alignment.BOTTOM_LEFT);
     	
     	questionPanel = new Panel(questionLayout);
     	questionPanel.setStyleName("light");
     	questionPanel.setCaption("Quiz");
     	questionPanel.setWidth("920px");
     	questionPanel.setHeight("405px");
+    	updateProgressBar();
+    	
+    }
+    
+    private void updateProgressBar() {
+    	
+    	UI ui = UI.getCurrent();
+    	timer = new Timer();
+		TimerTask t = new TimerTask() {
+			
+			@Override
+			public void run() {
+				//updateProgressBar(ui);
+				
+				 ui.access(() -> {
+			            final float newValue;
+			            if (bar.getValue() >= 1.0f) {//(progress == maxProgress) {
+			                ui.setPollInterval(-1);
+			                bar.setEnabled(true);
+			                newValue = 0f;
+			                bar.setVisible(!bar.isIndeterminate());
+			                Notification.show("Finished");
+			                commonQuestion();
+			                timer.cancel();
+			                timer.purge();			                
+			            } else {
+			                newValue =  bar.getValue() + 0.10f;// (float) progress / maxProgress;
+			            }
+			            bar.setValue(newValue);
+			            Notification.show("Value changed:", Float.toString(newValue), Notification.Type.TRAY_NOTIFICATION);
+			        });
+			}
+		};
+		
+		
+		timer.schedule(t, 0, 1000);
     	
     }
     
     private void commonQuestion() {
     	questionIndex++;
     	if(questionList.size() > questionIndex ) {
+    		//updateProgressBar();
+    		answerOneButton.setStyleName(ValoTheme.BUTTON_FRIENDLY);
+    		answerTwoButton.setStyleName(ValoTheme.BUTTON_FRIENDLY);
+    		answerThreeButton.setStyleName(ValoTheme.BUTTON_FRIENDLY);
+    		answerFourButton.setStyleName(ValoTheme.BUTTON_FRIENDLY);
     		questionButton.setCaption(questionList.get(questionIndex).getQuestion());
     		answerOneButton.setCaption(questionList.get(questionIndex).getAnswer1());
     		answerTwoButton.setCaption(questionList.get(questionIndex).getAnswer2());
     		answerThreeButton.setCaption(questionList.get(questionIndex).getAnswer3());
     		answerFourButton.setCaption(questionList.get(questionIndex).getAnswer4());
+    		
     	} else {
+    		timer.cancel();
+            timer.purge();
     		populateResultDashBoard();
     	}
     }
