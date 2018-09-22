@@ -100,3 +100,6 @@ INSERT INTO QuestionSet(questionSetId, questionId, question, opt1, opt2, opt3, o
 VALUES(2, 1, 'WHICH ONE IS NOT A OOPS PROPERTY?', 'Encapsulation', 'Thread', 'Polymorphism', 'Data Hiding', 'Thread');
 INSERT INTO QuestionSet(questionSetId, questionId, question, opt1, opt2, opt3, opt4, answer)
 VALUES(3, 1, 'WHICH IS NOT GENERAL LOOP?', 'for', 'while', 'do-while', 'for-each', 'for-each');
+
+
+select questionsetid from questionset where questionsetid not in (1,2) ORDER BY random() limit 1
