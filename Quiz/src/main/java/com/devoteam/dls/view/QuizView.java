@@ -75,9 +75,11 @@ public class QuizView extends VerticalLayout implements View, BroadcastListener 
     private Button answerTwoButton;
     private Button answerThreeButton;
     private Button answerFourButton;
+    private Button nextQuestionButton;
     private List<Questions> questionList;
     private ProgressBar bar = new ProgressBar(0.0f);
     private Timer timer;
+    private boolean isClickedAnswer = false;
     
     @Autowired
     private QuizzerService quizzerService;
@@ -259,53 +261,69 @@ public class QuizView extends VerticalLayout implements View, BroadcastListener 
         	answerFourButton.setWidth("440px");
         	answerFourButton.setCaption(question.getAnswer4());
         	answerFourButton.setStyleName(ValoTheme.BUTTON_FRIENDLY);
+        	
+        	nextQuestionButton = new Button();
+        	nextQuestionButton.setCaption("Next");
+        	nextQuestionButton.setStyleName(ValoTheme.BUTTON_PRIMARY);
     	
     	answerOneButton.addClickListener(event->{
-    		answerOneButton.setStyleName(ValoTheme.BUTTON_DANGER);
-    		try {
-				Thread.sleep(1000);
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			}
-    		//timer.cancel();
-           // timer.purge();
-    		commonQuestion();
+    		isClickedAnswer = true;
+    		timer.cancel();
+            timer.purge();
+            answerOneButton.setStyleName(ValoTheme.BUTTON_DANGER);
+            answerOneButton.setEnabled(false);
+            answerTwoButton.setEnabled(false);
+            answerThreeButton.setEnabled(false);
+            answerFourButton.setEnabled(false);
+            bar.setVisible(false);
     	});
     	
     	answerTwoButton.addClickListener(event->{
-    		answerTwoButton.setStyleName(ValoTheme.BUTTON_DANGER);
-    		try {
-				Thread.sleep(1000);
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			}
-    		//timer.cancel();
-            //timer.purge();
-    		commonQuestion();
+    		isClickedAnswer = true;
+    		timer.cancel();
+            timer.purge();
+            answerTwoButton.setStyleName(ValoTheme.BUTTON_DANGER);
+            answerOneButton.setEnabled(false);
+            answerTwoButton.setEnabled(false);
+            answerThreeButton.setEnabled(false);
+            answerFourButton.setEnabled(false);
+            bar.setVisible(false);
+        	
     	});
     	
     	answerThreeButton.addClickListener(event->{
-    		answerThreeButton.setStyleName(ValoTheme.BUTTON_DANGER);
-    		try {
-				Thread.sleep(1000);
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			}
-    		//timer.cancel();
-            //timer.purge();
-    		commonQuestion();
+    		isClickedAnswer = true;
+    		timer.cancel();
+            timer.purge();
+    		
+            answerThreeButton.setStyleName(ValoTheme.BUTTON_DANGER);
+            answerOneButton.setEnabled(false);
+            answerTwoButton.setEnabled(false);
+            answerThreeButton.setEnabled(false);
+            answerFourButton.setEnabled(false);
+            bar.setVisible(false);
     	});
     	
     	answerFourButton.addClickListener(event->{
-    		answerFourButton.setStyleName(ValoTheme.BUTTON_DANGER);
-    		try {
-				Thread.sleep(1000);
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			}
-    		//timer.cancel();
-           // timer.purge();
-    		commonQuestion();
+    		isClickedAnswer = true;
+    		timer.cancel();
+            timer.purge();
+            answerFourButton.setStyleName(ValoTheme.BUTTON_DANGER);
+            answerOneButton.setEnabled(false);
+            answerTwoButton.setEnabled(false);
+            answerThreeButton.setEnabled(false);
+            answerFourButton.setEnabled(false);
+            bar.setVisible(false);
+    	});
+    	
+    	nextQuestionButton.addClickListener(event->{
+         	bar.setValue(0.0f);
+     		commonQuestion();
+     		answerOneButton.setEnabled(true);
+            answerTwoButton.setEnabled(true);
+            answerThreeButton.setEnabled(true);
+            answerFourButton.setEnabled(true);
+            bar.setVisible(true);
     	});
     	
     	answerLayoutOne.addComponent(answerOneButton);
@@ -316,6 +334,8 @@ public class QuizView extends VerticalLayout implements View, BroadcastListener 
     	questionLayout.addComponent(questionButton);
     	questionLayout.addComponent(answerLayoutOne);
     	questionLayout.addComponent(answerLayoutTwo);
+    	questionLayout.addComponent(nextQuestionButton);
+    	questionLayout.setComponentAlignment(nextQuestionButton, Alignment.BOTTOM_RIGHT);
     	bar.setVisible(true);
     	questionLayout.addComponent(bar);
     	questionLayout.setComponentAlignment(bar, Alignment.BOTTOM_LEFT);
@@ -347,14 +367,14 @@ public class QuizView extends VerticalLayout implements View, BroadcastListener 
 			                newValue = 0f;
 			                bar.setVisible(!bar.isIndeterminate());
 			                Notification.show("Finished");
-			                commonQuestion();
 			                timer.cancel();
-			                timer.purge();			                
+			                timer.purge();	
+			                commonQuestion();
 			            } else {
 			                newValue =  bar.getValue() + 0.10f;// (float) progress / maxProgress;
 			            }
 			            bar.setValue(newValue);
-			            Notification.show("Value changed:", Float.toString(newValue), Notification.Type.TRAY_NOTIFICATION);
+			            //Notification.show("Value changed:", Float.toString(newValue), Notification.Type.TRAY_NOTIFICATION);
 			        });
 			}
 		};
@@ -365,9 +385,18 @@ public class QuizView extends VerticalLayout implements View, BroadcastListener 
     }
     
     private void commonQuestion() {
+    	if(!isClickedAnswer) {
+    		try {
+				Notification.show("Your answer taking as wrong", Type.TRAY_NOTIFICATION);
+				Thread.sleep(2000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+    	}
+    	
     	questionIndex++;
     	if(questionList.size() > questionIndex ) {
-    		//updateProgressBar();
+    		
     		answerOneButton.setStyleName(ValoTheme.BUTTON_FRIENDLY);
     		answerTwoButton.setStyleName(ValoTheme.BUTTON_FRIENDLY);
     		answerThreeButton.setStyleName(ValoTheme.BUTTON_FRIENDLY);
@@ -377,7 +406,7 @@ public class QuizView extends VerticalLayout implements View, BroadcastListener 
     		answerTwoButton.setCaption(questionList.get(questionIndex).getAnswer2());
     		answerThreeButton.setCaption(questionList.get(questionIndex).getAnswer3());
     		answerFourButton.setCaption(questionList.get(questionIndex).getAnswer4());
-    		
+    		updateProgressBar();
     	} else {
     		timer.cancel();
             timer.purge();
