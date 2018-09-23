@@ -90,7 +90,7 @@ public class QuizView extends VerticalLayout implements View, BroadcastListener 
     @PostConstruct
     public void init() {
     	bar.setVisible(false);
-    	bar.setWidth("200px");
+    	bar.setWidth("350px");
     	bar.setHeight("15px");
     	Broadcaster.register(UI.getCurrent(), this);
     	loggedInUser.setSenderId(SecurityContextUtils.getUser().getUsername());
@@ -265,7 +265,7 @@ public class QuizView extends VerticalLayout implements View, BroadcastListener 
         	nextQuestionButton = new Button();
         	nextQuestionButton.setCaption("Next");
         	nextQuestionButton.setStyleName(ValoTheme.BUTTON_PRIMARY);
-    	
+        	nextQuestionButton.setEnabled(false);
     	answerOneButton.addClickListener(event->{
     		isClickedAnswer = true;
     		timer.cancel();
@@ -275,6 +275,7 @@ public class QuizView extends VerticalLayout implements View, BroadcastListener 
             answerTwoButton.setEnabled(false);
             answerThreeButton.setEnabled(false);
             answerFourButton.setEnabled(false);
+            nextQuestionButton.setEnabled(true);
             bar.setVisible(false);
     	});
     	
@@ -287,6 +288,7 @@ public class QuizView extends VerticalLayout implements View, BroadcastListener 
             answerTwoButton.setEnabled(false);
             answerThreeButton.setEnabled(false);
             answerFourButton.setEnabled(false);
+            nextQuestionButton.setEnabled(true);
             bar.setVisible(false);
         	
     	});
@@ -301,6 +303,7 @@ public class QuizView extends VerticalLayout implements View, BroadcastListener 
             answerTwoButton.setEnabled(false);
             answerThreeButton.setEnabled(false);
             answerFourButton.setEnabled(false);
+            nextQuestionButton.setEnabled(true);
             bar.setVisible(false);
     	});
     	
@@ -313,6 +316,7 @@ public class QuizView extends VerticalLayout implements View, BroadcastListener 
             answerTwoButton.setEnabled(false);
             answerThreeButton.setEnabled(false);
             answerFourButton.setEnabled(false);
+            nextQuestionButton.setEnabled(true);
             bar.setVisible(false);
     	});
     	
@@ -357,7 +361,6 @@ public class QuizView extends VerticalLayout implements View, BroadcastListener 
 			
 			@Override
 			public void run() {
-				//updateProgressBar(ui);
 				
 				 ui.access(() -> {
 			            final float newValue;
@@ -366,7 +369,7 @@ public class QuizView extends VerticalLayout implements View, BroadcastListener 
 			                bar.setEnabled(true);
 			                newValue = 0f;
 			                bar.setVisible(!bar.isIndeterminate());
-			                Notification.show("Finished");
+			                //Notification.show("Finished");
 			                timer.cancel();
 			                timer.purge();	
 			                commonQuestion();
@@ -406,6 +409,7 @@ public class QuizView extends VerticalLayout implements View, BroadcastListener 
     		answerTwoButton.setCaption(questionList.get(questionIndex).getAnswer2());
     		answerThreeButton.setCaption(questionList.get(questionIndex).getAnswer3());
     		answerFourButton.setCaption(questionList.get(questionIndex).getAnswer4());
+    		nextQuestionButton.setEnabled(false);
     		updateProgressBar();
     	} else {
     		timer.cancel();
@@ -452,6 +456,7 @@ public class QuizView extends VerticalLayout implements View, BroadcastListener 
 		resultPanel.setCaption("Result");
 		resultPanel.setWidth("920px");
 		resultPanel.setHeight("405px");
+		questionIndex = 0;
 
 		mainLayout.removeComponent(questionPanel);
 		mainLayout.addComponent(resultPanel);
@@ -606,6 +611,9 @@ public class QuizView extends VerticalLayout implements View, BroadcastListener 
 				} else if ("PlayQuiz".equals(message)) {
 					questionAnswerDashboard();
 					mainLayout.removeComponent(dashBoardPanel);
+					if(null != resultPanel) {
+						mainLayout.removeComponent(resultPanel);
+					}
 					mainLayout.addComponent(questionPanel);
 				} else {
 					Sender sender = cacheService.getPushCache(loggedInUser.getSenderId());
