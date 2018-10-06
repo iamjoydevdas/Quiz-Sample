@@ -2,6 +2,7 @@ package com.devoteam.dls.view;
 
 import java.sql.Timestamp;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -10,12 +11,14 @@ import javax.annotation.PostConstruct;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
+import com.devoteam.dls.dao.PlayingRepo;
 import com.devoteam.dls.dao.Receiver;
 import com.devoteam.dls.dao.Sender;
 import com.devoteam.dls.domain.OnlineQuizzers;
 import com.devoteam.dls.domain.Questions;
 import com.devoteam.dls.domain.QuizSet;
 import com.devoteam.dls.domain.Quizzer;
+import com.devoteam.dls.domain.Requests;
 import com.devoteam.dls.push.Broadcaster;
 import com.devoteam.dls.push.Broadcaster.BroadcastListener;
 import com.devoteam.dls.security.SecurityContextUtils;
@@ -84,6 +87,8 @@ public class QuizView extends VerticalLayout implements View, BroadcastListener 
     @Autowired
     private QuizzerService quizzerService;
 
+    @Autowired
+    private PlayingRepo playingRepo;
     
 	static int i = 1;
     
@@ -538,6 +543,13 @@ public class QuizView extends VerticalLayout implements View, BroadcastListener 
 			}
 		
 			cacheService.setPushCache(loggedInUser, receiver);
+			Requests request = new Requests();
+			request.setSender(loggedInUser.getSenderId());
+			request.setReceiver(receiver.getReceiverId());
+			request.setRequestTime(new Date());
+			request.setChallengeType(1);
+			playingRepo.createPlayingSession(request);
+			// TODO set sender entry
 			Broadcaster.broadcast("challenge "+loggedInUser.getSenderName());
 			quistenWindow.close();
 		});

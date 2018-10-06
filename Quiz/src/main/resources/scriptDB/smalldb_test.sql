@@ -30,11 +30,11 @@ CREATE TABLE IF NOT EXISTS Quizzers (
 ---------------------------------------------------------------------------------
 CREATE TABLE IF NOT EXISTS PlayingRequests (
 	requestId serial,
-	senderId INTEGER,
-	receiverId INTEGER,
+	senderId TEXT,
+	receiverId TEXT,
 	requestedAt DATE,
 //	receiverAccpted BOOLEAN,
-	sessionId INTEGER,
+//	sessionId INTEGER,
 	PRIMARY KEY(requestId)
 );
 ---------------------------------------------------------------------------------
@@ -61,8 +61,10 @@ CREATE TABLE IF NOT EXISTS Session (
 	quizType INTEGER,
 	winner TEXT,
 	Result TEXT,
+	playingRequestid INTEGER,
 	PRIMARY KEY(sessionId),
-	FOREIGN KEY(quizType) REFERENCES QuizType (quizId) 
+	FOREIGN KEY(quizType) REFERENCES QuizType (quizId), 
+	FOREIGN KEY(playingRequestid) REFERENCES PlayingRequests (requestId)
 );
 ---------------------------------------------------------------------------------
 CREATE TABLE IF NOT EXISTS SessionQuestions (

@@ -13,6 +13,7 @@ import org.springframework.stereotype.Repository;
 import com.devoteam.dls.domain.PlayingStats;
 import com.devoteam.dls.domain.Questions;
 import com.devoteam.dls.domain.QuizSet;
+import com.devoteam.dls.domain.Requests;
 
 @Repository
 public class PlayingRepo implements IPlayingRepo {
@@ -21,7 +22,6 @@ public class PlayingRepo implements IPlayingRepo {
 
 	@Override
 	public PlayingStats getPlayingStats(String userName) {
-		System.out.println("ballll");
 		return jdbc.queryForObject("select total_played, total_win, (total_played - total_win) as loss, last_played from quizzers where emp_id=2", (rs, rownum) -> {
 			PlayingStats ps = new PlayingStats();
 			ps.setName(rs.getString("last_played"));
@@ -67,5 +67,21 @@ public class PlayingRepo implements IPlayingRepo {
 			return q;
 		}).forEach(questions::add);
 		return questions;
+	}
+	
+	public void createPlayingSession(Requests request) {
+		//creating playingRequest
+		jdbc.update("insert into playingrequests(senderid, receiverid, requestedat) " + 
+				"values(?, ?, ?)", request.getSender(), request.getReceiver(), request.getRequestTime());
+		//fetching requestid
+		int requestid = jdbc.queryForObject("select requestid from playingrequests where senderid=? and receiverid=? order by requestid desc limit 1", new Object[] { request.getSender(), request.getReceiver() },
+				(rs, rowNum) -> rs.getInt("requestid"));
+		System.out.println("requestid : "+requestid);
+		//creating session
+		jdbc.update("insert into session(quiztype, playingRequestid) values(?, ?)", request.getChallengeType(), requestid);
+		//creating Questions
+		jdbc.update("insert into sessionquestions(sessionQuestionId, questionId) \n" + 
+				"values((select sessionId from session where playingRequestid=?),(select questionsetid from questionset where questionsetid not in \n" + 
+				"(select questionId from sessionquestions where sessionquestionid=(select sessionId from session where playingRequestid=?)) ORDER BY random() limit 1))", requestid, requestid);
 	}
 }
