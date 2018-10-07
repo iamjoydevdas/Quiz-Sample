@@ -14,11 +14,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import com.devoteam.dls.dao.PlayingRepo;
 import com.devoteam.dls.dao.Receiver;
 import com.devoteam.dls.dao.Sender;
+import com.devoteam.dls.domain.AnswerCheck;
 import com.devoteam.dls.domain.OnlineQuizzers;
 import com.devoteam.dls.domain.Questions;
 import com.devoteam.dls.domain.QuizSet;
 import com.devoteam.dls.domain.Quizzer;
 import com.devoteam.dls.domain.Requests;
+import com.devoteam.dls.domain.Summary;
 import com.devoteam.dls.push.Broadcaster;
 import com.devoteam.dls.push.Broadcaster.BroadcastListener;
 import com.devoteam.dls.security.SecurityContextUtils;
@@ -43,6 +45,7 @@ import com.vaadin.ui.ProgressBar;
 import com.vaadin.ui.UI;
 import com.vaadin.ui.VerticalLayout;
 import com.vaadin.ui.Window;
+import com.vaadin.ui.renderers.HtmlRenderer;
 import com.vaadin.ui.themes.ValoTheme;
 
 /**
@@ -50,7 +53,7 @@ import com.vaadin.ui.themes.ValoTheme;
  */
 @Push(PushMode.MANUAL)
 @SpringView(name = QuizView.VIEW_NAME)
-public class QuizView extends VerticalLayout implements View, BroadcastListener  {
+public class QuizView extends VerticalLayout implements View, BroadcastListener, AnswerCheck  {
 
     /**
 	 * 
@@ -436,12 +439,12 @@ public class QuizView extends VerticalLayout implements View, BroadcastListener 
     	} else {
     		timer.cancel();
             timer.purge();
-    		populateResultDashBoard();
+    		populateResultDashBoard(req);
     	}
     }
     
-	private void populateResultDashBoard() {
-
+	private void populateResultDashBoard(Requests request) {
+		List<Summary> summary = playingRepo.getSummary(request);
 		resultDashBoardLayout = new VerticalLayout();
 		resultDashBoardLayout.setStyleName("wrapping");
 		resultDashBoardLayout.setSpacing(false);
@@ -449,34 +452,18 @@ public class QuizView extends VerticalLayout implements View, BroadcastListener 
 		resultDashBoardLayout.setWidth("-1px");
 		resultDashBoardLayout.setHeight("-1px");
 
-		List<Questions> resultList = new ArrayList<Questions>();
-		Questions question1 = new Questions();
-		question1.setQuestion("Which one is nonprimitive datatype?");
-		question1.setAnswer("String");
+		Grid<Summary> grid = new Grid<>();
+		grid.setItems(summary);
+		grid.addColumn(Summary::getQuestion).setCaption("Question");
+		grid.addColumn(Summary::getAnswer).setCaption("Answer");
+		grid.addColumn(Summary::isSenderAnswer).setCaption(request.getSender());
+		grid.addColumn(Summary::isReceiverAnswer).setCaption(request.getReceiver());
 		
-		Questions question2 = new Questions();
-		question2.setQuestion("Which one is nonprimitive datatype?");
-		question2.setAnswer("String");
-		resultList.add(question1);
-		resultList.add(question2);
-
-		for (int i = 0; i < 3; i++) {
-			/*Questions question = new Questions();
-			question.setQuestion("Question " + i);
-			question.setAnswer("Answer" + i);
-			resultList.add(question);*/
-		}
-		// Create a grid bound to the list
-		Grid<Questions> grid = new Grid<>();
-		grid.setItems(resultList);
-		grid.addColumn(Questions::getQuestion).setCaption("Question");
-		grid.addColumn(Questions::getAnswer).setCaption("Answer");
-
 		resultDashBoardLayout.addComponent(grid);
 		resultPanel = new Panel(resultDashBoardLayout);
 		resultPanel.setStyleName("light");
 		resultPanel.setCaption("Result");
-		resultPanel.setWidth("920px");
+		resultPanel.setWidth("1020px");
 		resultPanel.setHeight("405px");
 		questionIndex = 0;
 
@@ -690,5 +677,12 @@ public class QuizView extends VerticalLayout implements View, BroadcastListener 
 				ui.push();
 			}
 		});
+	}
+
+
+	@Override
+	public String checkAnswerValue(boolean v) {
+		
+		return v? "Right" : "Wrong";
 	}
 }

@@ -15,6 +15,7 @@ import com.devoteam.dls.domain.PlayingStats;
 import com.devoteam.dls.domain.Questions;
 import com.devoteam.dls.domain.QuizSet;
 import com.devoteam.dls.domain.Requests;
+import com.devoteam.dls.domain.Summary;
 
 @Repository
 public class PlayingRepo implements IPlayingRepo {
@@ -174,5 +175,32 @@ public class PlayingRepo implements IPlayingRepo {
 						"(select questionId from sessionquestions where sessionquestionid=(select sessionId from session where playingRequestid=?)) ORDER BY random() limit 1))", requestid, requestid);
 			}
 		}		
+	}
+	
+	public List<Summary> getSummary(Requests request){
+		int requestid = jdbc.queryForObject("select requestid from playingrequests where senderid=? and receiverid=? order by requestid desc limit 1", new Object[] { request.getSender(), request.getReceiver() },
+				(rs, rowNum) -> rs.getInt("requestid"));
+		
+		List<Summary> summary = new ArrayList<>();
+		jdbc.query("select sq.sessionquestionid, qs.question, qs.answer, " + 
+				"qs.answer like sq.senderanswer as senderanswer, " + 
+				"qs.answer like sq.receiveranswer as receiveranswer " + 
+				"from sessionquestions sq, questionset qs " + 
+				"where sq.sessionquestionid=(select sessionId from session where playingRequestid=?) " + 
+				"and qs.questionsetid = sq.questionid order by sq.helperid",  new PreparedStatementSetter() {
+			@Override
+			public void setValues(PreparedStatement ps) throws SQLException {
+				ps.setLong(1, requestid);
+			}
+		}, (rs, rownum) -> {
+			Summary s = new Summary();
+			s.setSessionId(rs.getInt("sessionquestionid"));
+			s.setQuestion(rs.getString("question"));
+			s.setAnswer(rs.getString("answer"));
+			s.setSenderAnswer(rs.getBoolean("senderanswer"));
+			s.setReceiverAnswer(rs.getBoolean("receiveranswer"));
+			return s;
+		}).forEach(summary::add);
+		return summary;
 	}
 }
