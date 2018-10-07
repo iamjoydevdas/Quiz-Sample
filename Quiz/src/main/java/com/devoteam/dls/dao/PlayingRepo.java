@@ -73,16 +73,6 @@ public class PlayingRepo implements IPlayingRepo {
 		//creating playingRequest
 		jdbc.update("insert into playingrequests(senderid, receiverid, requestedat) " + 
 				"values(?, ?, ?)", request.getSender(), request.getReceiver(), request.getRequestTime());
-		//fetching requestid
-		int requestid = jdbc.queryForObject("select requestid from playingrequests where senderid=? and receiverid=? order by requestid desc limit 1", new Object[] { request.getSender(), request.getReceiver() },
-				(rs, rowNum) -> rs.getInt("requestid"));
-		System.out.println("requestid : "+requestid);
-		//creating session
-		jdbc.update("insert into session(quiztype, playingRequestid) values(?, ?)", request.getChallengeType(), requestid);
-		//creating Questions
-		jdbc.update("insert into sessionquestions(sessionQuestionId, questionId) \n" + 
-				"values((select sessionId from session where playingRequestid=?),(select questionsetid from questionset where questionsetid not in \n" + 
-				"(select questionId from sessionquestions where sessionquestionid=(select sessionId from session where playingRequestid=?)) ORDER BY random() limit 1))", requestid, requestid);
 	}
 	
 	public void denySession(Requests request) {
@@ -90,5 +80,20 @@ public class PlayingRepo implements IPlayingRepo {
 				"where requestid=(select requestid from playingrequests where " + 
 				"senderId=? and receiverId=? " + 
 				"order by requestid desc limit 1)", request.getSender(), request.getReceiver());
+	}
+	
+	public void acceptedChallenge(Requests request) {
+		//fetching requestid
+		int requestid = jdbc.queryForObject("select requestid from playingrequests where senderid=? and receiverid=? order by requestid desc limit 1", new Object[] { request.getSender(), request.getReceiver() },
+		(rs, rowNum) -> rs.getInt("requestid"));
+		System.out.println("requestid : "+requestid);
+		//creating session
+		jdbc.update("insert into session(quiztype, playingRequestid) values(?, ?)", request.getChallengeType(), requestid);
+		//creating Questions
+		jdbc.update("insert into sessionquestions(sessionQuestionId, questionId) \n" + 
+				"values((select sessionId from session where playingRequestid=?),(select questionsetid from questionset where questionsetid not in \n" + 
+				"(select questionId from sessionquestions where sessionquestionid=(select sessionId from session where playingRequestid=?)) ORDER BY random() limit 1))", requestid, requestid);
+		jdbc.update("update playingrequests set sessionid=(select sessionId from session where playingRequestid=?) " + 
+				"where requestid=?", requestid, requestid);
 	}
 }

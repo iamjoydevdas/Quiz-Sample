@@ -601,6 +601,8 @@ public class QuizView extends VerticalLayout implements View, BroadcastListener 
 		UI.getCurrent().addWindow(confirmRequestWindow);
 		
 		playButton.addClickListener(event-> {
+			Requests request = (Requests) o;
+			playingRepo.acceptedChallenge(request);
 			Broadcaster.broadcast("PlayQuiz");
 			confirmRequestWindow.close();
 		});
