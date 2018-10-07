@@ -69,7 +69,7 @@ public class PlayingRepo implements IPlayingRepo {
 		return questions;
 	}
 	
-	public void createPlayingSession(Requests request) {
+	public void sendPlayingRequest(Requests request) {
 		//creating playingRequest
 		jdbc.update("insert into playingrequests(senderid, receiverid, requestedat) " + 
 				"values(?, ?, ?)", request.getSender(), request.getReceiver(), request.getRequestTime());
@@ -83,5 +83,12 @@ public class PlayingRepo implements IPlayingRepo {
 		jdbc.update("insert into sessionquestions(sessionQuestionId, questionId) \n" + 
 				"values((select sessionId from session where playingRequestid=?),(select questionsetid from questionset where questionsetid not in \n" + 
 				"(select questionId from sessionquestions where sessionquestionid=(select sessionId from session where playingRequestid=?)) ORDER BY random() limit 1))", requestid, requestid);
+	}
+	
+	public void denySession(Requests request) {
+		jdbc.update("update playingrequests set sessionid=0 " + 
+				"where requestid=(select requestid from playingrequests where " + 
+				"senderId=? and receiverId=? " + 
+				"order by requestid desc limit 1)", request.getSender(), request.getReceiver());
 	}
 }

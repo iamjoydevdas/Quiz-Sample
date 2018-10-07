@@ -543,14 +543,16 @@ public class QuizView extends VerticalLayout implements View, BroadcastListener 
 			}
 		
 			cacheService.setPushCache(loggedInUser, receiver);
+			// todo
 			Requests request = new Requests();
 			request.setSender(loggedInUser.getSenderId());
 			request.setReceiver(receiver.getReceiverId());
 			request.setRequestTime(new Date());
 			request.setChallengeType(1);
-			playingRepo.createPlayingSession(request);
+			playingRepo.sendPlayingRequest(request);
 			// TODO set sender entry
-			Broadcaster.broadcast("challenge "+loggedInUser.getSenderName());
+		//	Broadcaster.broadcast("challenge "+loggedInUser.getSenderName());
+			Broadcaster.broadcast("challenge", request);
 			quistenWindow.close();
 		});
 		
@@ -559,7 +561,7 @@ public class QuizView extends VerticalLayout implements View, BroadcastListener 
 		});
 	}
 
-	private void createConfirmWindow(String senderName) {
+	private void createConfirmWindow(String senderName, Object o) {
 		VerticalLayout vLayout = new VerticalLayout();
 		vLayout.setMargin(true);
 		vLayout.setSpacing(true);
@@ -604,6 +606,9 @@ public class QuizView extends VerticalLayout implements View, BroadcastListener 
 		});
 		
 		denyButton.addClickListener(event-> {
+			// todo deny
+			Requests request = (Requests) o;
+			playingRepo.denySession(request);
 			confirmRequestWindow.close();
 		});
 	}
@@ -631,7 +636,7 @@ public class QuizView extends VerticalLayout implements View, BroadcastListener 
 					Sender sender = cacheService.getPushCache(loggedInUser.getSenderId());
 					if (sender != null) {
 						System.out.println(sender.toString());
-						createConfirmWindow(sender.getSenderName());
+				//		createConfirmWindow(sender.getSenderName());
 					}
 					ui.push();
 				}
@@ -641,6 +646,19 @@ public class QuizView extends VerticalLayout implements View, BroadcastListener 
 		
 	}
 
-	
 
+	@Override
+	public void receiveBroadcast(UI ui, String message, Object o) {
+		ui.access(new Runnable() {
+			@Override
+			public void run() {
+				Sender sender = cacheService.getPushCache(loggedInUser.getSenderId());
+				if (sender != null) {
+					System.out.println(sender.toString());
+					createConfirmWindow(sender.getSenderName(), o);
+				}
+				ui.push();
+			}
+		});
+	}
 }

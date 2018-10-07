@@ -35,9 +35,23 @@ public class Broadcaster implements Serializable {
             });
         }
     }
+    
+    public static synchronized void broadcast(final String message, Object o) {
+        for (final Map.Entry<UI, BroadcastListener> entry : listeners
+                .entrySet()) {
+            executorService.execute(new Runnable() {
+
+                @Override
+                public void run() {
+                    entry.getValue().receiveBroadcast(entry.getKey(), message, o);
+                }
+            });
+        }
+    }
 
     public interface BroadcastListener {
         void receiveBroadcast(UI ui, String message);
+        void receiveBroadcast(UI ui, String message, Object o);
     }
 }
 /*public class Broadcaster {
