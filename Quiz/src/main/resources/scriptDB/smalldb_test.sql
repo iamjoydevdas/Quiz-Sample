@@ -72,6 +72,7 @@ CREATE TABLE IF NOT EXISTS SessionQuestions (
 	questionId INTEGER,
 	senderAnswer Text,
 	receiverAnswer TEXT,
+	helperid serial,
 	FOREIGN KEY(sessionQuestionId) REFERENCES Session (sessionId) 
 );
 
