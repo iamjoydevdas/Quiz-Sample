@@ -240,7 +240,7 @@ public class QuizView extends VerticalLayout implements View, BroadcastListener 
     	HorizontalLayout answerLayoutTwo = new HorizontalLayout();
     	
    //	questionList = quizzerService.getQuestions(1);
-    	
+    	questionIndex=1;
     	
     //	System.out.println("Question count...----------------------> "+questionList.size());
     	Questions question =  playingRepo.getQuestion((Requests)o); //questionList.get(questionIndex);
@@ -335,7 +335,7 @@ public class QuizView extends VerticalLayout implements View, BroadcastListener 
     	
     	nextQuestionButton.addClickListener(event->{
          	bar.setValue(0.0f);
-     		commonQuestion();
+     		commonQuestion((Requests)o);
      		answerOneButton.setEnabled(true);
             answerTwoButton.setEnabled(true);
             answerThreeButton.setEnabled(true);
@@ -362,7 +362,7 @@ public class QuizView extends VerticalLayout implements View, BroadcastListener 
     	questionPanel.setCaption("Quiz");
     	questionPanel.setWidth("920px");
     	questionPanel.setHeight("405px");
-    	updateProgressBar();
+    	updateProgressBar((Requests)o);
     	
     }
     
@@ -374,7 +374,7 @@ public class QuizView extends VerticalLayout implements View, BroadcastListener 
     	}
     }
     
-    private void updateProgressBar() {
+    private void updateProgressBar(Requests req) {
     	
     	UI ui = UI.getCurrent();
     	timer = new Timer();
@@ -393,7 +393,7 @@ public class QuizView extends VerticalLayout implements View, BroadcastListener 
 			                //Notification.show("Finished");
 			                timer.cancel();
 			                timer.purge();	
-			                commonQuestion();
+			                commonQuestion(req);
 			            } else {
 			                newValue =  bar.getValue() + 0.10f;// (float) progress / maxProgress;
 			            }
@@ -408,8 +408,9 @@ public class QuizView extends VerticalLayout implements View, BroadcastListener 
     	
     }
     
-    private void commonQuestion() {
+    private void commonQuestion(Requests req) {
     	if(!isClickedAnswer) {
+    		registerAnswer(req, "Taal pakao");
     		try {
 				Notification.show("Your answer taking as wrong", Type.TRAY_NOTIFICATION);
 				Thread.sleep(2000);
@@ -419,19 +420,19 @@ public class QuizView extends VerticalLayout implements View, BroadcastListener 
     	}
     	
     	questionIndex++;
-    	if(questionList.size() > questionIndex ) {
-    		
+    	if(questionIndex < 4) {
+    		Questions question =  playingRepo.getQuestion(req); 
     		answerOneButton.setStyleName(ValoTheme.BUTTON_FRIENDLY);
     		answerTwoButton.setStyleName(ValoTheme.BUTTON_FRIENDLY);
     		answerThreeButton.setStyleName(ValoTheme.BUTTON_FRIENDLY);
     		answerFourButton.setStyleName(ValoTheme.BUTTON_FRIENDLY);
-    		questionButton.setCaption(questionList.get(questionIndex).getQuestion());
-    		answerOneButton.setCaption(questionList.get(questionIndex).getAnswer1());
-    		answerTwoButton.setCaption(questionList.get(questionIndex).getAnswer2());
-    		answerThreeButton.setCaption(questionList.get(questionIndex).getAnswer3());
-    		answerFourButton.setCaption(questionList.get(questionIndex).getAnswer4());
+    		questionButton.setCaption(question.getQuestion());
+    		answerOneButton.setCaption(question.getAnswer1());
+    		answerTwoButton.setCaption(question.getAnswer2());
+    		answerThreeButton.setCaption(question.getAnswer3());
+    		answerFourButton.setCaption(question.getAnswer4());
     		nextQuestionButton.setEnabled(false);
-    		updateProgressBar();
+    		updateProgressBar(req);
     	} else {
     		timer.cancel();
             timer.purge();

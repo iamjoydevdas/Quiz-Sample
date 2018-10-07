@@ -107,7 +107,7 @@ public class PlayingRepo implements IPlayingRepo {
 		
 		return jdbc.queryForObject("select qs.question, qs.opt1, qs.opt2, qs.opt3, qs.opt4, qs.answer from session s, sessionquestions sq, playingrequests pr, questionset qs " + 
 				"where pr.sessionid = s.sessionid and s.sessionid = sq.sessionquestionid and qs.questionSetId=sq.questionid " + 
-				"and pr.requestid="+requestid,  (rs, rownum) -> {
+				"and pr.requestid="+requestid+" order by sq.helperid desc limit 1",  (rs, rownum) -> {
 					Questions q = new Questions();
 					q.setQuestion(rs.getString("question"));
 					q.setAnswer1(rs.getString("opt1"));
@@ -129,15 +129,21 @@ public class PlayingRepo implements IPlayingRepo {
 				"(select helperid from sessionquestions where sessionquestionid=(select sessionId from session where playingRequestid=?) " + 
 				"order by helperid desc limit 1)", answer, requestid);		
 		
-		String senderanswer = jdbc.queryForObject("select senderanswer from sessionquestions where sessionquestionid=(select sessionId from session where playingRequestid=?) " + 
+		String receiverAnswer = jdbc.queryForObject("select receiverAnswer from sessionquestions where sessionquestionid=(select sessionId from session where playingRequestid=?) " + 
 				"order by helperid desc limit 1", new Object[] { requestid },
-				(rs, rowNum) -> rs.getString("senderanswer"));
+				(rs, rowNum) -> rs.getString("receiverAnswer"));
 		
-		if(senderanswer != null) {
-			//generate new question
-			jdbc.update("insert into sessionquestions(sessionQuestionId, questionId) \n" + 
-					"values((select sessionId from session where playingRequestid=?),(select questionsetid from questionset where questionsetid not in \n" + 
-					"(select questionId from sessionquestions where sessionquestionid=(select sessionId from session where playingRequestid=?)) ORDER BY random() limit 1))", requestid, requestid);
+		if(receiverAnswer != null) {
+			int count = jdbc.queryForObject("select count(*) as cnt from sessionquestions where " + 
+					"sessionquestionid=(select sessionId from session where playingRequestid=?)", new Object[] { requestid },
+					(rs, rowNum) -> rs.getInt("cnt"));
+			
+			if(count != 3) {
+				//generate new question
+				jdbc.update("insert into sessionquestions(sessionQuestionId, questionId) \n" + 
+						"values((select sessionId from session where playingRequestid=?),(select questionsetid from questionset where questionsetid not in \n" + 
+						"(select questionId from sessionquestions where sessionquestionid=(select sessionId from session where playingRequestid=?)) ORDER BY random() limit 1))", requestid, requestid);
+			}
 		}
 				
 	}
@@ -152,15 +158,21 @@ public class PlayingRepo implements IPlayingRepo {
 				"(select helperid from sessionquestions where sessionquestionid=(select sessionId from session where playingRequestid=?) " + 
 				"order by helperid desc limit 1)", answer, requestid);		
 		
-		String receiverAnswer = jdbc.queryForObject("select receiverAnswer from sessionquestions where sessionquestionid=(select sessionId from session where playingRequestid=?) " + 
+		String senderanswer = jdbc.queryForObject("select senderanswer from sessionquestions where sessionquestionid=(select sessionId from session where playingRequestid=?) " + 
 				"order by helperid desc limit 1", new Object[] { requestid },
-				(rs, rowNum) -> rs.getString("receiverAnswer"));
+				(rs, rowNum) -> rs.getString("senderanswer"));
 		
-		if(receiverAnswer != null) {
-			//generate new question
-			jdbc.update("insert into sessionquestions(sessionQuestionId, questionId) \n" + 
-					"values((select sessionId from session where playingRequestid=?),(select questionsetid from questionset where questionsetid not in \n" + 
-					"(select questionId from sessionquestions where sessionquestionid=(select sessionId from session where playingRequestid=?)) ORDER BY random() limit 1))", requestid, requestid);
+		if(senderanswer != null) {
+			int count = jdbc.queryForObject("select count(*) as cnt from sessionquestions where " + 
+					"sessionquestionid=(select sessionId from session where playingRequestid=?)", new Object[] { requestid },
+					(rs, rowNum) -> rs.getInt("cnt"));
+			
+			if(count != 3) {
+				//generate new question
+				jdbc.update("insert into sessionquestions(sessionQuestionId, questionId) \n" + 
+						"values((select sessionId from session where playingRequestid=?),(select questionsetid from questionset where questionsetid not in \n" + 
+						"(select questionId from sessionquestions where sessionquestionid=(select sessionId from session where playingRequestid=?)) ORDER BY random() limit 1))", requestid, requestid);
+			}
 		}		
 	}
 }
