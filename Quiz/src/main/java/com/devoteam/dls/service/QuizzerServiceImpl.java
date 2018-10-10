@@ -78,4 +78,5 @@ public class QuizzerServiceImpl implements QuizzerService {
 		// TODO Auto-generated method stub
 		return playingRepo.getQuestions(quizId);
 	}
+	
 }

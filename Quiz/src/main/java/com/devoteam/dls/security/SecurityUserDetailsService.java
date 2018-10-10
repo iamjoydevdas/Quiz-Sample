@@ -85,4 +85,10 @@ public class SecurityUserDetailsService implements UserDetailsService, Broadcast
 		// TODO Auto-generated method stub
 		
 	}
+
+	@Override
+	public void receiveBroadcast(UI ui, String message, Object o) {
+		// TODO Auto-generated method stub
+		
+	}
 }

@@ -2,6 +2,7 @@ package com.devoteam.dls.view;
 
 import java.sql.Timestamp;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -10,12 +11,16 @@ import javax.annotation.PostConstruct;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
+import com.devoteam.dls.dao.PlayingRepo;
 import com.devoteam.dls.dao.Receiver;
 import com.devoteam.dls.dao.Sender;
+import com.devoteam.dls.domain.AnswerCheck;
 import com.devoteam.dls.domain.OnlineQuizzers;
 import com.devoteam.dls.domain.Questions;
 import com.devoteam.dls.domain.QuizSet;
 import com.devoteam.dls.domain.Quizzer;
+import com.devoteam.dls.domain.Requests;
+import com.devoteam.dls.domain.Summary;
 import com.devoteam.dls.push.Broadcaster;
 import com.devoteam.dls.push.Broadcaster.BroadcastListener;
 import com.devoteam.dls.security.SecurityContextUtils;
@@ -40,6 +45,7 @@ import com.vaadin.ui.ProgressBar;
 import com.vaadin.ui.UI;
 import com.vaadin.ui.VerticalLayout;
 import com.vaadin.ui.Window;
+import com.vaadin.ui.renderers.HtmlRenderer;
 import com.vaadin.ui.themes.ValoTheme;
 
 /**
@@ -47,7 +53,7 @@ import com.vaadin.ui.themes.ValoTheme;
  */
 @Push(PushMode.MANUAL)
 @SpringView(name = QuizView.VIEW_NAME)
-public class QuizView extends VerticalLayout implements View, BroadcastListener  {
+public class QuizView extends VerticalLayout implements View, BroadcastListener, AnswerCheck  {
 
     /**
 	 * 
@@ -84,6 +90,8 @@ public class QuizView extends VerticalLayout implements View, BroadcastListener 
     @Autowired
     private QuizzerService quizzerService;
 
+    @Autowired
+    private PlayingRepo playingRepo;
     
 	static int i = 1;
     
@@ -223,7 +231,7 @@ public class QuizView extends VerticalLayout implements View, BroadcastListener 
     	}
     }
     
-    private void questionAnswerDashboard(){
+    private void questionAnswerDashboard(Object o){
     	questionLayout = new VerticalLayout();
     	questionLayout.setStyleName("wrapping");
     	questionLayout.setSpacing(true);
@@ -233,9 +241,12 @@ public class QuizView extends VerticalLayout implements View, BroadcastListener 
     	
     	HorizontalLayout answerLayoutOne = new HorizontalLayout();
     	HorizontalLayout answerLayoutTwo = new HorizontalLayout();
-    	questionList = quizzerService.getQuestions(1);
-    	System.out.println("Question count...----------------------> "+questionList.size());
-    	Questions question = questionList.get(questionIndex);
+    	
+   //	questionList = quizzerService.getQuestions(1);
+    	questionIndex=1;
+    	
+    //	System.out.println("Question count...----------------------> "+questionList.size());
+    	Questions question =  playingRepo.getQuestion((Requests)o); //questionList.get(questionIndex);
     		questionButton = new Button();
         	questionButton.setWidth("890px");
         	questionButton.setHeight("140px");
@@ -266,7 +277,9 @@ public class QuizView extends VerticalLayout implements View, BroadcastListener 
         	nextQuestionButton.setCaption("Next");
         	nextQuestionButton.setStyleName(ValoTheme.BUTTON_PRIMARY);
         	nextQuestionButton.setEnabled(false);
+        	
     	answerOneButton.addClickListener(event->{
+    		registerAnswer((Requests)o, answerOneButton.getCaption());
     		isClickedAnswer = true;
     		timer.cancel();
             timer.purge();
@@ -280,6 +293,7 @@ public class QuizView extends VerticalLayout implements View, BroadcastListener 
     	});
     	
     	answerTwoButton.addClickListener(event->{
+    		registerAnswer((Requests)o, answerTwoButton.getCaption());
     		isClickedAnswer = true;
     		timer.cancel();
             timer.purge();
@@ -294,6 +308,7 @@ public class QuizView extends VerticalLayout implements View, BroadcastListener 
     	});
     	
     	answerThreeButton.addClickListener(event->{
+    		registerAnswer((Requests)o, answerThreeButton.getCaption());
     		isClickedAnswer = true;
     		timer.cancel();
             timer.purge();
@@ -308,6 +323,7 @@ public class QuizView extends VerticalLayout implements View, BroadcastListener 
     	});
     	
     	answerFourButton.addClickListener(event->{
+    		registerAnswer((Requests)o, answerFourButton.getCaption());
     		isClickedAnswer = true;
     		timer.cancel();
             timer.purge();
@@ -322,7 +338,7 @@ public class QuizView extends VerticalLayout implements View, BroadcastListener 
     	
     	nextQuestionButton.addClickListener(event->{
          	bar.setValue(0.0f);
-     		commonQuestion();
+     		commonQuestion((Requests)o);
      		answerOneButton.setEnabled(true);
             answerTwoButton.setEnabled(true);
             answerThreeButton.setEnabled(true);
@@ -349,11 +365,19 @@ public class QuizView extends VerticalLayout implements View, BroadcastListener 
     	questionPanel.setCaption("Quiz");
     	questionPanel.setWidth("920px");
     	questionPanel.setHeight("405px");
-    	updateProgressBar();
+    	updateProgressBar((Requests)o);
     	
     }
     
-    private void updateProgressBar() {
+    void registerAnswer(Requests req, String answer) {
+    	if(req.getSender().equals(loggedInUser.getSenderId())) {
+    		playingRepo.registerSenderAnswer(req, answer);
+    	}else {
+    		playingRepo.registerReceiverAnswer(req, answer);
+    	}
+    }
+    
+    private void updateProgressBar(Requests req) {
     	
     	UI ui = UI.getCurrent();
     	timer = new Timer();
@@ -372,7 +396,7 @@ public class QuizView extends VerticalLayout implements View, BroadcastListener 
 			                //Notification.show("Finished");
 			                timer.cancel();
 			                timer.purge();	
-			                commonQuestion();
+			                commonQuestion(req);
 			            } else {
 			                newValue =  bar.getValue() + 0.10f;// (float) progress / maxProgress;
 			            }
@@ -387,8 +411,9 @@ public class QuizView extends VerticalLayout implements View, BroadcastListener 
     	
     }
     
-    private void commonQuestion() {
+    private void commonQuestion(Requests req) {
     	if(!isClickedAnswer) {
+    		registerAnswer(req, "Taal pakao");
     		try {
 				Notification.show("Your answer taking as wrong", Type.TRAY_NOTIFICATION);
 				Thread.sleep(2000);
@@ -398,28 +423,28 @@ public class QuizView extends VerticalLayout implements View, BroadcastListener 
     	}
     	
     	questionIndex++;
-    	if(questionList.size() > questionIndex ) {
-    		
+    	if(questionIndex < 4) {
+    		Questions question =  playingRepo.getQuestion(req); 
     		answerOneButton.setStyleName(ValoTheme.BUTTON_FRIENDLY);
     		answerTwoButton.setStyleName(ValoTheme.BUTTON_FRIENDLY);
     		answerThreeButton.setStyleName(ValoTheme.BUTTON_FRIENDLY);
     		answerFourButton.setStyleName(ValoTheme.BUTTON_FRIENDLY);
-    		questionButton.setCaption(questionList.get(questionIndex).getQuestion());
-    		answerOneButton.setCaption(questionList.get(questionIndex).getAnswer1());
-    		answerTwoButton.setCaption(questionList.get(questionIndex).getAnswer2());
-    		answerThreeButton.setCaption(questionList.get(questionIndex).getAnswer3());
-    		answerFourButton.setCaption(questionList.get(questionIndex).getAnswer4());
+    		questionButton.setCaption(question.getQuestion());
+    		answerOneButton.setCaption(question.getAnswer1());
+    		answerTwoButton.setCaption(question.getAnswer2());
+    		answerThreeButton.setCaption(question.getAnswer3());
+    		answerFourButton.setCaption(question.getAnswer4());
     		nextQuestionButton.setEnabled(false);
-    		updateProgressBar();
+    		updateProgressBar(req);
     	} else {
     		timer.cancel();
             timer.purge();
-    		populateResultDashBoard();
+    		populateResultDashBoard(req);
     	}
     }
     
-	private void populateResultDashBoard() {
-
+	private void populateResultDashBoard(Requests request) {
+		List<Summary> summary = playingRepo.getSummary(request);
 		resultDashBoardLayout = new VerticalLayout();
 		resultDashBoardLayout.setStyleName("wrapping");
 		resultDashBoardLayout.setSpacing(false);
@@ -427,34 +452,18 @@ public class QuizView extends VerticalLayout implements View, BroadcastListener 
 		resultDashBoardLayout.setWidth("-1px");
 		resultDashBoardLayout.setHeight("-1px");
 
-		List<Questions> resultList = new ArrayList<Questions>();
-		Questions question1 = new Questions();
-		question1.setQuestion("Which one is nonprimitive datatype?");
-		question1.setAnswer("String");
+		Grid<Summary> grid = new Grid<>();
+		grid.setItems(summary);
+		grid.addColumn(Summary::getQuestion).setCaption("Question");
+		grid.addColumn(Summary::getAnswer).setCaption("Answer");
+		grid.addColumn(Summary::isSenderAnswer).setCaption(request.getSender());
+		grid.addColumn(Summary::isReceiverAnswer).setCaption(request.getReceiver());
 		
-		Questions question2 = new Questions();
-		question2.setQuestion("Which one is nonprimitive datatype?");
-		question2.setAnswer("String");
-		resultList.add(question1);
-		resultList.add(question2);
-
-		for (int i = 0; i < 3; i++) {
-			/*Questions question = new Questions();
-			question.setQuestion("Question " + i);
-			question.setAnswer("Answer" + i);
-			resultList.add(question);*/
-		}
-		// Create a grid bound to the list
-		Grid<Questions> grid = new Grid<>();
-		grid.setItems(resultList);
-		grid.addColumn(Questions::getQuestion).setCaption("Question");
-		grid.addColumn(Questions::getAnswer).setCaption("Answer");
-
 		resultDashBoardLayout.addComponent(grid);
 		resultPanel = new Panel(resultDashBoardLayout);
 		resultPanel.setStyleName("light");
 		resultPanel.setCaption("Result");
-		resultPanel.setWidth("920px");
+		resultPanel.setWidth("1020px");
 		resultPanel.setHeight("405px");
 		questionIndex = 0;
 
@@ -538,7 +547,16 @@ public class QuizView extends VerticalLayout implements View, BroadcastListener 
 			}
 		
 			cacheService.setPushCache(loggedInUser, receiver);
-			Broadcaster.broadcast("challenge "+loggedInUser.getSenderName());
+			// todo
+			Requests request = new Requests();
+			request.setSender(loggedInUser.getSenderId());
+			request.setReceiver(receiver.getReceiverId());
+			request.setRequestTime(new Date());
+			request.setChallengeType(1);
+			playingRepo.sendPlayingRequest(request);
+			// TODO set sender entry
+		//	Broadcaster.broadcast("challenge "+loggedInUser.getSenderName());
+			Broadcaster.broadcast("challenge", request);
 			quistenWindow.close();
 		});
 		
@@ -547,7 +565,7 @@ public class QuizView extends VerticalLayout implements View, BroadcastListener 
 		});
 	}
 
-	private void createConfirmWindow(String senderName) {
+	private void createConfirmWindow(String senderName, Object o) {
 		VerticalLayout vLayout = new VerticalLayout();
 		vLayout.setMargin(true);
 		vLayout.setSpacing(true);
@@ -587,11 +605,16 @@ public class QuizView extends VerticalLayout implements View, BroadcastListener 
 		UI.getCurrent().addWindow(confirmRequestWindow);
 		
 		playButton.addClickListener(event-> {
-			Broadcaster.broadcast("PlayQuiz");
+			Requests request = (Requests) o;
+			playingRepo.acceptedChallenge(request);
+			Broadcaster.broadcast("PlayQuiz", request);
 			confirmRequestWindow.close();
 		});
 		
 		denyButton.addClickListener(event-> {
+			// todo deny
+			Requests request = (Requests) o;
+			playingRepo.denySession(request);
 			confirmRequestWindow.close();
 		});
 	}
@@ -609,17 +632,17 @@ public class QuizView extends VerticalLayout implements View, BroadcastListener 
 					// Notification.show(message, Type.WARNING_MESSAGE);
 					updateUserListDetails();
 				} else if ("PlayQuiz".equals(message)) {
-					questionAnswerDashboard();
+					/*questionAnswerDashboard(new Object());
 					mainLayout.removeComponent(dashBoardPanel);
 					if(null != resultPanel) {
 						mainLayout.removeComponent(resultPanel);
 					}
-					mainLayout.addComponent(questionPanel);
+					mainLayout.addComponent(questionPanel);*/
 				} else {
 					Sender sender = cacheService.getPushCache(loggedInUser.getSenderId());
 					if (sender != null) {
 						System.out.println(sender.toString());
-						createConfirmWindow(sender.getSenderName());
+				//		createConfirmWindow(sender.getSenderName());
 					}
 					ui.push();
 				}
@@ -629,6 +652,37 @@ public class QuizView extends VerticalLayout implements View, BroadcastListener 
 		
 	}
 
-	
 
+	@Override
+	public void receiveBroadcast(UI ui, String message, Object o) {
+		ui.access(new Runnable() {
+			@Override
+			public void run() {
+				switch(message) {
+				case "challenge":
+					Sender sender = cacheService.getPushCache(loggedInUser.getSenderId());
+					if (sender != null) {
+						System.out.println(sender.toString());
+						createConfirmWindow(sender.getSenderName(), o);
+					}
+					break;
+				case "PlayQuiz":
+					questionAnswerDashboard(o);
+					mainLayout.removeComponent(dashBoardPanel);
+					if(null != resultPanel) {
+						mainLayout.removeComponent(resultPanel);
+					}
+					mainLayout.addComponent(questionPanel);
+				}
+				ui.push();
+			}
+		});
+	}
+
+
+	@Override
+	public String checkAnswerValue(boolean v) {
+		
+		return v? "Right" : "Wrong";
+	}
 }

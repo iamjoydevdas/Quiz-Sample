@@ -6,7 +6,16 @@ public class Requests {
 	private String sender;
 	private String receiver;
 	private Date requestTime;
+	private Boolean accepted;
 	private Session session;
+	private int challengeType;
+	
+	public int getChallengeType() {
+		return challengeType;
+	}
+	public void setChallengeType(int challengeType) {
+		this.challengeType = challengeType;
+	}
 	public String getSender() {
 		return sender;
 	}
@@ -31,5 +40,10 @@ public class Requests {
 	public void setSession(Session session) {
 		this.session = session;
 	}
-	
+	public Boolean getAccepted() {
+		return accepted;
+	}
+	public void setAccepted(Boolean accepted) {
+		this.accepted = accepted;
+	}
 }
