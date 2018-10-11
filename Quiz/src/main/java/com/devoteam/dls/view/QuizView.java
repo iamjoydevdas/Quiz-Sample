@@ -1,7 +1,6 @@
 package com.devoteam.dls.view;
 
 import java.sql.Timestamp;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Timer;
@@ -16,6 +15,7 @@ import com.devoteam.dls.dao.Receiver;
 import com.devoteam.dls.dao.Sender;
 import com.devoteam.dls.domain.AnswerCheck;
 import com.devoteam.dls.domain.OnlineQuizzers;
+import com.devoteam.dls.domain.PlayingStats;
 import com.devoteam.dls.domain.Questions;
 import com.devoteam.dls.domain.QuizSet;
 import com.devoteam.dls.domain.Quizzer;
@@ -31,6 +31,7 @@ import com.vaadin.icons.VaadinIcons;
 import com.vaadin.navigator.View;
 import com.vaadin.navigator.ViewChangeListener;
 import com.vaadin.shared.communication.PushMode;
+import com.vaadin.shared.ui.grid.ColumnResizeMode;
 import com.vaadin.spring.annotation.SpringView;
 import com.vaadin.ui.Alignment;
 import com.vaadin.ui.Button;
@@ -45,7 +46,6 @@ import com.vaadin.ui.ProgressBar;
 import com.vaadin.ui.UI;
 import com.vaadin.ui.VerticalLayout;
 import com.vaadin.ui.Window;
-import com.vaadin.ui.renderers.HtmlRenderer;
 import com.vaadin.ui.themes.ValoTheme;
 
 /**
@@ -69,7 +69,7 @@ public class QuizView extends VerticalLayout implements View, BroadcastListener,
     private Panel dashBoardPanel;
     private Panel questionPanel;
     private Panel resultPanel;
-    private VerticalLayout panelLayout;
+    private VerticalLayout panelLayout = new VerticalLayout();
     private VerticalLayout dashBoardPanelLayout;
     private VerticalLayout resultDashBoardLayout;
     private VerticalLayout questionLayout;
@@ -97,30 +97,38 @@ public class QuizView extends VerticalLayout implements View, BroadcastListener,
     
     @PostConstruct
     public void init() {
-    	bar.setVisible(false);
-    	bar.setWidth("350px");
-    	bar.setHeight("15px");
-    	Broadcaster.register(UI.getCurrent(), this);
-    	loggedInUser.setSenderId(SecurityContextUtils.getUser().getUsername());
-    	loggedInUser.setSenderName(SecurityContextUtils.getUser().getUsername());
-    	loggedInUser.setTimestamp(new Timestamp(System.currentTimeMillis()));
-    	mainLayout = new HorizontalLayout();
-    	mainLayout.setStyleName("wrapping");
-    	mainLayout.setSpacing(false);
-    	mainLayout.setMargin(false);
-    	mainLayout.setWidth("-1px");
-    	mainLayout.setHeight("-1px");
-    	initializeQizzerMainDashboard();
-    	addComponent(mainLayout);
+    	//check the user he or she has to have permission to play the quiz
+		if (true) {
+			bar.setVisible(false);
+	    	bar.setWidth("350px");
+	    	bar.setHeight("15px");
+	    	Broadcaster.register(UI.getCurrent(), this);
+	    	loggedInUser.setSenderId(SecurityContextUtils.getUser().getUsername());
+	    	loggedInUser.setSenderName(SecurityContextUtils.getUser().getUsername());
+	    	loggedInUser.setTimestamp(new Timestamp(System.currentTimeMillis()));
+	    	mainLayout = new HorizontalLayout();
+	    	mainLayout.setStyleName("wrapping");
+	    	mainLayout.setSpacing(false);
+	    	mainLayout.setMargin(false);
+	    	mainLayout.setWidth("-1px");
+	    	mainLayout.setHeight("-1px");
+	    	initializeQizzerMainDashboard();
+	    	addComponent(mainLayout);
+		} else {
+			Label label = new Label("this is AccessDeniedView.");
+			label.addStyleName(ValoTheme.LABEL_FAILURE);
+			addComponent(label);
+		}
+    	
     }
     
     
     private void initializeQizzerMainDashboard() {
-    	panelLayout = new VerticalLayout();
+    	
     	panelLayout.setStyleName("wrapping");
     	panelLayout.setSpacing(false);
     	panelLayout.setMargin(false);
-    	panelLayout.setWidth("-1px");
+    	panelLayout.setWidth("251px");
     	panelLayout.setHeight("-1px");
     	
     	dashBoardPanelLayout = new VerticalLayout();
@@ -143,9 +151,10 @@ public class QuizView extends VerticalLayout implements View, BroadcastListener,
     	userDetailsVerticalLayout.setWidth("-1px");
     	userDetailsVerticalLayout.setHeight("-1px");
     	
-    	Label totalPlayed = new Label("Total Played : 10");
-    	Label totalWin = new Label("Total Win : 8");
-    	Label totalLose = new Label("Total Lose : 2");
+    	PlayingStats ps = playingRepo.getPlayingStats(SecurityContextUtils.getUser().getUsername());
+    	Label totalPlayed = new Label("Total Played : "+ps.getTotalPlayed());
+    	Label totalWin = new Label("Total Win : "+ps.getTotalWin());
+    	Label totalLose = new Label("Total Lose : "+ps.getTotalLoss());
     	
     	userDetailsVerticalLayout.addComponent(totalPlayed);
     	userDetailsVerticalLayout.addComponent(totalWin);
@@ -176,7 +185,6 @@ public class QuizView extends VerticalLayout implements View, BroadcastListener,
     	
     	mainLayout.addComponent(panel);
     	mainLayout.addComponent(dashBoardPanel);
-    	int j = 10;
     	
     }
     
@@ -189,7 +197,7 @@ public class QuizView extends VerticalLayout implements View, BroadcastListener,
     	for(Quizzer quizzer : quizzers){
     		Button userButton;
     		OnlineQuizzers onlineUsers = isQuizzerActive(quizzer.getQuizzer_ID());
-    		if(onlineUsers != null) {
+    		if(onlineUsers != null && null != onlineUsers.getOnlineStatus()) {
     			userButton = new Button();
     			userButton.setCaptionAsHtml(true);
     			switch(onlineUsers.getOnlineStatus()) {
@@ -447,23 +455,39 @@ public class QuizView extends VerticalLayout implements View, BroadcastListener,
 		List<Summary> summary = playingRepo.getSummary(request);
 		resultDashBoardLayout = new VerticalLayout();
 		resultDashBoardLayout.setStyleName("wrapping");
-		resultDashBoardLayout.setSpacing(false);
+		resultDashBoardLayout.setSpacing(true);
 		resultDashBoardLayout.setMargin(true);
 		resultDashBoardLayout.setWidth("-1px");
 		resultDashBoardLayout.setHeight("-1px");
 
 		Grid<Summary> grid = new Grid<>();
+		grid.setWidth("850px");
+		grid.setHeight("-1px");
+		grid.setHeightByRows(6);
+		grid.setColumnResizeMode(ColumnResizeMode.SIMPLE);
+		grid.setResponsive(true);
 		grid.setItems(summary);
 		grid.addColumn(Summary::getQuestion).setCaption("Question");
 		grid.addColumn(Summary::getAnswer).setCaption("Answer");
 		grid.addColumn(Summary::isSenderAnswer).setCaption(request.getSender());
 		grid.addColumn(Summary::isReceiverAnswer).setCaption(request.getReceiver());
 		
+		Button gotoDashBoard = new Button();
+		gotoDashBoard.setCaption("Goto DashBoard");
+		gotoDashBoard.addClickListener(event -> {
+			
+			mainLayout.removeComponent(resultPanel);
+			mainLayout.removeComponent(panelLayout);
+			mainLayout.removeComponent(panel);
+			initializeQizzerMainDashboard();
+		});
+		
 		resultDashBoardLayout.addComponent(grid);
+		resultDashBoardLayout.addComponent(gotoDashBoard);
 		resultPanel = new Panel(resultDashBoardLayout);
 		resultPanel.setStyleName("light");
 		resultPanel.setCaption("Result");
-		resultPanel.setWidth("1020px");
+		resultPanel.setWidth("900px");
 		resultPanel.setHeight("405px");
 		questionIndex = 0;
 
@@ -552,7 +576,8 @@ public class QuizView extends VerticalLayout implements View, BroadcastListener,
 			request.setSender(loggedInUser.getSenderId());
 			request.setReceiver(receiver.getReceiverId());
 			request.setRequestTime(new Date());
-			request.setChallengeType(1);
+			request.setChallengeType(((QuizSet)questionTypeComboBox.getValue()).getQuizId());
+			
 			playingRepo.sendPlayingRequest(request);
 			// TODO set sender entry
 		//	Broadcaster.broadcast("challenge "+loggedInUser.getSenderName());
@@ -561,6 +586,56 @@ public class QuizView extends VerticalLayout implements View, BroadcastListener,
 		});
 		
 		noButton.addClickListener(event-> {
+			quistenWindow.close();
+		});
+	}
+	
+	private void confirmSkipWindow() {
+		VerticalLayout windowLayout = new VerticalLayout();
+		windowLayout.setMargin(true);
+		windowLayout.setSpacing(true);
+		windowLayout.setWidth("-1px");
+		windowLayout.setHeight("-1px");
+		
+		Label questionLabel = new Label();
+		questionLabel.setValue("You have an active session. \nDo you want to continue with the old session or you want to play a new game?");
+		
+		windowLayout.addComponent(questionLabel);
+		
+		HorizontalLayout buttonLayout = new HorizontalLayout();
+		buttonLayout.setSpacing(true);
+		buttonLayout.setWidth("-1px");
+		buttonLayout.setHeight("-1px");
+		
+		Button continuePlay = new Button();
+		continuePlay.setCaption("Continue play");
+		continuePlay.setStyleName("primary");
+		
+		Button newGame = new Button();
+		newGame.setCaption("new Game");
+		newGame.setStyleName("primary");
+		
+		buttonLayout.addComponent(continuePlay);
+		buttonLayout.addComponent(newGame);
+		windowLayout.addComponent(buttonLayout);
+		windowLayout.setComponentAlignment(buttonLayout, Alignment.MIDDLE_CENTER);
+		
+		
+		
+		Window quistenWindow = new Window("Confirm");
+		quistenWindow.setModal(true);
+		quistenWindow.setClosable(true);
+		quistenWindow.setWidth("-1px");
+		quistenWindow.setHeight("-1px");
+		quistenWindow.center();
+		quistenWindow.setContent(windowLayout);
+		UI.getCurrent().addWindow(quistenWindow);
+		
+		continuePlay.addClickListener(event-> {
+			quistenWindow.close();
+		});
+		
+		newGame.addClickListener(event-> {
 			quistenWindow.close();
 		});
 	}
