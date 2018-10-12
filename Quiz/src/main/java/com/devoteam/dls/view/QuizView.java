@@ -27,6 +27,7 @@ import com.devoteam.dls.security.SecurityContextUtils;
 import com.devoteam.dls.service.CacheService;
 import com.devoteam.dls.service.QuizzerService;
 import com.vaadin.annotations.Push;
+import com.vaadin.data.converter.StringToBooleanConverter;
 import com.vaadin.icons.VaadinIcons;
 import com.vaadin.navigator.View;
 import com.vaadin.navigator.ViewChangeListener;
@@ -46,6 +47,8 @@ import com.vaadin.ui.ProgressBar;
 import com.vaadin.ui.UI;
 import com.vaadin.ui.VerticalLayout;
 import com.vaadin.ui.Window;
+import com.vaadin.ui.renderers.HtmlRenderer;
+import com.vaadin.ui.renderers.Renderer;
 import com.vaadin.ui.themes.ValoTheme;
 
 /**
@@ -469,8 +472,8 @@ public class QuizView extends VerticalLayout implements View, BroadcastListener,
 		grid.setItems(summary);
 		grid.addColumn(Summary::getQuestion).setCaption("Question");
 		grid.addColumn(Summary::getAnswer).setCaption("Answer");
-		grid.addColumn(Summary::isSenderAnswer).setCaption(request.getSender());
-		grid.addColumn(Summary::isReceiverAnswer).setCaption(request.getReceiver());
+		grid.addColumn(Summary::getSenderAnswer, new HtmlRenderer()).setCaption(request.getSender());
+		grid.addColumn(Summary::getReceiverAnswer, new HtmlRenderer()).setCaption(request.getReceiver());
 		
 		Button gotoDashBoard = new Button();
 		gotoDashBoard.setCaption("Goto DashBoard");

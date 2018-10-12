@@ -1,5 +1,9 @@
 package com.devoteam.dls.domain;
 
+import javax.swing.text.html.HTML;
+
+import com.vaadin.icons.VaadinIcons;
+
 public class Summary implements AnswerCheck {
 	private int sessionId;
 	private String question;
@@ -36,6 +40,23 @@ public class Summary implements AnswerCheck {
 	public void setReceiverAnswer(boolean receiverAnswer) {
 		this.receiverAnswer = receiverAnswer;
 	}
+	
+	public String getReceiverAnswer() {
+		if(receiverAnswer) {
+			return VaadinIcons.CHECK.getHtml();
+		} else  {
+			return VaadinIcons.CLOSE_CIRCLE.getHtml();
+		}
+	}
+	
+	public String getSenderAnswer() {
+		if(senderAnswer) {
+			return VaadinIcons.CHECK.getHtml();
+		} else  {
+			return VaadinIcons.CLOSE_CIRCLE.getHtml();
+		}
+	}
+	
 	@Override
 	public String toString() {
 		return "Summary [sessionId=" + sessionId + ", question=" + question + ", answer=" + answer + ", senderAnswer="
